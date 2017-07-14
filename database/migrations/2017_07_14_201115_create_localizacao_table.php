@@ -20,10 +20,6 @@ class CreateLocalizacaoTable extends Migration
           $table->string('longitude');
           $table->timestamps();
 
-
-          $table->foreign('centro_id')
-                ->references('id')->on('centro')
-                ->onDelete('cascade');
       });
     }
 

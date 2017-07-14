@@ -23,16 +23,6 @@ class CreateAlimentacaoTable extends Migration
           $table->integer('localizacao');
           $table->timestamps();
 
-
-          $table->foreign('tipo_de_comida')
-                ->references('id')->on('alimentacao_tipo_comida')
-                ->onDelete('cascade');
-          $table->foreign('tipo_de_pagamento')
-                ->references('id')->on('alimentacao_tipo_pagamento')
-                ->onDelete('cascade');
-          $table->foreign('localizacao')
-                ->references('id')->on('localizacao')
-                ->onDelete('cascade');
       });
     }
 

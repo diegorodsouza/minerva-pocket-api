@@ -19,13 +19,6 @@ class CreateAlimentacaoTipoComidaTable extends Migration
           $table->integer('tipo_comida_id');
           $table->timestamps();
 
-
-          $table->foreign('alimentacao_id')
-                ->references('id')->on('alimentacao')
-                ->onDelete('cascade');
-          $table->foreign('tipo_comida_id')
-                ->references('id')->on('tipo_de_comida')
-                ->onDelete('cascade');
       });
     }
 

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAlimentacaoTipoPagamentoTable extends Migration
+class AlterLocalizacaoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateAlimentacaoTipoPagamentoTable extends Migration
      */
     public function up()
     {
-      Schema::create('alimentacao_tipo_pagamento', function (Blueprint $table) {
-          $table->increments('id');
-          $table->integer('alimentacao_id');
-          $table->integer('tipo_pagamento_id');
-          $table->timestamps();
 
-      });
+            Schema::table('localizacao', function (Blueprint $table) {
+                $table->foreign('centro_id')
+                      ->references('id')->on('centro')
+                      ->onDelete('cascade')
+                      ->onUpdate('cascade');
+            });
     }
 
     /**
