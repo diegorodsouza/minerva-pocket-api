@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\App\TipoDePagamento;
 
 class TipoDePagamentoController extends Controller
 {
@@ -38,7 +37,7 @@ class TipoDePagamentoController extends Controller
     {
         $dados = $request->all();
 
-        TipoDePagamento::create($dados);
+        App\TipoDePagamento::create($dados);
 
         return back()->with(['sucess'=>'Forma de Pagamento adicionada com sucesso']);
     }
