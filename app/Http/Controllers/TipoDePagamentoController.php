@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\App\TipoDePagamento;
 
 class TipoDePagamentoController extends Controller
 {
