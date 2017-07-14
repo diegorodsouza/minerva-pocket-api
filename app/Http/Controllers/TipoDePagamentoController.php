@@ -13,7 +13,7 @@ class TipoDePagamentoController extends Controller
      */
     public function index()
     {
-      return view ("auth.alimentacao.tipodepagamento.index")
+      return view ("auth.alimentacao.tipodepagamento.index");
 
     }
 
@@ -24,7 +24,7 @@ class TipoDePagamentoController extends Controller
      */
     public function create()
     {
-        return view ("auth.alimentacao.tipodepagamento.create")
+        return view ("auth.alimentacao.tipodepagamento.create");
     }
 
     /**
@@ -39,7 +39,7 @@ class TipoDePagamentoController extends Controller
 
         TipoDePagamento::create($dados);
 
-        return back()->->with(['sucess'=>'Forma de Pagamento adicionada com sucesso'])
+        return back()->->with(['sucess'=>'Forma de Pagamento adicionada com sucesso']);
     }
 
     /**
