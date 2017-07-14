@@ -38,7 +38,7 @@ class TipoDePagamentoController extends Controller
     {
         $dados = $request->all();
 
-        App\TipoDePagamento::create($dados);
+        TipoDePagamento::create($dados);
 
         return back()->with(['sucess'=>'Forma de Pagamento adicionada com sucesso']);
     }
