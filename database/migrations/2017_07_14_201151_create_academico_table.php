@@ -13,7 +13,17 @@ class CreateAcademicoTable extends Migration
      */
     public function up()
     {
-        //
+      Schema::create('academico', function (Blueprint $table) {
+          $table->increments('id');
+          $table->string('nome');
+          $table->integer('tipo');
+          $table->integer('localizacao');
+          $table->string('observacao');
+          $table->string('funcionamento');
+          $table->string('telefone');
+          $table->timestamps();
+
+      });
     }
 
     /**
@@ -23,6 +33,6 @@ class CreateAcademicoTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('academico');
     }
 }

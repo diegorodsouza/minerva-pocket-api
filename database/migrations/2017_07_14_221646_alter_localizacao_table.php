@@ -13,13 +13,12 @@ class AlterLocalizacaoTable extends Migration
      */
     public function up()
     {
-
-            Schema::table('localizacao', function (Blueprint $table) {
-                $table->foreign('centro_id')
-                      ->references('id')->on('centro')
-                      ->onDelete('cascade')
-                      ->onUpdate('cascade');
-            });
+        Schema::table('localizacao', function (Blueprint $table) {
+          $table->foreign('centro_id')
+                ->references('id')->on('centro')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+        });
     }
 
     /**
