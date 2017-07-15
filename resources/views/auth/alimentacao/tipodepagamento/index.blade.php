@@ -10,7 +10,7 @@
       </div>
     @endif
     <p>
-      <a class="btn btn-success" href="{{url('/create_tipodepagamento')}}">Adicionar Forma de Pagamento</a>
+      <a class="btn btn-success" href="{{ route('CreateTipoDePagamento') }}">Adicionar Forma de Pagamento</a>
     </p>
   </div>
 
@@ -30,7 +30,7 @@
           <td>{{$pagamento->descricao}}</td>
           <td>
             <!-- <a href="{{ url('/', $pagamento->id) }}" class="btn btn-danger">Excluir</a> -->
-            <a href="{{ url('/edit_tipodepagamento', $pagamento->id) }}" class="btn btn-primary">Editar</a>
+            <a href="{{ route('EditTipoDePagamento', $pagamento->id) }}" class="btn btn-primary">Editar</a>
           </td>
         </tr>
         @endforeach

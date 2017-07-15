@@ -9,7 +9,7 @@
     </p>
   @endif
 
-  <form action="{{ url('/create_tipodepagamento') }}" method="post">
+  <form action="{{ route('StoreTipoDePagamento') }}" method="post">
 
     {{csrf_field()}}
 

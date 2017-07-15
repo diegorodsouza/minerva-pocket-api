@@ -9,7 +9,7 @@
     </p>
   @endif
 
-  <form action="{{ url('/edit_tipodepagamento', $tipodepagamento->id) }}" method="post">
+  <form action="{{ route('UpdateTipoDePagamento', $tipodepagamento->id) }}" method="post">
 
     {{method_field('PUT')}}
     {{csrf_field()}}
