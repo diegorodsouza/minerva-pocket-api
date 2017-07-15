@@ -47,7 +47,8 @@ class TipoDePagamentoController extends Controller
 
         TipoDePagamento::create($dados);
 
-        return view('auth.alimentacao.tipodepagamento.index')->with(['success'=>'Forma de Pagamento adicionada com sucesso']);
+        $tiposdepagamentos = TipoDePagamento::all();
+        return view('auth.alimentacao.tipodepagamento.index', compact('tiposdepagamentos'))->with(['success'=>'Forma de Pagamento adicionada com sucesso']);
     }
 
     /**
@@ -77,7 +78,8 @@ class TipoDePagamentoController extends Controller
       $id = TipoDePagamento::findOrFail($id);
       $id->update($dados);
 
-      return view('auth.alimentacao.tipodepagamento.index')->with(['success'=>'Forma de Pagamento editada com sucesso']);
+      $tiposdepagamentos = TipoDePagamento::all();
+      return view('auth.alimentacao.tipodepagamento.index', compact('tiposdepagamentos'))->with(['success'=>'Forma de Pagamento editada com sucesso']);
 
     }
 
