@@ -14,7 +14,8 @@ class TipoDePagamentoController extends Controller
      */
     public function index()
     {
-      return view ("auth.alimentacao.tipodepagamento.index");
+      $tiposdepagamentos = TipoDePagamento::all();
+      return view ("auth.alimentacao.tipodepagamento.index", compact('tiposdepagamentos'));
 
     }
 

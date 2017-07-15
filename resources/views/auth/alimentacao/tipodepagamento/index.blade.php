@@ -36,14 +36,16 @@
             </tr>
           </thead>
           <tbody>
+            @foreach ($tiposdepagamentos as $pagamento)
             <tr>
-              <td>1</td>
-              <td>À vista</td>
+              <td>{{$pagamento->id}}</td>
+              <td>{{$pagamento->descricao}}</td>
               <td>
                 <input type="button" name="" value="Deletar" class="btn btn-danger">
                 <input type="button" name="" value="Editar" class="btn btn-primary">
               </td>
             </tr>
+            @endforeach
           </tbody>
         </table>
 
