@@ -1,3 +1,6 @@
+@extends('layouts.app')
+
+@section('content')
 <div class="container">
 
   @if(session('success'))
@@ -22,3 +25,4 @@
 
   </form>
 </div>
+@endsection

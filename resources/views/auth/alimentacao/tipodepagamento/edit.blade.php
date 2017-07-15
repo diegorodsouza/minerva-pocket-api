@@ -1,3 +1,6 @@
+@extends('layouts.app')
+
+@section('content')
 <div class="container">
 
   @if(session('success'))
@@ -8,7 +11,7 @@
 
   <form action="{{ url('/edit_tipodepagamento', $tipodepagamento->id) }}" method="post">
 
-    {{ method_field('PUT') }}
+    {{method_field('PUT')}}
     {{csrf_field()}}
 
     <div class="col-lg-3">
@@ -24,3 +27,4 @@
 
   </form>
 </div>
+@endsection

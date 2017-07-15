@@ -8,7 +8,9 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
-                    You are logged in!
+                    <ul>
+                      <li><a href="{{url('/tipodepagamento)'}}"> Gerir Formas de Pagamento</a></li>
+                    </ul>
                 </div>
             </div>
         </div>
