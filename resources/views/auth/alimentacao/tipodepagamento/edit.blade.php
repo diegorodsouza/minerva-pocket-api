@@ -6,7 +6,7 @@
     </p>
   @endif
 
-  <form action="{{ url('/edit_tipodepagamento', $tipodepagamento->id) }}" method="post">
+  <form action="{{ url('/edit_tipodepagamento', $tipodepagamento->id) }}" method="put">
 
     {{csrf_field()}}
 
