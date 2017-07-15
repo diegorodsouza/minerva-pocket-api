@@ -8,6 +8,7 @@
 
   <form action="{{ url('/edit_tipodepagamento', $tipodepagamento->id) }}" method="post">
 
+    {{ method_field('PUT') }}
     {{csrf_field()}}
 
     <div class="col-lg-3">
