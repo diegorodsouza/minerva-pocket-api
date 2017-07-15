@@ -1,14 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-  <style>
-    ._content{
-      width: 700px;
-      display: flex;
-      justify-content: center;
-      margin-top: 100px;
-    }
-  </style>
 
   <div class="container">
     <h1>Formas de Pagamento</h1>
@@ -21,7 +13,17 @@
       <a class="btn btn-success" href="{{url('/create_tipodepagamento')}}">Adicionar Forma de Pagamento</a>
     </p>
   </div>
-  <div class="_content">
+
+  <style>
+    ._content{
+      width: 80vw;
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+    }
+  </style>
+
+  <div class="container _content">
     <table class="table">
       <thead>
         <tr>
