@@ -22,3 +22,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/tipodepagamento', 'TipoDePagamentoController@index')->name('TipoDePagamento');
 Route::get('/create_tipodepagamento', 'TipoDePagamentoController@create');
 Route::post('/create_tipodepagamento', 'TipoDePagamentoController@store');
+Route::get('/edit_tipodepagamento/{id}', 'TipoDePagamentoController@edit');
+Route::put('/edit_tipodepagamento/{id}', 'TipoDePagamentoController@update');

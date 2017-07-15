@@ -12,6 +12,12 @@ class TipoDePagamentoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+         $this->middleware('auth');
+    }
+
     public function index()
     {
       $tiposdepagamentos = TipoDePagamento::all();
@@ -45,17 +51,6 @@ class TipoDePagamentoController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -63,7 +58,9 @@ class TipoDePagamentoController extends Controller
      */
     public function edit($id)
     {
-        //
+          $tipodepagamento = TipoDePagamento::findOrFail($id);
+          return view ("auth.alimentacao.tipodepagamento.edit", compact('tipodepagamento'));
+
     }
 
     /**
@@ -75,7 +72,13 @@ class TipoDePagamentoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $dados = $request->all();
+
+      $tipodepagamento = TipoDePagamento::findOrFail($id);
+      $tipodepagamento->update($dados);
+
+      return back()->with(['success'=>'Forma de Pagamento editada com sucesso']);
+
     }
 
     /**

@@ -41,8 +41,8 @@
               <td>{{$pagamento->id}}</td>
               <td>{{$pagamento->descricao}}</td>
               <td>
-                <input type="button" name="" value="Deletar" class="btn btn-danger">
-                <input type="button" name="" value="Editar" class="btn btn-primary">
+                <!-- <a href="{{ url('/', $pagamento->id) }}" class="btn btn-danger">Excluir</a> -->
+                <a href="{{ url('/edit_tipodepagamento', $pagamento->id) }}" class="btn btn-primary">Editar</a>
               </td>
             </tr>
             @endforeach
