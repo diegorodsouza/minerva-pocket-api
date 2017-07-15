@@ -20,7 +20,7 @@ class TipoDePagamentoController extends Controller
 
     public function index()
     {
-      $tiposdepagamentos = TipoDePagamento::all()->orderBy('id', 'asc');
+      $tiposdepagamentos = TipoDePagamento::orderBy('id', 'asc')->get();
       return view ("auth.alimentacao.tipodepagamento.index", compact('tiposdepagamentos'));
 
     }
