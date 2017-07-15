@@ -89,6 +89,9 @@ class TipoDePagamentoController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $id_delete = TipoDePagamento::findOrFail($id);
+      $id_delete->destroy($id);
+
+      return redirect()->route("TipoDePagamento")->with(['success'=>'Forma de Pagamento deletada com sucesso.']);
     }
 }

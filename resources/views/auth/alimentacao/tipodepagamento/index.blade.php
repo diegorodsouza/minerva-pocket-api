@@ -29,8 +29,13 @@
           <td>{{$pagamento->id}}</td>
           <td>{{$pagamento->descricao}}</td>
           <td>
-            <!-- <a href="{{ url('/', $pagamento->id) }}" class="btn btn-danger">Excluir</a> -->
-            <a href="{{ route('EditTipoDePagamento', $pagamento->id) }}" class="btn btn-primary">Editar</a>
+            <form action="{{ route('DestroyTipoDePagamento', $tipodepagamento->id) }}" method="post">
+              {{csrf_field()}}
+              <input type="hidden" name="_method" value="DELETE">
+              <input type="submit" value="Excluir" class="btn btn-danger">
+
+              <a href="{{ route('EditTipoDePagamento', $pagamento->id) }}" class="btn btn-primary">Editar</a>
+            </form>
           </td>
         </tr>
         @endforeach
