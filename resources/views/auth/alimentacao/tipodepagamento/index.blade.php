@@ -29,7 +29,7 @@
           <td>{{$pagamento->id}}</td>
           <td>{{$pagamento->descricao}}</td>
           <td>
-            <form action="{{ route('DestroyTipoDePagamento', $tipodepagamento->id) }}" method="post">
+            <form action="{{ route('DestroyTipoDePagamento', $pagamento->id) }}" method="post">
               {{csrf_field()}}
               <input type="hidden" name="_method" value="DELETE">
               <input type="submit" value="Excluir" class="btn btn-danger">

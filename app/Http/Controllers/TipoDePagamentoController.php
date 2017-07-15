@@ -78,7 +78,6 @@ class TipoDePagamentoController extends Controller
       $id->update($dados);
 
       return redirect()->route("TipoDePagamento")->with(['success'=>'Forma de Pagamento editada com sucesso.']);
-
     }
 
     /**
