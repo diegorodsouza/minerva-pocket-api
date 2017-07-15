@@ -5,23 +5,14 @@
   <div class="container">
     <h1>Formas de Pagamento</h1>
     @if(session('success'))
-      <p class="alert-success">
+      <div class="alert alert-success" role="alert">
         {{ session('success') }}
-      </p>
+      </div>
     @endif
     <p>
       <a class="btn btn-success" href="{{url('/create_tipodepagamento')}}">Adicionar Forma de Pagamento</a>
     </p>
   </div>
-
-  <style>
-    ._content{
-      width: 80vw;
-      display: flex;
-      justify-content: center;
-      margin-top: 30px;
-    }
-  </style>
 
   <div class="container _content">
     <table class="table">
