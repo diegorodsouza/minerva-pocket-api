@@ -74,8 +74,8 @@ class TipoDePagamentoController extends Controller
     {
       $dados = $request->all();
 
-      $tipodepagamento = TipoDePagamento::findOrFail($id);
-      $tipodepagamento->update($dados);
+      $id = TipoDePagamento::findOrFail($id);
+      $id->update($dados);
 
       return back()->with(['success'=>'Forma de Pagamento editada com sucesso']);
 
