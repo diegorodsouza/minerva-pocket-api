@@ -24,4 +24,4 @@ Route::get('/create_tipodepagamento', 'TipoDePagamentoController@create')->name(
 Route::post('/create_tipodepagamento', 'TipoDePagamentoController@store')->name('StoreTipoDePagamento');
 Route::get('/edit_tipodepagamento/{id}', 'TipoDePagamentoController@edit')->name('EditTipoDePagamento');
 Route::put('/edit_tipodepagamento/{id}', 'TipoDePagamentoController@update')->name('UpdateTipoDePagamento');
-Route::put('/destroy_tipodepagamento/{id}', 'TipoDePagamentoController@update')->name('DestroyTipoDePagamento');
+Route::delete('/destroy_tipodepagamento/{id}', 'TipoDePagamentoController@update')->name('DestroyTipoDePagamento');
