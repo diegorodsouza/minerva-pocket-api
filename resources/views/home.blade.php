@@ -9,7 +9,7 @@
 
                 <div class="panel-body">
                     <ul>
-                      <li><a href="{{url('/tipodepagamento)'}}"> Gerir Formas de Pagamento</a></li>
+                      <li><a href="{{url('/tipodepagamento')}}"> Gerir Formas de Pagamento</a></li>
                     </ul>
                 </div>
             </div>

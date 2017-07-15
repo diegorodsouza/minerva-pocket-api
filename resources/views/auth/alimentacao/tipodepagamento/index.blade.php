@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-  <style media="screen">
+  <style>
     ._content{
       width: 700px;
       display: flex;
