@@ -13,7 +13,7 @@ class CreateTipoDeAcademicoTable extends Migration
      */
     public function up()
     {
-      Schema::create('tipo_academico', function (Blueprint $table) {
+      Schema::create('tipo_de_academico', function (Blueprint $table) {
           $table->increments('id');
           $table->string('descricao');
           $table->timestamps();
@@ -28,6 +28,6 @@ class CreateTipoDeAcademicoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tipo_academico');
+        Schema::dropIfExists('tipo_de_academico');
     }
 }
