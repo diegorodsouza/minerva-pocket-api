@@ -25,3 +25,10 @@ Route::post('/create_tipodepagamento', 'TipoDePagamentoController@store')->name(
 Route::get('/edit_tipodepagamento/{id}', 'TipoDePagamentoController@edit')->name('EditTipoDePagamento');
 Route::put('/edit_tipodepagamento/{id}', 'TipoDePagamentoController@update')->name('UpdateTipoDePagamento');
 Route::delete('/destroy_tipodepagamento/{id}', 'TipoDePagamentoController@destroy')->name('DestroyTipoDePagamento');
+
+Route::get('/tipodecomida', 'TipoDeComidaController@index')->name('TipoDeComida');
+Route::get('/create_tipodecomida', 'TipoDeComidaController@create')->name('CreateTipoDeComida');
+Route::post('/create_tipodecomida', 'TipoDeComidaController@store')->name('StoreTipoDeComida');
+Route::get('/edit_tipodecomida/{id}', 'TipoDeComidaController@edit')->name('EditTipoDeComida');
+Route::put('/edit_tipodecomida/{id}', 'TipoDeComidaController@update')->name('UpdateTipoDeComida');
+Route::delete('/destroy_tipodecomida/{id}', 'TipoDeComidaController@destroy')->name('DestroyTipoDeComida');

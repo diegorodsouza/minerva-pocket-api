@@ -10,6 +10,7 @@
                 <div class="panel-body">
                     <ul>
                       <li><a href="{{ route('TipoDePagamento') }}"> Gerir Formas de Pagamento</a></li>
+                      <li><a href="{{ route('TipoDeComida') }}"> Gerir Tipos de Serviço de Comida</a></li>
                     </ul>
                 </div>
             </div>
