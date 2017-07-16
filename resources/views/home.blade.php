@@ -11,6 +11,7 @@
                     <ul>
                       <li><a href="{{ route('TipoDePagamento') }}"> Gerir Formas de Pagamento</a></li>
                       <li><a href="{{ route('TipoDeComida') }}"> Gerir Tipos de Serviço de Comida</a></li>
+                      <li><a href="{{ route('TipoDeAcademico') }}"> Gerir Tipos de Serviço Acadêmico</a></li>
                     </ul>
                 </div>
             </div>

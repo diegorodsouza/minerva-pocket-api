@@ -32,3 +32,10 @@ Route::post('/create_tipodecomida', 'TipoDeComidaController@store')->name('Store
 Route::get('/edit_tipodecomida/{id}', 'TipoDeComidaController@edit')->name('EditTipoDeComida');
 Route::put('/edit_tipodecomida/{id}', 'TipoDeComidaController@update')->name('UpdateTipoDeComida');
 Route::delete('/destroy_tipodecomida/{id}', 'TipoDeComidaController@destroy')->name('DestroyTipoDeComida');
+
+Route::get('/tipodeacademico', 'TipoDeAcademicoController@index')->name('TipoDeAcademico');
+Route::get('/create_tipodeacademico', 'TipoDeAcademicoController@create')->name('CreateTipoDeAcademico');
+Route::post('/create_tipodeacademico', 'TipoDeAcademicoController@store')->name('StoreTipoDeAcademico');
+Route::get('/edit_tipodeacademico/{id}', 'TipoDeAcademicoController@edit')->name('EditTipoDeAcademico');
+Route::put('/edit_tipodeacademico/{id}', 'TipoDeAcademicoController@update')->name('UpdateTipoDeAcademico');
+Route::delete('/destroy_tipodeacademico/{id}', 'TipoDeAcademicoController@destroy')->name('DestroyTipoDeAcademico');

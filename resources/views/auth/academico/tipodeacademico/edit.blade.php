@@ -9,14 +9,16 @@
     </p>
   @endif
 
-  <form action="{{ route('StoreTipoDeComida') }}" method="post">
+  <form action="{{ route('UpdateTipoDeAcademico', $tipodeacademico->id) }}" method="post">
 
+    {{method_field('PUT')}}
     {{csrf_field()}}
 
     <div class="col-lg-3">
       <div class="form-group">
-        <label for="descricao">Tipo de Serviço de Comida</label>
-        <input type="text" name="descricao" placeholder="Digite o tipo de serviço de comida" class="form-control">
+        <label for="descricao">Tipo de Serviço Acadêmico</label>
+        <input type="text" name="descricao" placeholder="Digite o tipo de serviço acadêmico" class="form-control"
+               value="{{ $tipodeacademico->descricao }}">
       </div>
       <div class="form-group">
         <input type="submit" value="Salvar" class="btn btn-success">
