@@ -29,6 +29,8 @@ class CreateAlimentacaoTipoComidaTable extends Migration
      */
     public function down()
     {
-            Schema::dropIfExists('alimentacao_tipo_comida');
+        DB::statement('SET FOREIGN_KEY_CHECKS=0');
+        Schema::dropIfExists('alimentacao_tipo_comida');
+        DB::statement('SET FOREIGN_KEY_CHECKS=1');
     }
 }

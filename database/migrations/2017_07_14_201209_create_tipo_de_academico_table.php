@@ -28,6 +28,8 @@ class CreateTipoDeAcademicoTable extends Migration
      */
     public function down()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0');
         Schema::dropIfExists('tipo_de_academico');
+        DB::statement('SET FOREIGN_KEY_CHECKS=1');
     }
 }
