@@ -21,6 +21,7 @@ class CreateAcademicoTable extends Migration
           $table->string('observacao');
           $table->string('funcionamento');
           $table->string('telefone');
+          $table->string('imagem');
           $table->timestamps();
 
       });

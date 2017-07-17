@@ -13,7 +13,14 @@ class CreateServicoBancoTable extends Migration
      */
     public function up()
     {
-        //
+      Schema::create('servico_banco', function (Blueprint $table) {
+          $table->increments('id');
+          $table->integer('servico_id');
+          $table->enum('bandeira',['Banco do Brasil','Bradesco','Itaú','24 Horas', 'Santander', 'Caixa']);
+          $table->enum('tipo',['Agência','Caixa Eletrônico']);
+          $table->timestamps();
+
+      });
     }
 
     /**
@@ -23,6 +30,8 @@ class CreateServicoBancoTable extends Migration
      */
     public function down()
     {
-        //
+      DB::statement('SET FOREIGN_KEY_CHECKS=0');
+      Schema::dropIfExists('servico_banco');
+      DB::statement('SET FOREIGN_KEY_CHECKS=1');
     }
 }

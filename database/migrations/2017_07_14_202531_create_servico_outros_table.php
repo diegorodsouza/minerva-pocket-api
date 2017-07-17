@@ -13,7 +13,14 @@ class CreateServicoOutrosTable extends Migration
      */
     public function up()
     {
-        //
+      Schema::create('servico_outros', function (Blueprint $table) {
+          $table->increments('id');
+          $table->integer('servico_id');
+          $table->string('observacao');
+          $table->string('servico');
+          $table->timestamps();
+
+      });
     }
 
     /**
@@ -23,6 +30,8 @@ class CreateServicoOutrosTable extends Migration
      */
     public function down()
     {
-        //
+      DB::statement('SET FOREIGN_KEY_CHECKS=0');
+      Schema::dropIfExists('servico_outros');
+      DB::statement('SET FOREIGN_KEY_CHECKS=1');
     }
 }

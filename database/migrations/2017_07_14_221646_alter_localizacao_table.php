@@ -14,8 +14,8 @@ class AlterLocalizacaoTable extends Migration
     public function up()
     {
         Schema::table('localizacao', function (Blueprint $table) {
-          $table->foreign('centro_id')
-                ->references('id')->on('centro')
+          $table->foreign('centro_ponto_id')
+                ->references('id')->on('centro_ponto')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
         });

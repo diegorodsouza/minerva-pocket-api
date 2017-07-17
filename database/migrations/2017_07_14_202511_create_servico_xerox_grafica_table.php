@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCentroTable extends Migration
+class CreateServicoXeroxGraficaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreateCentroTable extends Migration
      */
     public function up()
     {
-      Schema::create('centro', function (Blueprint $table) {
+      Schema::create('servico_xerox_grafica', function (Blueprint $table) {
           $table->increments('id');
-          $table->string('nome');
+          $table->integer('servico_id');
+          $table->string('observacao');
+          $table->enum('servico',['Xerox','Gráfica']);
           $table->timestamps();
 
       });
@@ -28,8 +30,8 @@ class CreateCentroTable extends Migration
      */
     public function down()
     {
-        DB::statement('SET FOREIGN_KEY_CHECKS=0');
-        Schema::dropIfExists('centro');
-        DB::statement('SET FOREIGN_KEY_CHECKS=1');
+      DB::statement('SET FOREIGN_KEY_CHECKS=0');
+      Schema::dropIfExists('servico_xerox_grafica');
+      DB::statement('SET FOREIGN_KEY_CHECKS=1');
     }
 }

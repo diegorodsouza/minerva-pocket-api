@@ -14,14 +14,6 @@ class AlterAlimentacaoTable extends Migration
     public function up()
     {
       Schema::table('alimentacao', function (Blueprint $table) {
-          $table->foreign('tipo_de_comida')
-                ->references('id')->on('alimentacao_tipo_comida')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
-          $table->foreign('tipo_de_pagamento')
-                ->references('id')->on('alimentacao_tipo_pagamento')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
           $table->foreign('localizacao')
                 ->references('id')->on('localizacao')
                 ->onDelete('cascade')

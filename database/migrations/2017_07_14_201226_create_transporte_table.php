@@ -13,7 +13,17 @@ class CreateTransporteTable extends Migration
      */
     public function up()
     {
-        //
+      Schema::create('transporte', function (Blueprint $table) {
+          $table->increments('id');
+          $table->string('linha');
+          $table->string('observacao');
+          $table->string('preco');
+          $table->enum('tipo',['interno','externo']);
+          $table->string('funcionamento');
+          $table->string('imagem');
+          $table->timestamps();
+
+      });
     }
 
     /**
@@ -23,6 +33,8 @@ class CreateTransporteTable extends Migration
      */
     public function down()
     {
-        //
+      DB::statement('SET FOREIGN_KEY_CHECKS=0');
+      Schema::dropIfExists('transporte');
+      DB::statement('SET FOREIGN_KEY_CHECKS=1');
     }
 }
