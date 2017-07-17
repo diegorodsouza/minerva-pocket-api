@@ -15,7 +15,7 @@ class CreateServicoTable extends Migration
     {
       Schema::create('servico', function (Blueprint $table) {
           $table->increments('id');
-          $table->string('localizacao');
+          $table->integer('localizacao');
           $table->string('nome');
           $table->string('funcionamento');
           $table->string('imagem');
