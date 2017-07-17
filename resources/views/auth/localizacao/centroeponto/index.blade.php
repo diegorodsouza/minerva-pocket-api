@@ -10,7 +10,7 @@
       </div>
     @endif
     <p>
-      <a class="btn btn-success" href="{{ route('CreateTipoDeComida') }}">Adicionar Centro ou Ponto de Ônibus</a>
+      <a class="btn btn-success" href="{{ route('CreateCentroPonto') }}">Adicionar Centro ou Ponto de Ônibus</a>
     </p>
   </div>
 
