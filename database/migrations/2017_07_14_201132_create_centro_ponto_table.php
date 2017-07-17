@@ -29,7 +29,7 @@ class CreateCentroPontoTable extends Migration
     public function down()
     {
         DB::statement('SET FOREIGN_KEY_CHECKS=0');
-        Schema::dropIfExists('centro');
+        Schema::dropIfExists('centro_ponto');
         DB::statement('SET FOREIGN_KEY_CHECKS=1');
     }
 }
