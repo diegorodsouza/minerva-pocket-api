@@ -40,7 +40,7 @@ Route::get('/edit_tipodeacademico/{id}', 'TipoDeAcademicoController@edit')->name
 Route::put('/edit_tipodeacademico/{id}', 'TipoDeAcademicoController@update')->name('UpdateTipoDeAcademico');
 Route::delete('/destroy_tipodeacademico/{id}', 'TipoDeAcademicoController@destroy')->name('DestroyTipoDeAcademico');
 
-Route::get('/centroeponto', 'CentroPontoController@index')->name('TipoDeAcademico');
+Route::get('/centroeponto', 'CentroPontoController@index')->name('CentroPonto');
 Route::get('/create_centroeponto', 'CentroPontoController@create')->name('CreateCentroPonto');
 Route::post('/create_centroeponto', 'CentroPontoController@store')->name('StoreCentroPonto');
 Route::get('/edit_centroeponto/{id}', 'CentroPontoController@edit')->name('EditCentroPonto');
