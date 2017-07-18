@@ -52,13 +52,13 @@ class AlimentacaoController extends Controller
           'centro_ponto_id' => intval($dados['centro'])
         );
         $local_id = Localizacao::insertGetId($dadosLoc);
-
+        $local = Localizacao::findOrFail($local_id)
         $dadosAli = array(
           'nome'          => $dados['nome'],
           'funcionamento' => $dados['funcionamento'],
           'preco'         => $dados['preco'],
           'imagem'        => $dados['imagem'],
-          'localizacao'   => $local_id
+          'localizacao'   => $local->centro_ponto_id
         );
         Alimentacao::create($dadosAli);
 
@@ -98,16 +98,16 @@ class AlimentacaoController extends Controller
         'centro_ponto_id' => intval($dados['centro'])
       );
 
-      $local_id = Localizacao::findOrFail($id->localizacao);
+      $local = Localizacao::findOrFail($id->localizacao);
 
-      $local_id->update($dadosLoc);
+      $local->update($dadosLoc);
 
       $dadosAli = array(
         'nome'          => $dados['nome'],
         'funcionamento' => $dados['funcionamento'],
         'preco'         => $dados['preco'],
         'imagem'        => $dados['imagem'],
-        'localizacao'   => $local_id
+        'localizacao'   => $local->centro_ponto_id
       );
 
       $id->update($dadosAli);
