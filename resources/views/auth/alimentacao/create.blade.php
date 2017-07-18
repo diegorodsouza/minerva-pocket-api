@@ -41,9 +41,9 @@
 
         <label for="tipodepagamento">Formas de Pagamento Aceitas</label><br>
         @foreach ($tiposdepagamentos as $tipodepagamento)
-          <input type="checkbox" name="tipodepagamento" value='{{$tipodepagamento->id}}'> {{$tipodepagamento->descricao}}<br>
+          <input type="checkbox" name="tipodepagamento[]" value='{{$tipodepagamento->id}}'> {{$tipodepagamento->descricao}}<br>
         @endforeach
-        
+
       </div>
       <div class="form-group">
         <input type="submit" value="Salvar" class="btn btn-success">
