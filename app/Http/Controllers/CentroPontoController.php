@@ -118,7 +118,7 @@ class CentroPontoController extends Controller
     public function destroy($id)
     {
       $id_delete = CentroPonto::findOrFail($id);
-      $localizacao = \DB::table('localizacao')->where('created_at', '>=', $centroeponto->created_at)->first();
+      $localizacao = \DB::table('localizacao')->where('created_at', '>=', $id_delete->created_at)->first();
 
       $localizacao->destroy($localizacao->id);
       $id_delete->destroy($id);
