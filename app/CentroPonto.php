@@ -10,7 +10,7 @@ class CentroPonto extends Model
     protected $table = 'centro_ponto';
 
     protected $fillable = [
-      'descricao','loc_id'
+      'descricao','loc_id','tipo'
     ];
 
     public static function getLatitude($centro_id){

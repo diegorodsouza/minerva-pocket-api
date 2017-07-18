@@ -18,6 +18,10 @@
         <label for="descricao">Nome do Centro ou Ponto de Ônibus</label>
         <input type="text" name="descricao" placeholder="Digite o nome do centro ou ponto de ônibus" class="form-control">
 
+        <label for="tipo">Tipo</label><br>
+        <input type="radio" name="tipo" value='Centro'> Centro<br>
+        <input type="radio" name="tipo" value='Ponto'> Ponto de Ônibus<br>
+
         <label for="latitude">Localização - Latitude</label>
         <input type="text" name="latitude" placeholder="Digite a latitude do local" class="form-control">
 

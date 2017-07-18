@@ -49,7 +49,8 @@ class CentroPontoController extends Controller
         $dadosCen = array(
           'descricao'       => $dados['descricao'],
           'created_at'      => \DB::raw('CURRENT_TIMESTAMP'),
-          'loc_id'          => null
+          'loc_id'          => null,
+          'tipo'            => $dados['tipo']
         );
         $centro_id = CentroPonto::insertGetId($dadosCen);
 
@@ -109,7 +110,8 @@ class CentroPontoController extends Controller
       $local->update($dadosLoc);
 
       $dadosCen = array(
-        'descricao'       => $dados['descricao']
+        'descricao'       => $dados['descricao'],
+        'tipo'            => $dados['tipo']
       );
 
       $centro->update($dadosCen);
@@ -126,9 +128,9 @@ class CentroPontoController extends Controller
     public function destroy($id)
     {
       $id_delete = CentroPonto::findOrFail($id);
-      $local = Localizacao::findOrFail($centroeponto->loc_id);
+      $local = Localizacao::findOrFail($id_delete->loc_id);
 
-      $local->destroy($centroeponto->loc_id);
+      $local->destroy($id_delete->loc_id);
       $id_delete->destroy($id);
 
       return redirect()->route("CentroPonto")->with(['success'=>'Centro ou Ponto de Ônibus deletado com sucesso.']);

@@ -17,6 +17,7 @@ class CreateCentroPontoTable extends Migration
           $table->increments('id');
           $table->string('descricao');
           $table->integer('loc_id')->nullable();
+          $table->enum('tipo',['Centro','Ponto']);
           $table->timestamps();
 
       });

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Alimentacao;
 use App\Localizacao;
+use App\CentroPonto;
 
 class AlimentacaoController extends Controller
 {
@@ -33,6 +34,7 @@ class AlimentacaoController extends Controller
      */
     public function create()
     {
+        $centros = CentroPonto
         return view ("auth.alimentacao.create");
     }
 
