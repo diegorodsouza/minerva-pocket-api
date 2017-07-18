@@ -34,7 +34,7 @@
         <label for="longitude">Localização - Longitude</label>
         <input type="text" name="longitude" placeholder="Digite a longitude do local" class="form-control">
 
-        <label for="centro">Localização - Longitude</label><br>
+        <label for="centro">Localização - Centro</label><br>
         <input type="radio" name="centro" value="1"> CCMN<br>
         <input type="radio" name="centro" value="2"> Letras<br>
         <input type="radio" name="centro" value="3"> CT<br>

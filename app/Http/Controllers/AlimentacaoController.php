@@ -73,8 +73,9 @@ class AlimentacaoController extends Controller
      */
     public function edit($id)
     {
-          // $centroeponto = Alimentacao::findOrFail($id);
-          // return view ("auth.alimentacao.edit", compact('centroeponto'));
+          $alimentacao = Alimentacao::findOrFail($id);
+          $localizacao = Localizacao::findOrFail($alimentacao->localizacao)
+          return view ("auth.alimentacao.edit", compact('alimentacao','localizacao'));
 
     }
 
@@ -87,12 +88,31 @@ class AlimentacaoController extends Controller
      */
     public function update(Request $request, $id)
     {
-      // $dados = $request->all();
-      //
-      // $id = Alimentacao::findOrFail($id);
-      // $id->update($dados);
-      //
-      // return redirect()->route("Alimentacao")->with(['success'=>'Local de Alimentação editado com sucesso.']);
+      $dados = $request->all();
+
+      $id = Alimentacao::findOrFail($id);
+
+      $dadosLoc = array(
+        'latitude'        => $dados['latitude'],
+        'longitude'       => $dados['longitude'],
+        'centro_ponto_id' => $dados['centro']
+      );
+
+      $local_id = Localizacao::findOrFail($id->localizacao);
+
+      $local_id->update($dadosLoc);
+
+      $dadosAli = array(
+        'nome'          => $dados['nome'],
+        'funcionamento' => $dados['funcionamento'],
+        'preco'         => $dados['preco'],
+        'imagem'        => $dados['imagem'],
+        'localizacao'   => $local_id
+      );
+
+      $id->update($dadosAli);
+
+      return redirect()->route("Alimentacao")->with(['success'=>'Local de Alimentação editado com sucesso.']);
     }
 
     /**
@@ -103,9 +123,12 @@ class AlimentacaoController extends Controller
      */
     public function destroy($id)
     {
-      // $id_delete = Alimentacao::findOrFail($id);
-      // $id_delete->destroy($id);
-      //
-      // return redirect()->route("Alimentacao")->with(['success'=>'Local de Alimentação deletado com sucesso.']);
+      $id_delete = Alimentacao::findOrFail($id);
+      $local_id = Localizacao::findOrFail($id->localizacao);
+
+      $local_id->destroy($id->localizacao);
+      $id_delete->destroy($id);
+
+      return redirect()->route("Alimentacao")->with(['success'=>'Local de Alimentação deletado com sucesso.']);
     }
 }

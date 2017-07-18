@@ -35,7 +35,13 @@
           <td>{{App\Alimentacao::getLocalizacao($local->id)}}</td>
           <td>{{$local->imagem}}</td>
           <td>
+            <form action="{{ route('DestroyAlimentacao', $local->id) }}" method="post">
+              {{csrf_field()}}
+              <input type="hidden" name="_method" value="DELETE">
+              <input type="submit" value="Excluir" class="btn btn-danger">
 
+              <a href="{{ route('EditAlimentacao', $local->id) }}" class="btn btn-primary">Editar</a>
+            </form>
           </td>
         </tr>
         @endforeach

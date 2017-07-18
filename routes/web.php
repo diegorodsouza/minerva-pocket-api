@@ -50,6 +50,6 @@ Route::delete('/destroy_centroeponto/{id}', 'CentroPontoController@destroy')->na
 Route::get('/alimentacao', 'AlimentacaoController@index')->name('Alimentacao');
 Route::get('/create_alimentacao', 'AlimentacaoController@create')->name('CreateAlimentacao');
 Route::post('/create_alimentacao', 'AlimentacaoController@store')->name('StoreAlimentacao');
-// Route::get('/edit_centroeponto/{id}', 'CentroPontoController@edit')->name('EditCentroPonto');
-// Route::put('/edit_centroeponto/{id}', 'CentroPontoController@update')->name('UpdateCentroPonto');
-// Route::delete('/destroy_centroeponto/{id}', 'CentroPontoController@destroy')->name('DestroyCentroPonto');
+Route::get('/edit_alimentacao/{id}', 'AlimentacaoController@edit')->name('EditAlimentacao');
+Route::put('/edit_alimentacao/{id}', 'AlimentacaoController@update')->name('UpdateAlimentacao');
+Route::delete('/destroy_alimentacao/{id}', 'AlimentacaoController@destroy')->name('DestroyAlimentacao');
