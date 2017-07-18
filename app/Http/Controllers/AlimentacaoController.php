@@ -49,7 +49,7 @@ class AlimentacaoController extends Controller
         $dadosLoc = array(
           'latitude'        => $dados['latitude'],
           'longitude'       => $dados['longitude'],
-          'centro_ponto_id' => settype($dados['centro'],"integer")
+          'centro_ponto_id' => intval($dados['centro'])
         );
         $local_id = Localizacao::insertGetId($dadosLoc);
 
@@ -95,7 +95,7 @@ class AlimentacaoController extends Controller
       $dadosLoc = array(
         'latitude'        => $dados['latitude'],
         'longitude'       => $dados['longitude'],
-        'centro_ponto_id' => settype($dados['centro'], "integer")
+        'centro_ponto_id' => intval($dados['centro'])
       );
 
       $local_id = Localizacao::findOrFail($id->localizacao);
