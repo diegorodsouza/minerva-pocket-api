@@ -16,7 +16,7 @@ class Localizacao extends Model
 
   public static function getCentro($id){
     $local = Localizacao::findOrFail($id);
-    $centro = Centro::findOrFail($local->centro_ponto_id);
+    $centro = CentroPonto::findOrFail($local->centro_ponto_id);
     return $centro->descricao;
   }
 }
