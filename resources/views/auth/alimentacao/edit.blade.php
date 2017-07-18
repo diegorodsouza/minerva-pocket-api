@@ -29,7 +29,8 @@
                value='{{$alimentacao->imagem}}'>
 
         <label for="funcionamento">Funcionamento</label>
-        <textarea name="funcionamento" placeholder="Descreva os horários de funcionamento do local" class="form-control">{{$alimentacao->funcionamento}}
+        <textarea name="funcionamento" placeholder="Descreva os horários de funcionamento do local" class="form-control"
+        >{{$alimentacao->funcionamento}}
         </textarea>
 
         <label for="latitude">Localização - Latitude</label>
@@ -41,9 +42,10 @@
                value='{{$localizacao->longitude}}'>
 
         <label for="centro">Localização - Centro</label><br>
-        <input type="radio" name="centro" value=1 <?php if($localizacao->id == 1) echo 'checked' ?> > CCMN<br>
-        <input type="radio" name="centro" value=2 <?php if($localizacao->id == 2) echo 'checked' ?> > Letras<br>
-        <input type="radio" name="centro" value=3 <?php if($localizacao->id == 3) echo 'checked' ?> > CT<br>
+        @foreach ($centros as $centro)
+          <input type="radio" name="centro" value={{$centro->id}}<?php if($localizacao->id == {{$centro->id}}) echo 'checked' ?>
+          >{{centro->descricao}}<br>
+        @endforeach
 
       </div>
       <div class="form-group">

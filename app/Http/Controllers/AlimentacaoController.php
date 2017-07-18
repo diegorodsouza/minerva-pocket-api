@@ -34,8 +34,8 @@ class AlimentacaoController extends Controller
      */
     public function create()
     {
-        $centros = CentroPonto
-        return view ("auth.alimentacao.create");
+        $centros = DB::table('centro_ponto')->where('tipo', 'Centro');
+        return view ("auth.alimentacao.create",compact('centros'));
     }
 
     /**
@@ -77,7 +77,8 @@ class AlimentacaoController extends Controller
     {
           $alimentacao = Alimentacao::findOrFail($id);
           $localizacao = Localizacao::findOrFail($alimentacao->localizacao);
-          return view ("auth.alimentacao.edit", compact('alimentacao','localizacao'));
+          $centros = DB::table('centro_ponto')->where('tipo', 'Centro');
+          return view ("auth.alimentacao.edit", compact('alimentacao','localizacao','centros'));
 
     }
 
