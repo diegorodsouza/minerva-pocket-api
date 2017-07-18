@@ -71,6 +71,7 @@ class CentroPontoController extends Controller
     {
           $centroeponto = CentroPonto::findOrFail($id);
           $localizacao = \DB::table('localizacao')->where('created_at', $centroeponto->created_at)->first();
+          dd($localizacao);
           return view ("auth.localizacao.centroeponto.edit", compact('centroeponto','localizacao'));
 
     }
