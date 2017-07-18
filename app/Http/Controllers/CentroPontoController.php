@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\CentroPonto;
+use App\Localizacao;
 
 class CentroPontoController extends Controller
 {
@@ -45,7 +46,17 @@ class CentroPontoController extends Controller
     {
         $dados = $request->all();
 
-        CentroPonto::create($dados);
+        $dadosCen = array(
+          'descricao'       => $dados['descricao']
+        );
+        $centro_id = CentroPonto::insertGetId($dadosCen);
+
+        $dadosLoc = array(
+          'latitude'        => $dados['latitude'],
+          'longitude'       => $dados['longitude'],
+          'centro_ponto_id' => $centro_id
+        );
+        Localizacao::create($dadosLoc);
 
         return redirect()->route('CentroPonto')->with(['success'=>'Centro ou Ponto de Ônibus adicionado com sucesso.']);
     }
@@ -59,7 +70,8 @@ class CentroPontoController extends Controller
     public function edit($id)
     {
           $centroeponto = CentroPonto::findOrFail($id);
-          return view ("auth.localizacao.centroeponto.edit", compact('centroeponto'));
+          $localizacao = \DB::table('localizacao')->where('created_at', $centroeponto->created_at)->get();
+          return view ("auth.localizacao.centroeponto.edit", compact('centroeponto','localizacao'));
 
     }
 
@@ -70,12 +82,26 @@ class CentroPontoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $localizacao_id)
     {
       $dados = $request->all();
 
-      $id = CentroPonto::findOrFail($id);
-      $id->update($dados);
+      $local = Localizacao::findOrFail($localizacao_id);
+      $centro = CentroPonto::findOrFail($local->centro_ponto_id)
+
+      $centro_id = $centro->id;
+
+      $dadosLoc = array(
+        'latitude'        => $dados['latitude'],
+        'longitude'       => $dados['longitude'],
+        'centro_ponto_id' => $centro_id
+      );
+
+      $dadosCen = array(
+        'descricao'       => $dados['descricao']
+      );
+
+      $centro->update($dadosCen);
 
       return redirect()->route("CentroPonto")->with(['success'=>'Centro ou Ponto de Ônibus editado com sucesso.']);
     }
