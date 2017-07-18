@@ -11,6 +11,7 @@
 
   <form action="{{ route('UpdateAlimentacao', $alimentacao->id) }}" method="post">
 
+    {{method_field('PUT')}}
     {{csrf_field()}}
 
     <div class="col-lg-3">
@@ -28,8 +29,7 @@
                value='{{$alimentacao->imagem}}'>
 
         <label for="funcionamento">Funcionamento</label>
-        <textarea name="funcionamento" placeholder="Descreva os horários de funcionamento do local" class="form-control">
-                 {{$alimentacao->funcionamento}}
+        <textarea name="funcionamento" placeholder="Descreva os horários de funcionamento do local" class="form-control">{{$alimentacao->funcionamento}}
         </textarea>
 
         <label for="latitude">Localização - Latitude</label>
