@@ -14,9 +14,9 @@ class Alimentacao extends Model
   ];
 
   function getLocalizacao($id){
-    $alimentacao = Alimentacao::findOrFail($id)
-    $local = Localizacao::findOrFail($alimentacao->localizacao)
-    $centro = Localizacao::getCentro($local->id)
+    $alimentacao = Alimentacao::findOrFail($id);
+    $local = Localizacao::findOrFail($alimentacao->localizacao);
+    $centro = Localizacao::getCentro($local->id);
     return $centro;
 
   }
