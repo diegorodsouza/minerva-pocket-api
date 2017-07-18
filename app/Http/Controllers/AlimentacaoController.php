@@ -8,6 +8,8 @@ use App\Localizacao;
 use App\CentroPonto;
 use App\TipoDeComida;
 use App\TipoDePagamento;
+use App\AlimentacaoTipoPagamento;
+use App\AlimentacaoTipoComida;
 use DB;
 
 class AlimentacaoController extends Controller
@@ -75,13 +77,16 @@ class AlimentacaoController extends Controller
           'tiposdepagamentos' => $dados['tipodepagamento']
         );
 
-        foreach ($dadosPag['tiposdepagamentos'][] as $id) {
+        echo (count($dadosPag['tiposdepagamentos']);
+        dd($dadosPag['tiposdepagamentos'][0]);
+
+        for ($id=0; $id < count($dadosPag['tiposdepagamentos']); $id++) {
           $tupla = array(
             'alimentacao_id'    => $alimentacao_id,
-            'tipo_pagamento_id' => $id
+            'tipo_pagamento_id' => $dadosPag['tiposdepagamentos'][$id]
           );
           dd($tupla);
-          TipoDePagamento::create($tupla);
+          AlimentacaoTipoPagamento::create($tupla);
         }
 
 
