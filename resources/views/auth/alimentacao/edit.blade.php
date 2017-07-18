@@ -44,7 +44,7 @@
         <label for="centro">Localização - Centro</label><br>
         @foreach ($centros as $centro)
           <input type="radio" name="centro" value='{{$centro->id}}'<?php if($localizacao->id == {{$centro->id}}) echo 'checked' ?>
-          >{{centro->descricao}}<br>
+          >{{$centro->descricao}}<br>
         @endforeach
 
       </div>
