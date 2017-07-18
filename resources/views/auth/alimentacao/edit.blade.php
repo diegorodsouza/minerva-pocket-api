@@ -41,9 +41,9 @@
                value='{{$localizacao->longitude}}'>
 
         <label for="centro">Localização - Centro</label><br>
-        <input type="radio" name="centro" value="1" <?php if($localizacao->id == '1') echo 'checked' ?> > CCMN<br>
-        <input type="radio" name="centro" value="2" <?php if($localizacao->id == '2') echo 'checked' ?> > Letras<br>
-        <input type="radio" name="centro" value="3" <?php if($localizacao->id == '3') echo 'checked' ?> > CT<br>
+        <input type="radio" name="centro" value=1 <?php if($localizacao->id == 1) echo 'checked' ?> > CCMN<br>
+        <input type="radio" name="centro" value=2 <?php if($localizacao->id == 2) echo 'checked' ?> > Letras<br>
+        <input type="radio" name="centro" value=3 <?php if($localizacao->id == 3) echo 'checked' ?> > CT<br>
 
       </div>
       <div class="form-group">
