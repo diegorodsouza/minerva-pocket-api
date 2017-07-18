@@ -72,7 +72,7 @@ class AlimentacaoController extends Controller
         $alimentacao_id = Alimentacao::insertGetId($dadosAli);
 
         $dadosPag = array(
-          'tiposdepagamentos[]' => $dados['tipodepagamento[]']
+          'tiposdepagamentos' => $dados['tipodepagamento[]']
         );
 
         dd($dadosPag);
