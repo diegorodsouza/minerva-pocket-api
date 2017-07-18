@@ -14,7 +14,7 @@
     {{method_field('PUT')}}
     {{csrf_field()}}
 
-    <div class="col-lg-3">
+    <div class="col-lg-offset-3 col-lg-6">
       <div class="form-group">
         <label for="descricao">Forma de Pagamento</label>
         <input type="text" name="descricao" placeholder="Digite a forma de pagamento" class="form-control"

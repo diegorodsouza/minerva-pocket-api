@@ -14,7 +14,7 @@
     {{method_field('PUT')}}
     {{csrf_field()}}
 
-    <div class="col-lg-3">
+    <div class="col-lg-offset-3 col-lg-6">
       <div class="form-group">
         <label for="descricao">Tipo de Serviço de Comida</label>
         <input type="text" name="descricao" placeholder="Digite o tipo de comida" class="form-control"
