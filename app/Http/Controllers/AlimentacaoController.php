@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Alimentacao;
 use App\Localizacao;
 use App\CentroPonto;
+use DB;
 
 class AlimentacaoController extends Controller
 {
