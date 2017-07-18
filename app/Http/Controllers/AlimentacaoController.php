@@ -75,8 +75,6 @@ class AlimentacaoController extends Controller
           'tiposdepagamentos' => $dados['tipodepagamento']
         );
 
-        dd($dadosPag);
-
         foreach ($dadosPag as $dadoPag) {
           dd($dadoPag);
           $tupla = array(
