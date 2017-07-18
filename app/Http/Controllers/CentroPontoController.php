@@ -97,6 +97,7 @@ class CentroPontoController extends Controller
         'longitude'       => $dados['longitude'],
         'centro_ponto_id' => $centro_id
       );
+      $local->update($dadosLoc);
 
       $dadosCen = array(
         'descricao'       => $dados['descricao']
