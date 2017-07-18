@@ -53,14 +53,12 @@ class AlimentacaoController extends Controller
         );
         Localizacao::create($dadosLoc);
 
-        $local = $dadosLoc->id;
-
         $dadosAli = array(
           'nome'          => $dados['nome'],
           'funcionamento' => $dados['funcionamento'],
           'preco'         => $dados['preco'],
           'imagem'        => $dados['imagem'],
-          'localizacao'   => $local
+          'localizacao'   => $dadosLoc->id
         );
         Alimentacao::create($dadosAli);
 
