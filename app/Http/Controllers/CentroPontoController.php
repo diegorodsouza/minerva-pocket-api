@@ -70,7 +70,7 @@ class CentroPontoController extends Controller
     public function edit($id)
     {
           $centroeponto = CentroPonto::findOrFail($id);
-          $localizacao = \DB::table('localizacao')->where('created_at', $centroeponto->created_at)->get();
+          $localizacao = \DB::table('localizacao')->where('created_at', $centroeponto->created_at)->first();
           return view ("auth.localizacao.centroeponto.edit", compact('centroeponto','localizacao'));
 
     }
