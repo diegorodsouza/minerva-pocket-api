@@ -124,9 +124,9 @@ class AlimentacaoController extends Controller
     public function destroy($id)
     {
       $id_delete = Alimentacao::findOrFail($id);
-      $local_id = Localizacao::findOrFail($id->localizacao);
-
-      $local_id->destroy($id_delete->localizacao);
+      $local = Localizacao::findOrFail($id_delete->localizacao);
+      $local_id = $local->id;
+      $local->destroy($local->id);
       $id_delete->destroy($id);
 
       return redirect()->route("Alimentacao")->with(['success'=>'Local de Alimentação deletado com sucesso.']);
