@@ -81,8 +81,7 @@ class AlimentacaoController extends Controller
           dd($dadoPag);
           $tupla = array(
             'alimentacao_id'    => $alimentacao_id,
-            'tipo_pagamento_id' => $dadoPag[]
-
+            'tipo_pagamento_id' => $dadoPag
           );
           TipoDePagamento::create($tupla);
         }
