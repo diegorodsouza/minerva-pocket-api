@@ -51,14 +51,14 @@ class AlimentacaoController extends Controller
           'longitude'       => $dados['longitude'],
           'centro_ponto_id' => $dados['centro']
         );
-        Localizacao::create($dadosLoc);
+        $local_id = Localizacao::insertGetId($dadosLoc);
 
         $dadosAli = array(
           'nome'          => $dados['nome'],
           'funcionamento' => $dados['funcionamento'],
           'preco'         => $dados['preco'],
           'imagem'        => $dados['imagem'],
-          'localizacao'   => $dadosLoc->id
+          'localizacao'   => $local_id
         );
         Alimentacao::create($dadosAli);
 
