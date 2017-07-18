@@ -87,7 +87,7 @@ class CentroPontoController extends Controller
       $dados = $request->all();
 
       $local = Localizacao::findOrFail($localizacao_id);
-      $centro = CentroPonto::findOrFail($local->centro_ponto_id)
+      $centro = CentroPonto::findOrFail($local->centro_ponto_id);
 
       $centro_id = $centro->id;
 
