@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Centro;
+use App\CentroPonto;
 
 
 class Localizacao extends Model
