@@ -44,6 +44,11 @@
           <input type="checkbox" name="tipodepagamento[]" value='{{$tipodepagamento->id}}'> {{$tipodepagamento->descricao}}<br>
         @endforeach
 
+        <label for="tipodecomida">Tipos de Serviço de Comida Disponíveis</label><br>
+        @foreach ($tiposdecomidas as $tipodecomida)
+          <input type="checkbox" name="tipodecomida[]" value='{{$tipodecomida->id}}'> {{$tipodecomida->descricao}}<br>
+        @endforeach
+
       </div>
       <div class="form-group">
         <input type="submit" value="Salvar" class="btn btn-success">

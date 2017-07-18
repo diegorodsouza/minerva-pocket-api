@@ -77,17 +77,25 @@ class AlimentacaoController extends Controller
           'tiposdepagamentos' => $dados['tipodepagamento']
         );
 
-        dd($dadosPag['tiposdepagamentos'][0]);
-
         for ($id=0; $id < count($dadosPag['tiposdepagamentos']); $id++) {
-          $tupla = array(
+          $tupla1 = array(
             'alimentacao_id'    => $alimentacao_id,
             'tipo_pagamento_id' => $dadosPag['tiposdepagamentos'][$id]
           );
-          dd($tupla);
-          AlimentacaoTipoPagamento::create($tupla);
+          AlimentacaoTipoPagamento::create($tupla1);
         }
 
+        $dadosCom = array(
+          'tiposdecomidas' => $dados['tipodecomida']
+        );
+
+        for ($id=0; $id < count($dadosCom['tiposdecomidas']); $id++) {
+          $tupla2 = array(
+            'alimentacao_id' => $alimentacao_id,
+            'tipo_comida_id' => $dadosCom['tiposdecomidas'][$id]
+          );
+          AlimentacaoTipoComida::create($tupla2);
+        }
 
         return redirect()->route('Alimentacao')->with(['success'=>'Local de Alimentação adicionado com sucesso.']);
     }
