@@ -79,7 +79,7 @@ class AlimentacaoController extends Controller
           $alimentacao = Alimentacao::findOrFail($id);
           $localizacao = Localizacao::findOrFail($alimentacao->localizacao);
           $centros = DB::table('centro_ponto')->where('tipo', 'Centro')->get();
-          return view ("auth.alimentacao.edit", compact('alimentacao','localizacao','centros'));
+          return view ("auth.alimentacao.edit", compact(['alimentacao','localizacao','centros']));
 
     }
 
