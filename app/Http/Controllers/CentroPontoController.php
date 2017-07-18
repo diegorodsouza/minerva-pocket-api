@@ -119,8 +119,9 @@ class CentroPontoController extends Controller
     {
       $id_delete = CentroPonto::findOrFail($id);
       $localizacao = \DB::table('localizacao')->where('created_at', '>=', $id_delete->created_at)->first();
+      $local = Localizacao::findOrFail($localizacao->id)
 
-      $localizacao->destroy($localizacao->id);
+      $local->destroy($localizacao->id);
       $id_delete->destroy($id);
 
       return redirect()->route("CentroPonto")->with(['success'=>'Centro ou Ponto de Ônibus deletado com sucesso.']);
