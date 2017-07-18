@@ -17,7 +17,8 @@ class CentroPonto extends Model
       $centroeponto = CentroPonto::findOrFail($centro_id);
       $localizacao = \DB::table('localizacao')->where('created_at', '>=', $centroeponto->created_at)->first();
       return $localizacao->latitude;
-
+    }
+    
     public static function getLongitude($centro_id){
       $centroeponto = CentroPonto::findOrFail($centro_id);
       $localizacao = \DB::table('localizacao')->where('created_at', '>=', $centroeponto->created_at)->first();
