@@ -77,8 +77,14 @@ class AlimentacaoController extends Controller
 
         dd($dadosPag);
 
-        foreach ($dadosPag as $d) {
-          # code...
+        foreach ($dadosPag as $dadoPag) {
+          dd($dadoPag);
+          $tupla = array(
+            'alimentacao_id'    => $alimentacao_id,
+            'tipo_pagamento_id' => $dadoPag[]
+
+          );
+          TipoDePagamento::create($tupla);
         }
 
 
