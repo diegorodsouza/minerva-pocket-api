@@ -74,7 +74,7 @@ class AlimentacaoController extends Controller
     public function edit($id)
     {
           $alimentacao = Alimentacao::findOrFail($id);
-          $localizacao = Localizacao::findOrFail($alimentacao->localizacao)
+          $localizacao = Localizacao::findOrFail($alimentacao->localizacao);
           return view ("auth.alimentacao.edit", compact('alimentacao','localizacao'));
 
     }
