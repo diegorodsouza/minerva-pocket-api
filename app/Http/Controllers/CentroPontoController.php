@@ -55,7 +55,8 @@ class CentroPontoController extends Controller
         $dadosLoc = array(
           'latitude'        => $dados['latitude'],
           'longitude'       => $dados['longitude'],
-          'centro_ponto_id' => $centro_id
+          'centro_ponto_id' => $centro_id,
+          'created_at'      => \DB::raw('CURRENT_TIMESTAMP')
         );
         Localizacao::create($dadosLoc);
 
