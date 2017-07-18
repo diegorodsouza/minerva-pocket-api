@@ -47,7 +47,8 @@ class CentroPontoController extends Controller
         $dados = $request->all();
 
         $dadosCen = array(
-          'descricao'       => $dados['descricao']
+          'descricao'       => $dados['descricao'],
+          'created_at'      => $dados['created_at']
         );
         $centro_id = CentroPonto::insertGetId($dadosCen);
 
