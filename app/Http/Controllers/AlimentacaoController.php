@@ -52,7 +52,7 @@ class AlimentacaoController extends Controller
           'centro_ponto_id' => intval($dados['centro'])
         );
         $local_id = Localizacao::insertGetId($dadosLoc);
-        $local = Localizacao::findOrFail($local_id)
+        $local = Localizacao::findOrFail($local_id);
         $dadosAli = array(
           'nome'          => $dados['nome'],
           'funcionamento' => $dados['funcionamento'],
