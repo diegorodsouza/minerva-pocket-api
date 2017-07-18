@@ -77,7 +77,6 @@ class AlimentacaoController extends Controller
           'tiposdepagamentos' => $dados['tipodepagamento']
         );
 
-        echo (count($dadosPag['tiposdepagamentos']);
         dd($dadosPag['tiposdepagamentos'][0]);
 
         for ($id=0; $id < count($dadosPag['tiposdepagamentos']); $id++) {
