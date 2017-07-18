@@ -16,6 +16,7 @@ class CreateCentroPontoTable extends Migration
       Schema::create('centro_ponto', function (Blueprint $table) {
           $table->increments('id');
           $table->string('descricao');
+          $table->integer('loc_id')->nullable();
           $table->timestamps();
 
       });

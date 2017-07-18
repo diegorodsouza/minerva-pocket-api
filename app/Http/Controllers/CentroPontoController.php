@@ -48,7 +48,8 @@ class CentroPontoController extends Controller
 
         $dadosCen = array(
           'descricao'       => $dados['descricao'],
-          'created_at'      => \DB::raw('CURRENT_TIMESTAMP')
+          'created_at'      => \DB::raw('CURRENT_TIMESTAMP'),
+          'loc_id'          => null
         );
         $centro_id = CentroPonto::insertGetId($dadosCen);
 
@@ -58,7 +59,14 @@ class CentroPontoController extends Controller
           'centro_ponto_id' => $centro_id,
           'created_at'      => \DB::raw('CURRENT_TIMESTAMP')
         );
-        Localizacao::create($dadosLoc);
+        $loc_id = Localizacao::insertGetId($dadosLoc);
+
+        $centro = CentroPonto::findOrFail($centro_id);
+        $dadoCen2 = array(
+          'loc_id'          => $loc_id
+        );
+        $centro->update($dadoCen2);
+
 
         return redirect()->route('CentroPonto')->with(['success'=>'Centro ou Ponto de Ônibus adicionado com sucesso.']);
     }
@@ -72,7 +80,7 @@ class CentroPontoController extends Controller
     public function edit($id)
     {
           $centroeponto = CentroPonto::findOrFail($id);
-          $localizacao = \DB::table('localizacao')->where('created_at', '>=', $centroeponto->created_at)->first();
+          $localizacao = Localizacao::findOrFail($centroeponto->loc_id);
           return view ("auth.localizacao.centroeponto.edit", compact('centroeponto','localizacao'));
 
     }
@@ -118,10 +126,9 @@ class CentroPontoController extends Controller
     public function destroy($id)
     {
       $id_delete = CentroPonto::findOrFail($id);
-      $localizacao = \DB::table('localizacao')->where('created_at', '>=', $id_delete->created_at)->first();
-      $local = Localizacao::findOrFail($localizacao->id);
+      $local = Localizacao::findOrFail($centroeponto->loc_id);
 
-      $local->destroy($localizacao->id);
+      $local->destroy($centroeponto->loc_id);
       $id_delete->destroy($id);
 
       return redirect()->route("CentroPonto")->with(['success'=>'Centro ou Ponto de Ônibus deletado com sucesso.']);

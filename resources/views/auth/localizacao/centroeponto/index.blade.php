@@ -29,7 +29,7 @@
         <tr>
           <td>{{$centroeponto->id}}</td>
           <td>{{$centroeponto->descricao}}</td>
-          <td></td>
+          <td>{{App\CentroPonto::getLatitude($centroeponto->id)}}, {{App\CentroPonto::getLongitude($centroeponto->id)}}</td>
           <td>
             <form action="{{ route('DestroyCentroPonto', $centroeponto->id) }}" method="post">
               {{csrf_field()}}
