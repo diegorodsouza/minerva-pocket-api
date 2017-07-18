@@ -32,7 +32,7 @@
           <td>{{$local->id}}</td>
           <td>{{$local->nome}}</td>
           <td>{{$local->preco}}</td>
-          <td>{{$this->getLocalizacao($local->id)}}</td>
+          <td>{{App\Alimentacao::getLocalizacao($local->id)}}</td>
           <td>{{$local->imagem}}</td>
           <td>
             <!-- <form action="{{ route('DestroyAlimentacao', $local->id) }}" method="post">
