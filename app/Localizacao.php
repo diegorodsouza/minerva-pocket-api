@@ -14,7 +14,7 @@ class Localizacao extends Model
     'centro_ponto_id','latitude','longitude'
   ];
 
-  function getCentro($id){
+  public static function getCentro($id){
     $local = Localizacao::findOrFail($id);
     $centro = Centro::findOrFail($local->centro_ponto_id);
     return $centro->descricao;

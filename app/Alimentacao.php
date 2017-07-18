@@ -13,7 +13,7 @@ class Alimentacao extends Model
     'nome','funcionamento','preco','imagem','localizacao'
   ];
 
-  function getLocalizacao($id){
+  public static function getLocalizacao($id){
     $alimentacao = Alimentacao::findOrFail($id);
     $local = Localizacao::findOrFail($alimentacao->localizacao);
     $centro = Localizacao::getCentro($local->id);
