@@ -38,6 +38,12 @@
         @foreach ($centros as $centro)
           <input type="radio" name="centro" value='{{$centro->id}}'> {{$centro->descricao}}<br>
         @endforeach
+
+        <label for="tipodepagamento">Formas de Pagamento Aceitas</label><br>
+        @foreach ($tiposdepagamentos as $tipodepagamento)
+          <input type="checkbox" name="tipodepagamento" value='{{$tipodepagamento->id}}'> {{$tipodepagamento->descricao}}<br>
+        @endforeach
+        
       </div>
       <div class="form-group">
         <input type="submit" value="Salvar" class="btn btn-success">

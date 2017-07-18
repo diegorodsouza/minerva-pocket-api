@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Alimentacao;
 use App\Localizacao;
 use App\CentroPonto;
+use App\TipoDeComida;
+use App\TipoDePagamento;
 use DB;
 
 class AlimentacaoController extends Controller
@@ -24,7 +26,9 @@ class AlimentacaoController extends Controller
     public function index()
     {
       $locais = Alimentacao::orderBy('id', 'asc')->get();
-      return view ("auth.alimentacao.index", compact('locais'));
+      $tiposdepagamentos = TipoDePagamento::orderBy('id', 'asc')->get();
+      $tiposdecomidas = TipoDeComida::orderBy('id', 'asc')->get();
+      return view ("auth.alimentacao.index", compact(['locais','tiposdecomidas','tiposdepagamentos']));
 
     }
 
@@ -36,7 +40,9 @@ class AlimentacaoController extends Controller
     public function create()
     {
         $centros = DB::table('centro_ponto')->where('tipo', 'Centro')->get();
-        return view ("auth.alimentacao.create",compact('centros'));
+        $tiposdepagamentos = TipoDePagamento::orderBy('id', 'asc')->get();
+        $tiposdecomidas = TipoDeComida::orderBy('id', 'asc')->get();
+        return view ("auth.alimentacao.create",compact(['centros','tiposdecomidas','tiposdepagamentos']));
     }
 
     /**
@@ -63,7 +69,18 @@ class AlimentacaoController extends Controller
           'imagem'        => $dados['imagem'],
           'localizacao'   => $local->centro_ponto_id
         );
-        Alimentacao::create($dadosAli);
+        $alimentacao_id = Alimentacao::insertGetId($dadosAli);
+
+        $dadosPag = array(
+          'tiposdepagamentos' => $dados['tipodepagamento']
+        );
+        
+        dd(dadosPag);
+
+        foreach ($dadosPag as $d) {
+          # code...
+        }
+
 
         return redirect()->route('Alimentacao')->with(['success'=>'Local de Alimentação adicionado com sucesso.']);
     }
