@@ -35,7 +35,7 @@ class AlimentacaoController extends Controller
      */
     public function create()
     {
-        $centros = DB::table('centro_ponto')->where('tipo', 'Centro');
+        $centros = DB::table('centro_ponto')->where('tipo', 'Centro')->get();
         return view ("auth.alimentacao.create",compact('centros'));
     }
 
