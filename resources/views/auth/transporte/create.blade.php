@@ -19,8 +19,8 @@
         <input type="text" name="linha" placeholder="Digite o nome da linha de ônibus" class="form-control">
 
         <label for="tipo">Tipo da Linha de Ônibus</label><br>
-        <input type="radio" name="tipo" value='Interno'> Interno<br>
-        <input type="radio" name="tipo" value='Externo'> Externo<br>
+        <input type="radio" name="tipo" value="Interno"> Interno<br>
+        <input type="radio" name="tipo" value="Externo"> Externo<br>
 
         <label for="preco">Preço da Passagem</label>
         <input type="text" name="preco" placeholder="Digite o preço padrão da passagem" class="form-control">

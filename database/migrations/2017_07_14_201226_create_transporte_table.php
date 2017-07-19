@@ -18,7 +18,7 @@ class CreateTransporteTable extends Migration
           $table->string('linha');
           $table->string('observacao')->nullable();
           $table->string('preco')->nullable();
-          $table->enum('tipo',['interno','externo']);
+          $table->enum('tipo',['Interno','Externo']);
           $table->string('funcionamento')->nullable();
           $table->string('imagem')->nullable();
           $table->timestamps();
