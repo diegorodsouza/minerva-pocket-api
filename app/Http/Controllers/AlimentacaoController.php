@@ -122,11 +122,11 @@ class AlimentacaoController extends Controller
           $tiposdepagamentos = TipoDePagamento::orderBy('descricao', 'asc')->get();
           $tiposdecomidas = TipoDeComida::orderBy('descricao', 'asc')->get();
           $alimentacao_tipos_pagamentos = AlimentacaoTipoPagamento::where('alimentacao_id', $id)->get();
-          $alimentacao_tipo_comida = AlimentacaoTipoComida::where('alimentacao_id', $id)->get();
+          $alimentacao_tipos_comidas = AlimentacaoTipoComida::where('alimentacao_id', $id)->get();
           return view ("auth.alimentacao.edit", compact(['alimentacao','localizacao','centros',
                                                         'tiposdepagamentos','tiposdecomidas',
                                                         'alimentacao_tipos_pagamentos',
-                                                        'alimentacao_tipo_comida']));
+                                                        'alimentacao_tipos_comidas']));
 
     }
 
