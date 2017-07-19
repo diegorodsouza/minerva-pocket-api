@@ -16,10 +16,10 @@ class CreateAlimentacaoTable extends Migration
       Schema::create('alimentacao', function (Blueprint $table) {
           $table->increments('id');
           $table->string('nome');
-          $table->string('funcionamento');
-          $table->string('preco');
+          $table->string('funcionamento')->nullable();
+          $table->string('preco')->nullable();
           $table->integer('localizacao');
-          $table->string('imagem');
+          $table->string('imagem')->nullable();
           $table->timestamps();
 
       });

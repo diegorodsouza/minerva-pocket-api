@@ -53,10 +53,11 @@ class TransporteController extends Controller
         // TRANSPORTE
 
         $dadosTra = array(
-          'linha'          => $dados['linha'],
+          'linha'         => $dados['linha'],
           'funcionamento' => $dados['funcionamento'],
           'preco'         => $dados['preco'],
           'imagem'        => $dados['imagem'],
+          'observacao'    => $dados['observacao'],
           'tipo'          => $dados['tipo']
         );
         $transporte_id = Transporte::insertGetId($dadosTra);
@@ -113,6 +114,7 @@ class TransporteController extends Controller
         'funcionamento' => $dados['funcionamento'],
         'preco'         => $dados['preco'],
         'imagem'        => $dados['imagem'],
+        'observacao'    => $dados['observacao'],
         'tipo'          => $dados['tipo']
       );
 

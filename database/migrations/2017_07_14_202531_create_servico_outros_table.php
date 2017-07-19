@@ -16,7 +16,7 @@ class CreateServicoOutrosTable extends Migration
       Schema::create('servico_outros', function (Blueprint $table) {
           $table->increments('id');
           $table->integer('servico_id');
-          $table->string('observacao');
+          $table->string('observacao')->nullable();
           $table->string('servico');
           $table->timestamps();
 

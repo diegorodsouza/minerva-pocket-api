@@ -17,8 +17,8 @@ class CreateServicoTable extends Migration
           $table->increments('id');
           $table->integer('localizacao');
           $table->string('nome');
-          $table->string('funcionamento');
-          $table->string('imagem');
+          $table->string('funcionamento')->nullable();
+          $table->string('imagem')->nullable();
           $table->timestamps();
 
       });

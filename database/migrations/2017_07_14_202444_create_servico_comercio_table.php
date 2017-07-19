@@ -16,8 +16,8 @@ class CreateServicoComercioTable extends Migration
       Schema::create('servico_comercio', function (Blueprint $table) {
           $table->increments('id');
           $table->integer('servico_id');
-          $table->string('especialidade');
-          $table->string('descricao');
+          $table->string('especialidade')->nullable();
+          $table->string('descricao')->nullable();
           $table->timestamps();
 
       });

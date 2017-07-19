@@ -16,11 +16,11 @@ class CreateTransporteTable extends Migration
       Schema::create('transporte', function (Blueprint $table) {
           $table->increments('id');
           $table->string('linha');
-          $table->string('observacao');
-          $table->string('preco');
+          $table->string('observacao')->nullable();
+          $table->string('preco')->nullable();
           $table->enum('tipo',['interno','externo']);
-          $table->string('funcionamento');
-          $table->string('imagem');
+          $table->string('funcionamento')->nullable();
+          $table->string('imagem')->nullable();
           $table->timestamps();
 
       });

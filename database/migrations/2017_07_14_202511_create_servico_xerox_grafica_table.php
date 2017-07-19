@@ -16,7 +16,7 @@ class CreateServicoXeroxGraficaTable extends Migration
       Schema::create('servico_xerox_grafica', function (Blueprint $table) {
           $table->increments('id');
           $table->integer('servico_id');
-          $table->string('observacao');
+          $table->string('observacao')->nullable();
           $table->enum('servico',['Xerox','Gráfica']);
           $table->timestamps();
 

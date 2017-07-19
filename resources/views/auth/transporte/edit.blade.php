@@ -37,6 +37,11 @@
         >{{$transporte->funcionamento}}
         </textarea>
 
+        <label for="observacao">Observações</label>
+        <textarea name="observacao" placeholder="Possíveis observações sobre essa linha..." class="form-control"
+        >{{$transporte->observacao}}
+        </textarea>
+
         <label for="ponto">Pontos em que essa Linha de ônibus passa</label><br>
         @foreach ($pontos as $ponto)
 

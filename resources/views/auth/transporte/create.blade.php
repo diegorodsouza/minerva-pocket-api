@@ -32,6 +32,10 @@
         <textarea name="funcionamento" placeholder="Descreva os horários de funcionamento da linha de ônibus" class="form-control">
         </textarea>
 
+        <label for="observacao">Observações</label>
+        <textarea name="observacao" placeholder="Possíveis observações sobre essa linha..." class="form-control">
+        </textarea>
+
         <label for="ponto">Pontos em que essa Linha de ônibus passa</label><br>
         @foreach ($pontos as $ponto)
           <input type="checkbox" name="ponto[]" value='{{$ponto->id}}'> {{$ponto->descricao}}<br>
