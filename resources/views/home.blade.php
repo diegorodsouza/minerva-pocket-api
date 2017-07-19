@@ -21,6 +21,7 @@
                   <h3>Acadêmico</h3>
                   <ul>
                     <li><a href="{{ route('TipoDeAcademico') }}"> Gerir Tipos de Serviço Acadêmico</a></li>
+                    <li><a href="{{ route('Academico') }}"> Gerir Serviços Acadêmicos</a></li>
                   </ul>
                 </div>
             </div>
