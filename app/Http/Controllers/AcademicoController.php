@@ -127,7 +127,7 @@ class AcademicoController extends Controller
         'imagem'        => $dados['imagem'],
         'observacao'    => $dados['observacao'],
         'contato'       => $dados['contato'],
-        'localizacao'   => $local_id,
+        'localizacao'   => $local->id,
         'tipo'          => intval($dados['tipo'])
       );
 
