@@ -124,6 +124,7 @@ class AlimentacaoController extends Controller
           $alimentacao_tipos_pagamentos = AlimentacaoTipoPagamento::where('alimentacao_id', $id)->get();
           $alimentacao_tipo_comida = AlimentacaoTipoComida::where('alimentacao_id', $id)->get();
           return view ("auth.alimentacao.edit", compact(['alimentacao','localizacao','centros',
+                                                        'tiposdepagamentos','tiposdecomidas',
                                                         'alimentacao_tipos_pagamentos',
                                                         'alimentacao_tipo_comida']));
 
