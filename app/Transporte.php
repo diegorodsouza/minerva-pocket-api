@@ -10,6 +10,6 @@ class Transporte extends Model
   protected $table = 'transporte';
 
   protected $fillable = [
-    'linha','funcionamento','preco','imagem','tipo'
+    'linha','funcionamento','preco','imagem','tipo','observacao'
   ];
 }
