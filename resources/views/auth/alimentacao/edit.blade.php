@@ -48,18 +48,32 @@
         @endforeach
 
         <label for="tipodepagamento">Formas de Pagamento Aceitas</label><br>
-          @foreach ($alimentacao_tipos_pagamentos as $alimentacao_tipo_pagamento)
-            <input type="checkbox" name="tipodepagamento[]" value='{{$tipodepagamento->id}}'
-              <?php if($tipodepagamento->id == $alimentacao_tipo_pagamento->tipo_pagamento_id) echo 'checked' ?>
-            > {{$tipodepagamento->descricao}}<br>
-          @endforeach
+        @foreach ($tiposdepagamentos as $tipodepagamento)
 
-        <label for="tipodecomida">Tipos de Serviço de Comida</label><br>
-          @foreach ($alimentacao_tipos_comidas as $alimentacao_tipo_comida)
-            <input type="checkbox" name="tipodecomida[]" value='{{$tipodecomida->id}}'
-              <?php if($tipodecomida->id == $alimentacao_tipo_comida->tipo_comida_id) echo 'checked' ?>
-            > {{$tipodecomida->descricao}}<br>
-          @endforeach
+          <input type="checkbox" name="tipodepagamento[]" value='{{$tipodepagamento->id}}'
+          <?php
+            foreach ($alimentacao_tipos_pagamentos as $alimentacao_tipo_pagamento)
+              if($tipodepagamento->id == $alimentacao_tipo_pagamento->tipo_pagamento_id)
+                echo 'checked'
+            endforeach
+           ?>
+          > {{$tipodepagamento->descricao}}<br>
+
+        @endforeach
+
+        <label for="tipodecomida">Tipos de Serviço de Comida Disponíveis</label><br>
+        @foreach ($tiposdecomidas as $tipodecomida)
+
+          <input type="checkbox" name="tipodecomida[]" value='{{$tipodecomida->id}}'
+            <?php
+              foreach ($alimentacao_tipos_comidas as $alimentacao_tipo_comida)
+                if($tipodecomida->id == $alimentacao_tipo_comida->tipo_comida_id)
+                  echo 'checked'
+              endforeach
+             ?>
+          > {{$tipodecomida->descricao}}<br>
+
+        @endforeach
 
       </div>
       <div class="form-group">
