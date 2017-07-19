@@ -141,7 +141,7 @@ class AlimentacaoController extends Controller
     {
       $dados = $request->all();
 
-      $id = Alimentacao::findOrFail($id);
+      $alimentacao = Alimentacao::findOrFail($id);
 
       // LOCALIZAÇÃO
 
@@ -151,7 +151,7 @@ class AlimentacaoController extends Controller
         'centro_ponto_id' => intval($dados['centro'])
       );
 
-      $local = Localizacao::findOrFail($id->localizacao);
+      $local = Localizacao::findOrFail($alimentacao->localizacao);
 
       $local->update($dadosLoc);
 
@@ -165,7 +165,7 @@ class AlimentacaoController extends Controller
         'localizacao'   => $local->id
       );
 
-      $id->update($dadosAli);
+      $alimentacao->update($dadosAli);
 
       // FORMA DE PAGAMENTO
 
@@ -177,7 +177,7 @@ class AlimentacaoController extends Controller
 
       for ($id=0; $id < count($dadosPag['tiposdepagamentos']); $id++) {
         $tupla1 = array(
-          'alimentacao_id'    => $alimentacao_id,
+          'alimentacao_id'    => $alimentacao->id,
           'tipo_pagamento_id' => $dadosPag['tiposdepagamentos'][$id]
         );
         AlimentacaoTipoPagamento::create($tupla1);
@@ -193,7 +193,7 @@ class AlimentacaoController extends Controller
 
       for ($id=0; $id < count($dadosCom['tiposdecomidas']); $id++) {
         $tupla2 = array(
-          'alimentacao_id' => $alimentacao_id,
+          'alimentacao_id' => $alimentacao->id,
           'tipo_comida_id' => $dadosCom['tiposdecomidas'][$id]
         );
         AlimentacaoTipoComida::create($tupla2);
