@@ -24,7 +24,7 @@ class TransporteController extends Controller
 
     public function index()
     {
-      $transportes = Transporte::orderBy('nome', 'asc')->get();
+      $transportes = Transporte::orderBy('linha', 'asc')->get();
       return view ("auth.transporte.index", compact(['transportes']));
 
     }
