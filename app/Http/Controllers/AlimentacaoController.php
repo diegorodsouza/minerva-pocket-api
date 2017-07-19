@@ -161,9 +161,9 @@ class AlimentacaoController extends Controller
     public function destroy($id)
     {
       $alimentacao = Alimentacao::findOrFail($id);
-      $tupla_localizacao = Localizacao::where("id", $alimentacao->localizacao)->delete()
-      $tuplas_pagamento = AlimentacaoTipoPagamento::where("alimentacao_id", $alimentacao->id)->delete()
-      $tuplas_comida = AlimentacaoTipoComida::where("alimentacao_id", $alimentacao->id)->delete()
+      $tupla_localizacao = Localizacao::where("id", $alimentacao->localizacao)->delete();
+      $tuplas_pagamento = AlimentacaoTipoPagamento::where("alimentacao_id", $alimentacao->id)->delete();
+      $tuplas_comida = AlimentacaoTipoComida::where("alimentacao_id", $alimentacao->id)->delete();
       $alimentacao->destroy($id);
 
       return redirect()->route("Alimentacao")->with(['success'=>'Local de Alimentação deletado com sucesso.']);
