@@ -22,24 +22,16 @@ class AlterAlimentacaoTable extends Migration
 
       Schema::table('alimentacao_tipo_comida', function (Blueprint $table) {
           $table->foreign('alimentacao_id')
-                ->references('id')->on('alimentacao')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
+                ->references('id')->on('alimentacao');
           $table->foreign('tipo_comida_id')
-                ->references('id')->on('tipo_de_comida')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
+                ->references('id')->on('tipo_de_comida');
       });
 
       Schema::table('alimentacao_tipo_pagamento', function (Blueprint $table) {
           $table->foreign('alimentacao_id')
-                ->references('id')->on('alimentacao')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
+                ->references('id')->on('alimentacao');
           $table->foreign('tipo_pagamento_id')
-                ->references('id')->on('tipo_de_pagamento')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
+                ->references('id')->on('tipo_de_pagamento');
       });
     }
 

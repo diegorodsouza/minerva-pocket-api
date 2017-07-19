@@ -18,6 +18,6 @@ class Alimentacao extends Model
     $local = Localizacao::findOrFail($alimentacao->localizacao);
     $centro = Localizacao::getCentro($local->id);
     return $centro;
-
   }
+
 }

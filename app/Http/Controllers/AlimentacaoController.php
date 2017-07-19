@@ -63,13 +63,12 @@ class AlimentacaoController extends Controller
           'centro_ponto_id' => intval($dados['centro'])
         );
         $local_id = Localizacao::insertGetId($dadosLoc);
-        $local = Localizacao::findOrFail($local_id);
         $dadosAli = array(
           'nome'          => $dados['nome'],
           'funcionamento' => $dados['funcionamento'],
           'preco'         => $dados['preco'],
           'imagem'        => $dados['imagem'],
-          'localizacao'   => $local->centro_ponto_id
+          'localizacao'   => $local_id
         );
         $alimentacao_id = Alimentacao::insertGetId($dadosAli);
 
@@ -111,6 +110,8 @@ class AlimentacaoController extends Controller
           $alimentacao = Alimentacao::findOrFail($id);
           $localizacao = Localizacao::findOrFail($alimentacao->localizacao);
           $centros = DB::table('centro_ponto')->where('tipo', 'Centro')->get();
+          $tiposdepagamentos = TipoDePagamento::orderBy('id', 'asc')->get();
+          $tiposdecomidas = TipoDeComida::orderBy('id', 'asc')->get();
           return view ("auth.alimentacao.edit", compact(['alimentacao','localizacao','centros']));
 
     }
@@ -143,7 +144,7 @@ class AlimentacaoController extends Controller
         'funcionamento' => $dados['funcionamento'],
         'preco'         => $dados['preco'],
         'imagem'        => $dados['imagem'],
-        'localizacao'   => $local->centro_ponto_id
+        'localizacao'   => $local->id
       );
 
       $id->update($dadosAli);
@@ -159,11 +160,11 @@ class AlimentacaoController extends Controller
      */
     public function destroy($id)
     {
-      $id_delete = Alimentacao::findOrFail($id);
-      $local = Localizacao::findOrFail($id_delete->localizacao);
-      $local_id = $local->id;
-      $local->destroy($local->id);
-      $id_delete->destroy($id);
+      $alimentacao = Alimentacao::findOrFail($id);
+      $tupla_localizacao = Localizacao::where("id", $alimentacao->localizacao)->delete()
+      $tuplas_pagamento = AlimentacaoTipoPagamento::where("alimentacao_id", $alimentacao->id)->delete()
+      $tuplas_comida = AlimentacaoTipoComida::where("alimentacao_id", $alimentacao->id)->delete()
+      $alimentacao->destroy($id);
 
       return redirect()->route("Alimentacao")->with(['success'=>'Local de Alimentação deletado com sucesso.']);
     }
