@@ -43,8 +43,8 @@
 
         <label for="centro">Localização - Centro</label><br>
         @foreach ($centros as $centro)
-          <input type="radio" name="centro" value='{{$centro->id}}'<?php if($localizacao->id == $centro->id) echo 'checked' ?>
-          >{{$centro->descricao}}<br>
+          <input type="radio" name="centro" value='{{$centro->id}}'<?php if($localizacao->centro_ponto_id == $centro->id) echo 'checked' ?>
+          > {{$centro->descricao}}<br>
         @endforeach
 
         <label for="tipodepagamento">Formas de Pagamento Aceitas</label><br>
@@ -58,7 +58,7 @@
           @endforeach
         @endforeach
 
-        <label for="tipodecomida">Tipos de Serviço de Comida Disponíveis</label><br>
+        <label for="tipodecomida">Tipos de Serviço de Comida</label><br>
         @foreach ($tiposdecomidas as $tipodecomida)
           @foreach ($alimentacao_tipos_comidas as $alimentacao_tipo_comida)
 
@@ -68,7 +68,6 @@
 
           @endforeach
         @endforeach
-
 
       </div>
       <div class="form-group">
