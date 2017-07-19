@@ -27,7 +27,7 @@ class AlimentacaoController extends Controller
 
     public function index()
     {
-      $locais = Alimentacao::orderBy('id', 'asc')->get();
+      $locais = Alimentacao::orderBy('nome', 'asc')->get();
       $tiposdepagamentos = TipoDePagamento::orderBy('id', 'asc')->get();
       $tiposdecomidas = TipoDeComida::orderBy('id', 'asc')->get();
       return view ("auth.alimentacao.index", compact(['locais','tiposdecomidas','tiposdepagamentos']));
@@ -42,8 +42,8 @@ class AlimentacaoController extends Controller
     public function create()
     {
         $centros = DB::table('centro_ponto')->where('tipo', 'Centro')->get();
-        $tiposdepagamentos = TipoDePagamento::orderBy('id', 'asc')->get();
-        $tiposdecomidas = TipoDeComida::orderBy('id', 'asc')->get();
+        $tiposdepagamentos = TipoDePagamento::orderBy('descricao', 'asc')->get();
+        $tiposdecomidas = TipoDeComida::orderBy('descricao', 'asc')->get();
         return view ("auth.alimentacao.create",compact(['centros','tiposdecomidas','tiposdepagamentos']));
     }
 
@@ -57,12 +57,17 @@ class AlimentacaoController extends Controller
     {
         $dados = $request->all();
 
+        // LOCALIZAÇÃO
+
         $dadosLoc = array(
           'latitude'        => $dados['latitude'],
           'longitude'       => $dados['longitude'],
           'centro_ponto_id' => intval($dados['centro'])
         );
         $local_id = Localizacao::insertGetId($dadosLoc);
+
+        // ALIMENTAÇÃO
+
         $dadosAli = array(
           'nome'          => $dados['nome'],
           'funcionamento' => $dados['funcionamento'],
@@ -71,6 +76,8 @@ class AlimentacaoController extends Controller
           'localizacao'   => $local_id
         );
         $alimentacao_id = Alimentacao::insertGetId($dadosAli);
+
+        // FORMA DE PAGAMENTO
 
         $dadosPag = array(
           'tiposdepagamentos' => $dados['tipodepagamento']
@@ -83,6 +90,8 @@ class AlimentacaoController extends Controller
           );
           AlimentacaoTipoPagamento::create($tupla1);
         }
+
+        // TIPO DE COMIDA
 
         $dadosCom = array(
           'tiposdecomidas' => $dados['tipodecomida']
@@ -110,9 +119,13 @@ class AlimentacaoController extends Controller
           $alimentacao = Alimentacao::findOrFail($id);
           $localizacao = Localizacao::findOrFail($alimentacao->localizacao);
           $centros = DB::table('centro_ponto')->where('tipo', 'Centro')->get();
-          $tiposdepagamentos = TipoDePagamento::orderBy('id', 'asc')->get();
-          $tiposdecomidas = TipoDeComida::orderBy('id', 'asc')->get();
-          return view ("auth.alimentacao.edit", compact(['alimentacao','localizacao','centros']));
+          $tiposdepagamentos = TipoDePagamento::orderBy('descricao', 'asc')->get();
+          $tiposdecomidas = TipoDeComida::orderBy('descricao', 'asc')->get();
+          $alimentacao_tipos_pagamentos = AlimentacaoTipoPagamento::where('alimentacao_id', $id)->get();
+          $alimentacao_tipo_comida = AlimentacaoTipoComida::where('alimentacao_id', $id)->get();
+          return view ("auth.alimentacao.edit", compact(['alimentacao','localizacao','centros',
+                                                        'alimentacao_tipos_pagamentos',
+                                                        'alimentacao_tipo_comida']));
 
     }
 
@@ -129,6 +142,8 @@ class AlimentacaoController extends Controller
 
       $id = Alimentacao::findOrFail($id);
 
+      // LOCALIZAÇÃO
+
       $dadosLoc = array(
         'latitude'        => $dados['latitude'],
         'longitude'       => $dados['longitude'],
@@ -139,6 +154,8 @@ class AlimentacaoController extends Controller
 
       $local->update($dadosLoc);
 
+      // ALIMENTAÇÃO
+
       $dadosAli = array(
         'nome'          => $dados['nome'],
         'funcionamento' => $dados['funcionamento'],
@@ -148,6 +165,38 @@ class AlimentacaoController extends Controller
       );
 
       $id->update($dadosAli);
+
+      // FORMA DE PAGAMENTO
+
+      $tuplas_pagamento = AlimentacaoTipoPagamento::where("alimentacao_id", $id)->delete();
+
+      $dadosPag = array(
+        'tiposdepagamentos' => $dados['tipodepagamento']
+      );
+
+      for ($id=0; $id < count($dadosPag['tiposdepagamentos']); $id++) {
+        $tupla1 = array(
+          'alimentacao_id'    => $alimentacao_id,
+          'tipo_pagamento_id' => $dadosPag['tiposdepagamentos'][$id]
+        );
+        AlimentacaoTipoPagamento::create($tupla1);
+      }
+
+      // TIPO DE COMIDA
+
+      $tuplas_comida = AlimentacaoTipoComida::where("alimentacao_id", $alimentacao->id)->delete();
+
+      $dadosCom = array(
+        'tiposdecomidas' => $dados['tipodecomida']
+      );
+
+      for ($id=0; $id < count($dadosCom['tiposdecomidas']); $id++) {
+        $tupla2 = array(
+          'alimentacao_id' => $alimentacao_id,
+          'tipo_comida_id' => $dadosCom['tiposdecomidas'][$id]
+        );
+        AlimentacaoTipoComida::create($tupla2);
+      }
 
       return redirect()->route("Alimentacao")->with(['success'=>'Local de Alimentação editado com sucesso.']);
     }
