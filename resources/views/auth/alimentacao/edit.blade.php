@@ -60,7 +60,7 @@
 
         <label for="tipodecomida">Tipos de Serviço de Comida Disponíveis</label><br>
         @foreach ($tiposdecomidas as $tipodecomida)
-          @foreach ($alimentacao_tipos_comidass as $alimentacao_tipo_comida)
+          @foreach ($alimentacao_tipos_comidas as $alimentacao_tipo_comida)
 
           <input type="checkbox" name="tipodecomida[]" value='{{$tipodecomida->id}}'
             <?php if($tipodecomida->id == $alimentacao_tipo_comida->tipo_comida_id) echo 'checked' ?>
