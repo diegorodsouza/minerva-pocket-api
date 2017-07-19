@@ -55,8 +55,6 @@
             foreach ($alimentacao_tipos_pagamentos as $alimentacao_tipo_pagamento)
               if($tipodepagamento->id == $alimentacao_tipo_pagamento->tipo_pagamento_id)
                 echo 'checked';
-              endif
-            endforeach
            ?>
           > {{$tipodepagamento->descricao}}<br>
 
@@ -70,8 +68,6 @@
               foreach ($alimentacao_tipos_comidas as $alimentacao_tipo_comida)
                 if($tipodecomida->id == $alimentacao_tipo_comida->tipo_comida_id)
                   echo 'checked';
-                endif
-              endforeach
              ?>
           > {{$tipodecomida->descricao}}<br>
 
