@@ -23,6 +23,10 @@
                     <li><a href="{{ route('TipoDeAcademico') }}"> Gerir Tipos de Serviço Acadêmico</a></li>
                     <li><a href="{{ route('Academico') }}"> Gerir Serviços Acadêmicos</a></li>
                   </ul>
+                  <h3>Transporte</h3>
+                  <ul>
+                    <li><a href="{{ route('Transporte') }}"> Gerir Linhas de Ônibus</a></li>
+                  </ul>
                 </div>
             </div>
         </div>

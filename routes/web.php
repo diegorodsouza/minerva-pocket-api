@@ -60,3 +60,10 @@ Route::post('/create_academico', 'AcademicoController@store')->name('StoreAcadem
 Route::get('/edit_academico/{id}', 'AcademicoController@edit')->name('EditAcademico');
 Route::put('/edit_academico/{id}', 'AcademicoController@update')->name('UpdateAcademico');
 Route::delete('/destroy_academico/{id}', 'AcademicoController@destroy')->name('DestroyAcademico');
+
+Route::get('/transporte', 'TransporteController@index')->name('Transporte');
+Route::get('/create_transporte', 'TransporteController@create')->name('CreateTransporte');
+Route::post('/create_transporte', 'TransporteController@store')->name('StoreTransporte');
+Route::get('/edit_transporte/{id}', 'TransporteController@edit')->name('EditTransporte');
+Route::put('/edit_transporte/{id}', 'TransporteController@update')->name('UpdateTransporte');
+Route::delete('/destroy_transporte/{id}', 'TransporteController@destroy')->name('DestroyTransporte');
