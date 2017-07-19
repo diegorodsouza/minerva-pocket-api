@@ -48,7 +48,7 @@
           <input type="checkbox" name="ponto[]" value='{{$ponto->id}}'
           <?php
             foreach ($transportes_localizacoes as $transporte_localizacao)
-              if($ponto->id == $transporte_localizacao->ponto_id)
+              if($ponto->id == $transporte_localizacao->localizacao_id)
                 echo 'checked';
            ?>
           > {{$ponto->descricao}}<br>
