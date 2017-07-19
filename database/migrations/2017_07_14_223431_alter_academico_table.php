@@ -19,9 +19,7 @@ class AlterAcademicoTable extends Migration
               ->onDelete('cascade')
               ->onUpdate('cascade');
         $table->foreign('tipo')
-              ->references('id')->on('tipo_de_academico')
-              ->onDelete('cascade')
-              ->onUpdate('cascade');
+              ->references('id')->on('tipo_de_academico');
       });
     }
 

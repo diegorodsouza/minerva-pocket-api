@@ -53,3 +53,10 @@ Route::post('/create_alimentacao', 'AlimentacaoController@store')->name('StoreAl
 Route::get('/edit_alimentacao/{id}', 'AlimentacaoController@edit')->name('EditAlimentacao');
 Route::put('/edit_alimentacao/{id}', 'AlimentacaoController@update')->name('UpdateAlimentacao');
 Route::delete('/destroy_alimentacao/{id}', 'AlimentacaoController@destroy')->name('DestroyAlimentacao');
+
+Route::get('/academico', 'AcademicoController@index')->name('Academico');
+Route::get('/create_academico', 'AcademicoController@create')->name('CreateAcademico');
+Route::post('/create_academico', 'AcademicoController@store')->name('StoreAcademico');
+Route::get('/edit_academico/{id}', 'AcademicoController@edit')->name('EditAcademico');
+Route::put('/edit_academico/{id}', 'AcademicoController@update')->name('UpdateAcademico');
+Route::delete('/destroy_academico/{id}', 'AcademicoController@destroy')->name('DestroyAcademico');
