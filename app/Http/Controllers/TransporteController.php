@@ -68,9 +68,10 @@ class TransporteController extends Controller
           'pontos' => $dados['ponto']
         );
 
+        dd($dadosLoc['pontos']);
         for ($id=0; $id < count($dadosLoc['pontos']); $id++) {
           $tupla = array(
-            'transporte_id'    => $transporte_id,
+            'transporte_id'  => $transporte_id,
             'localizacao_id' => $dadosLoc['pontos'][$id]
           );
           TransporteLocalizacao::create($tupla);
