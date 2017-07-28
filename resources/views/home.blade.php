@@ -27,6 +27,13 @@
                   <ul>
                     <li><a href="{{ route('Transporte') }}"> Gerir Linhas de Ônibus</a></li>
                   </ul>
+                  <h3>Serviços</h3>
+                  <ul>
+                    <li><a href="{{ route('ServicoBanco') }}"> Gerir Caixas Eletrônicos e Agências Bancárias</a></li>
+                    <li><a href="{{ route('ServicoComercio') }}"> Gerir Estabelecimentos Comercias</a></li>
+                    <li><a href="{{ route('ServicoXeroxGrafica') }}"> Gerir Xerox e Gráficas</a></li>
+                    <li><a href="{{ route('ServicoOutro') }}"> Gerir Outros Serviços</a></li>
+                  </ul>
                 </div>
             </div>
         </div>
