@@ -67,3 +67,31 @@ Route::post('/create_transporte', 'TransporteController@store')->name('StoreTran
 Route::get('/edit_transporte/{id}', 'TransporteController@edit')->name('EditTransporte');
 Route::put('/edit_transporte/{id}', 'TransporteController@update')->name('UpdateTransporte');
 Route::delete('/destroy_transporte/{id}', 'TransporteController@destroy')->name('DestroyTransporte');
+
+Route::get('/servico_banco', 'ServicoController@indexBanco')->name('ServicoBanco');
+Route::get('/create_servico_banco', 'ServicoController@createBanco')->name('CreateServicoBanco');
+Route::post('/create_servico_banco', 'ServicoController@storeBanco')->name('StoreServicoBanco');
+Route::get('/edit_servico_banco/{id}', 'ServicoController@editBanco')->name('EditServicoBanco');
+Route::put('/edit_servico_banco/{id}', 'ServicoController@updateBanco')->name('UpdateServicoBanco');
+Route::delete('/destroy_servico_banco/{id}', 'ServicoController@destroyBanco')->name('DestroyServicoBanco');
+
+Route::get('/servico_comercio', 'ServicoController@indexComercio')->name('ServicoComercio');
+Route::get('/create_servico_comercio', 'ServicoController@createComercio')->name('CreateServicoComercio');
+Route::post('/create_servico_comercio', 'ServicoController@storeComercio')->name('StoreServicoComercio');
+Route::get('/edit_servico_comercio/{id}', 'ServicoController@editComercio')->name('EditServicoComercio');
+Route::put('/edit_servico_comercio/{id}', 'ServicoController@updateComercio')->name('UpdateServicoComercio');
+Route::delete('/destroy_servico_comercio/{id}', 'ServicoController@destroyComercio')->name('DestroyServicoComercio');
+
+Route::get('/servico_outro', 'ServicoController@indexOutro')->name('ServicoOutro');
+Route::get('/create_servico_outro', 'ServicoController@createOutro')->name('CreateServicoOutro');
+Route::post('/create_servico_outro', 'ServicoController@storeOutro')->name('StoreServicoOutro');
+Route::get('/edit_servico_outro/{id}', 'ServicoController@editOutro')->name('EditServicoOutro');
+Route::put('/edit_servico_outro/{id}', 'ServicoController@updateOutro')->name('UpdateServicoOutro');
+Route::delete('/destroy_servico_outro/{id}', 'ServicoController@destroyOutro')->name('DestroyServicoOutro');
+
+Route::get('/servico_xerox_grafica', 'ServicoController@indexXeroxGrafica')->name('ServicoXeroxGrafica');
+Route::get('/create_servico_xerox_grafica', 'ServicoController@createXeroxGrafica')->name('CreateServicoXeroxGrafica');
+Route::post('/create_servico_xerox_grafica', 'ServicoController@storeXeroxGrafica')->name('StoreServicoXeroxGrafica');
+Route::get('/edit_servico_xerox_grafica/{id}', 'ServicoController@editXeroxGrafica')->name('EditServicoXeroxGrafica');
+Route::put('/edit_servico_xerox_grafica/{id}', 'ServicoController@updateXeroxGrafica')->name('UpdateServicoXeroxGrafica');
+Route::delete('/destroy_servico_xerox_grafica/{id}', 'ServicoController@destroyXeroxGrafica')->name('DestroyServicoXeroxGrafica');

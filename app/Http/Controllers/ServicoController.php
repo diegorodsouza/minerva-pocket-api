@@ -13,11 +13,6 @@ use DB;
 
 class ServicoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
 
     public function __construct()
     {
@@ -48,7 +43,7 @@ class ServicoController extends Controller
 
     }
 
-    public function indexOutro()
+    public function indexXeroxGrafica()
     {
       $xerox_graficas = ServicoXeroxGrafica::orderBy('nome', 'asc')->get();
       $servicos = Servico::orderBy('id', 'asc')->get();
@@ -56,26 +51,33 @@ class ServicoController extends Controller
 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function createBanco()
     {
         $centros = DB::table('centro_ponto')->where('tipo', 'Centro')->get();
-        $tiposdepagamentos = TipoDePagamento::orderBy('descricao', 'asc')->get();
-        $tiposdecomidas = TipoDeComida::orderBy('descricao', 'asc')->get();
-        return view ("auth.alimentacao.create",compact(['centros','tiposdecomidas','tiposdepagamentos']));
+        return view ("auth.servico.banco.create",compact(['centros']));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function createComercio()
+    {
+        $centros = DB::table('centro_ponto')->where('tipo', 'Centro')->get();
+        return view ("auth.servico.comercio.create",compact(['centros']));
+    }
+
+    public function createOutro()
+    {
+        $centros = DB::table('centro_ponto')->where('tipo', 'Centro')->get();
+        return view ("auth.servico.outro.create",compact(['centros']));
+    }
+
+    public function createXeroxGrafica()
+    {
+        $centros = DB::table('centro_ponto')->where('tipo', 'Centro')->get();
+        return view ("auth.servico.xerox_grafica.create",compact(['centros']));
+    }
+
+
+    public function storeBanco(Request $request)
     {
         $dados = $request->all();
 
@@ -88,82 +90,196 @@ class ServicoController extends Controller
         );
         $local_id = Localizacao::insertGetId($dadosLoc);
 
-        // ALIMENTAÇÃO
+        // SERVIÇO
 
-        $dadosAli = array(
-          'nome'          => $dados['nome'],
-          'funcionamento' => $dados['funcionamento'],
-          'preco'         => $dados['preco'],
-          'imagem'        => $dados['imagem'],
+        $dadosServ = array(
           'localizacao'   => $local_id
-        );
-        $alimentacao_id = Alimentacao::insertGetId($dadosAli);
-
-        // FORMA DE PAGAMENTO
-
-        $dadosPag = array(
-          'tiposdepagamentos' => $dados['tipodepagamento']
+          'funcionamento' => $dados['funcionamento'],
+          'nome'          => $dados['nome'],
+          'imagem'        => $dados['imagem'],
         );
 
-        for ($id=0; $id < count($dadosPag['tiposdepagamentos']); $id++) {
-          $tupla1 = array(
-            'alimentacao_id'    => $alimentacao_id,
-            'tipo_pagamento_id' => $dadosPag['tiposdepagamentos'][$id]
-          );
-          AlimentacaoTipoPagamento::create($tupla1);
-        }
+        $serv_id = Servico::insertGetId($dadosServ);
 
-        // TIPO DE COMIDA
+        // SERVIÇO BANCÁRIO
+
+        $dadosBanc = array(
+          'servico_id'         => $serv_id,
+          'bandeira'           => $dados['bandeira'],
+          'tipo'               => $dados['tipo'],
+        );
+
+        ServicoBanco::create($dadosBanc);
+
+        return redirect()->route('ServicoBanco')->with(['success'=>'Serviço Bancário adicionado com sucesso.']);
+    }
+
+    public function storeComercio(Request $request)
+    {
+        $dados = $request->all();
+
+        // LOCALIZAÇÃO
+
+        $dadosLoc = array(
+          'latitude'        => $dados['latitude'],
+          'longitude'       => $dados['longitude'],
+          'centro_ponto_id' => intval($dados['centro'])
+        );
+        $local_id = Localizacao::insertGetId($dadosLoc);
+
+        // SERVIÇO
+
+        $dadosServ = array(
+          'localizacao'   => $local_id
+          'funcionamento' => $dados['funcionamento'],
+          'nome'          => $dados['nome'],
+          'imagem'        => $dados['imagem'],
+        );
+
+        $serv_id = Servico::insertGetId($dadosServ);
+
+        // SERVIÇO BANCÁRIO
 
         $dadosCom = array(
-          'tiposdecomidas' => $dados['tipodecomida']
+          'servico_id'         => $serv_id,
+          'especialidade'      => $dados['especialidade'],
+          'observacao'         => $dados['observacao'],
         );
 
-        for ($id=0; $id < count($dadosCom['tiposdecomidas']); $id++) {
-          $tupla2 = array(
-            'alimentacao_id' => $alimentacao_id,
-            'tipo_comida_id' => $dadosCom['tiposdecomidas'][$id]
-          );
-          AlimentacaoTipoComida::create($tupla2);
-        }
+        ServicoComercio::create($dadosCom);
 
-        return redirect()->route('Alimentacao')->with(['success'=>'Local de Alimentação adicionado com sucesso.']);
+        return redirect()->route('ServicoComercio')->with(['success'=>'Serviço de Comércio adicionado com sucesso.']);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function storeOutro(Request $request)
     {
-          $alimentacao = Alimentacao::findOrFail($id);
-          $localizacao = Localizacao::findOrFail($alimentacao->localizacao);
+        $dados = $request->all();
+
+        // LOCALIZAÇÃO
+
+        $dadosLoc = array(
+          'latitude'        => $dados['latitude'],
+          'longitude'       => $dados['longitude'],
+          'centro_ponto_id' => intval($dados['centro'])
+        );
+        $local_id = Localizacao::insertGetId($dadosLoc);
+
+        // SERVIÇO
+
+        $dadosServ = array(
+          'localizacao'   => $local_id
+          'funcionamento' => $dados['funcionamento'],
+          'nome'          => $dados['nome'],
+          'imagem'        => $dados['imagem'],
+        );
+
+        $serv_id = Servico::insertGetId($dadosServ);
+
+        // SERVIÇO BANCÁRIO
+
+        $dadosOut = array(
+          'servico_id'         => $serv_id,
+          'servico'            => $dados['servico'],
+          'observacao'         => $dados['observacao'],
+        );
+
+        ServicoOutro::create($dadosOut);
+
+        return redirect()->route('ServicoOutro')->with(['success'=>'Serviço Diverso adicionado com sucesso.']);
+    }
+
+    public function storeXeroxGrafica(Request $request)
+    {
+        $dados = $request->all();
+
+        // LOCALIZAÇÃO
+
+        $dadosLoc = array(
+          'latitude'        => $dados['latitude'],
+          'longitude'       => $dados['longitude'],
+          'centro_ponto_id' => intval($dados['centro'])
+        );
+        $local_id = Localizacao::insertGetId($dadosLoc);
+
+        // SERVIÇO
+
+        $dadosServ = array(
+          'localizacao'   => $local_id
+          'funcionamento' => $dados['funcionamento'],
+          'nome'          => $dados['nome'],
+          'imagem'        => $dados['imagem'],
+        );
+
+        $serv_id = Servico::insertGetId($dadosServ);
+
+        // SERVIÇO BANCÁRIO
+
+        $dadosXer = array(
+          'servico_id'         => $serv_id,
+          'servico'            => $dados['servico'],
+          'observacao'         => $dados['observacao'],
+        );
+
+        ServicoXeroxGrafica::create($dadosXer);
+
+        return redirect()->route('ServicoXeroxGrafica')->with(['success'=>'Serviço de Xerox ou Gráfica adicionado com sucesso.']);
+    }
+
+
+    public function editBanco($id)
+    {
+          $banco = ServicoBanco::findOrFail($id);
+          $servico = Servico::findOrFail($banco->servico_id);
+          $localizacao = Localizacao::findOrFail($servico->localizacao);
           $centros = DB::table('centro_ponto')->where('tipo', 'Centro')->get();
-          $tiposdepagamentos = TipoDePagamento::orderBy('descricao', 'asc')->get();
-          $tiposdecomidas = TipoDeComida::orderBy('descricao', 'asc')->get();
-          $alimentacao_tipos_pagamentos = AlimentacaoTipoPagamento::where('alimentacao_id', $id)->get();
-          $alimentacao_tipos_comidas = AlimentacaoTipoComida::where('alimentacao_id', $id)->get();
-          return view ("auth.alimentacao.edit", compact(['alimentacao','localizacao','centros',
-                                                        'tiposdepagamentos','tiposdecomidas',
-                                                        'alimentacao_tipos_pagamentos',
-                                                        'alimentacao_tipos_comidas']));
+          return view ("auth.servico.banco.edit", compact(['banco','servico',
+                                                           'localizacao','centros']));
 
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function editComercio($id)
+    {
+          $comercio = ServicoComercio::findOrFail($id);
+          $servico = Servico::findOrFail($comercio->servico_id);
+          $localizacao = Localizacao::findOrFail($servico->localizacao);
+          $centros = DB::table('centro_ponto')->where('tipo', 'Centro')->get();
+          return view ("auth.servico.comercio.edit", compact(['comercio','servico',
+                                                              'localizacao','centros']));
+
+    }
+
+    public function editOutro($id)
+    {
+          $outro = ServicoOutro::findOrFail($id);
+          $servico = Servico::findOrFail($outro->servico_id);
+          $localizacao = Localizacao::findOrFail($servico->localizacao);
+          $centros = DB::table('centro_ponto')->where('tipo', 'Centro')->get();
+          return view ("auth.servico.outro.edit", compact(['outro','servico',
+                                                           'localizacao','centros']));
+
+    }
+
+    public function editXeroxGrafica($id)
+    {
+          $xerox_grafica = ServicoXeroxGrafica::findOrFail($id);
+          $servico = Servico::findOrFail($xerox_grafica->servico_id);
+          $localizacao = Localizacao::findOrFail($servico->localizacao);
+          $centros = DB::table('centro_ponto')->where('tipo', 'Centro')->get();
+          return view ("auth.servico.xerox_grafica.edit", compact(['xerox_grafica','servico',
+                                                                   'localizacao','centros']));
+
+    }
+
+
+    public function updateBanco(Request $request, $id)
     {
       $dados = $request->all();
 
-      $alimentacao = Alimentacao::findOrFail($id);
+      $banco = ServicoBanco::findOrFail($id);
+
+      $servico = Servico::findOrFail($banco->servico_id);
+
+      $local = Localizacao::findOrFail($servico->localizacao);
 
       // LOCALIZAÇÃO
 
@@ -173,71 +289,210 @@ class ServicoController extends Controller
         'centro_ponto_id' => intval($dados['centro'])
       );
 
-      $local = Localizacao::findOrFail($alimentacao->localizacao);
+      $local->update($dadosLoc);
+
+      // SERVIÇO
+
+      $dadosServ = array(
+        'localizacao'   => $local_id
+        'funcionamento' => $dados['funcionamento'],
+        'nome'          => $dados['nome'],
+        'imagem'        => $dados['imagem'],
+      );
+
+      $servico->update($dadosServ);
+
+      // SERVIÇO BANCÁRIO
+
+      $dadosBanc = array(
+        'servico_id'         => $servico->id,
+        'bandeira'           => $dados['bandeira'],
+        'tipo'               => $dados['tipo'],
+      );
+
+      $banco->update($dadosBanc);
+
+
+      return redirect()->route("ServicoBanco")->with(['success'=>'Serviço Bancário editado com sucesso.']);
+    }
+
+    public function updateComercio(Request $request, $id)
+    {
+      $dados = $request->all();
+
+      $comercio = ServicoComercio::findOrFail($id);
+
+      $servico = Servico::findOrFail($comercio->servico_id);
+
+      $local = Localizacao::findOrFail($servico->localizacao);
+
+      // LOCALIZAÇÃO
+
+      $dadosLoc = array(
+        'latitude'        => $dados['latitude'],
+        'longitude'       => $dados['longitude'],
+        'centro_ponto_id' => intval($dados['centro'])
+      );
 
       $local->update($dadosLoc);
 
-      // ALIMENTAÇÃO
+      // SERVIÇO
 
-      $dadosAli = array(
-        'nome'          => $dados['nome'],
+      $dadosServ = array(
+        'localizacao'   => $local_id
         'funcionamento' => $dados['funcionamento'],
-        'preco'         => $dados['preco'],
+        'nome'          => $dados['nome'],
         'imagem'        => $dados['imagem'],
-        'localizacao'   => $local->id
       );
 
-      $alimentacao->update($dadosAli);
+      $servico->update($dadosServ);
 
-      // FORMA DE PAGAMENTO
-
-      $tuplas_pagamento = AlimentacaoTipoPagamento::where("alimentacao_id", $id)->delete();
-
-      $dadosPag = array(
-        'tiposdepagamentos' => $dados['tipodepagamento']
-      );
-
-      for ($id=0; $id < count($dadosPag['tiposdepagamentos']); $id++) {
-        $tupla1 = array(
-          'alimentacao_id'    => $alimentacao->id,
-          'tipo_pagamento_id' => $dadosPag['tiposdepagamentos'][$id]
-        );
-        AlimentacaoTipoPagamento::create($tupla1);
-      }
-
-      // TIPO DE COMIDA
-
-      $tuplas_comida = AlimentacaoTipoComida::where("alimentacao_id", $alimentacao->id)->delete();
+      // SERVIÇO DE COMÉRCIO
 
       $dadosCom = array(
-        'tiposdecomidas' => $dados['tipodecomida']
+        'servico_id'         => $servico->id,
+        'especialidade'      => $dados['especialidade'],
+        'observacao'         => $dados['observacao'],
       );
 
-      for ($id=0; $id < count($dadosCom['tiposdecomidas']); $id++) {
-        $tupla2 = array(
-          'alimentacao_id' => $alimentacao->id,
-          'tipo_comida_id' => $dadosCom['tiposdecomidas'][$id]
-        );
-        AlimentacaoTipoComida::create($tupla2);
-      }
+      $comercio->update($dadosCom);
 
-      return redirect()->route("Alimentacao")->with(['success'=>'Local de Alimentação editado com sucesso.']);
+
+      return redirect()->route("ServicoComercio")->with(['success'=>'Serviço de Comércio editado com sucesso.']);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    public function updateOutro(Request $request, $id)
     {
-      $alimentacao = Alimentacao::findOrFail($id);
-      $tupla_localizacao = Localizacao::where("id", $alimentacao->localizacao)->delete();
-      $tuplas_pagamento = AlimentacaoTipoPagamento::where("alimentacao_id", $alimentacao->id)->delete();
-      $tuplas_comida = AlimentacaoTipoComida::where("alimentacao_id", $alimentacao->id)->delete();
-      $alimentacao->destroy($id);
+      $dados = $request->all();
 
-      return redirect()->route("Alimentacao")->with(['success'=>'Local de Alimentação deletado com sucesso.']);
+      $outro = ServicoOutro::findOrFail($id);
+
+      $servico = Servico::findOrFail($outro->servico_id);
+
+      $local = Localizacao::findOrFail($servico->localizacao);
+
+      // LOCALIZAÇÃO
+
+      $dadosLoc = array(
+        'latitude'        => $dados['latitude'],
+        'longitude'       => $dados['longitude'],
+        'centro_ponto_id' => intval($dados['centro'])
+      );
+
+      $local->update($dadosLoc);
+
+      // SERVIÇO
+
+      $dadosServ = array(
+        'localizacao'   => $local_id
+        'funcionamento' => $dados['funcionamento'],
+        'nome'          => $dados['nome'],
+        'imagem'        => $dados['imagem'],
+      );
+
+      $servico->update($dadosServ);
+
+      // SERVIÇO DIVERSO
+
+      $dadosOut = array(
+        'servico_id'         => $servico->id,
+        'servico'            => $dados['servico'],
+        'observacao'         => $dados['observacao'],
+      );
+
+      $outro->update($dadosOut);
+
+
+      return redirect()->route("ServicoOutro")->with(['success'=>'Serviço Diverso editado com sucesso.']);
+    }
+
+    public function updateXeroxGrafica(Request $request, $id)
+    {
+      $dados = $request->all();
+
+      $xerox_grafica = ServicoXeroxGrafica::findOrFail($id);
+
+      $servico = Servico::findOrFail($xerox_grafica->servico_id);
+
+      $local = Localizacao::findOrFail($servico->localizacao);
+
+      // LOCALIZAÇÃO
+
+      $dadosLoc = array(
+        'latitude'        => $dados['latitude'],
+        'longitude'       => $dados['longitude'],
+        'centro_ponto_id' => intval($dados['centro'])
+      );
+
+      $local->update($dadosLoc);
+
+      // SERVIÇO
+
+      $dadosServ = array(
+        'localizacao'   => $local_id
+        'funcionamento' => $dados['funcionamento'],
+        'nome'          => $dados['nome'],
+        'imagem'        => $dados['imagem'],
+      );
+
+      $servico->update($dadosServ);
+
+      // SERVIÇO DIVERSO
+
+      $dadosXer = array(
+        'servico_id'         => $serv_id,
+        'servico'            => $dados['servico'],
+        'observacao'         => $dados['observacao'],
+      );
+
+      $xerox_grafica->update($dadosXer);
+
+
+      return redirect()->route("ServicoXeroxGrafica")->with(['success'=>'Serviço de Xerox ou Gráfica editado com sucesso.']);
+    }
+
+
+    public function destroyBanco($id)
+    {
+      $banco = ServicoBanco::findOrFail($id);
+      $servico = Servico::findOrFail($banco->servico_id);
+      $tupla_localizacao = Localizacao::where("id", $servico->localizacao)->delete();
+      $servico->destroy($banco->servico_id);
+      $banco->destroy($id);
+
+      return redirect()->route("ServicoBanco")->with(['success'=>'Serviço Bancário deletado com sucesso.']);
+    }
+
+    public function destroyComercio($id)
+    {
+      $comercio = ServicoComercio::findOrFail($id);
+      $servico = Servico::findOrFail($comercio->servico_id);
+      $tupla_localizacao = Localizacao::where("id", $servico->localizacao)->delete();
+      $servico->destroy($comercio->servico_id);
+      $comercio->destroy($id);
+
+      return redirect()->route("ServicoComercio")->with(['success'=>'Serviço de Comércio deletado com sucesso.']);
+    }
+
+    public function destroyOutro($id)
+    {
+      $outro = ServicoOutro::findOrFail($id);
+      $servico = Servico::findOrFail($outro->servico_id);
+      $tupla_localizacao = Localizacao::where("id", $servico->localizacao)->delete();
+      $servico->destroy($outro->servico_id);
+      $outro->destroy($id);
+
+      return redirect()->route("ServicoOutro")->with(['success'=>'Serviço Diverso deletado com sucesso.']);
+    }
+
+    public function destroyXeroxGrafica($id)
+    {
+      $xerox_grafica = ServicoXeroxGrafica::findOrFail($id);
+      $servico = Servico::findOrFail($xerox_grafica->servico_id);
+      $tupla_localizacao = Localizacao::where("id", $servico->localizacao)->delete();
+      $servico->destroy($xerox_grafica->servico_id);
+      $xerox_grafica->destroy($id);
+
+      return redirect()->route("ServicoXeroxGrafica")->with(['success'=>'Serviço de Xerox ou Gráfica deletado com sucesso.']);
     }
 }
