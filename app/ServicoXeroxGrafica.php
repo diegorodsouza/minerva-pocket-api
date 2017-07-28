@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Localizacao;
 use App\Servico;
 
-class XeroxGrafica extends Model
+class ServicoXeroxGrafica extends Model
 {
     protected $table = 'servico_xerox_grafica';
 
