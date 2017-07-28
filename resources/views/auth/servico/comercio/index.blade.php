@@ -29,7 +29,7 @@
       <tbody>
         @foreach ($comercios as $comercio)
         <tr>
-          <td>{{str_limit($comercio->id),30)}}</td>
+          <td>{{str_limit($comercio->id,30)}}</td>
           <td>{{str_limit(App\ServicoComercio::getComercioNome($comercio->id),30)}}</td>
           <td>{{str_limit($comercio->especialidade, 30)}}</td>
           <td>{{str_limit(App\ServicoComercio::getComercioLocalizacao($comercio->id),30)}}</td>
