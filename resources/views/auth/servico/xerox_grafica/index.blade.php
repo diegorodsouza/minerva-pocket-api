@@ -32,7 +32,7 @@
           <td>{{str_limit($xerox_grafica->id,30)}}</td>
           <td>{{str_limit(App\ServicoXeroxGrafica::getXeroxGraficaNome($xerox_grafica->id),30)}}</td>
           <td>{{str_limit($xerox_grafica->servico,30)}}</td>
-          <td>{{str_limit(App\ServicoXeroxGrafica::getLocalizacao($xerox_grafica->id),30)}}</td>
+          <td>{{str_limit(App\ServicoXeroxGrafica::getXeroxGraficaLocalizacao($xerox_grafica->id),30)}}</td>
           <td>{{str_limit($xerox_grafica->observacao,30)}}</td>
           <td>
             <form action="{{ route('DestroyServicoXeroxGrafica', $xerox_grafica->id) }}" method="post">
