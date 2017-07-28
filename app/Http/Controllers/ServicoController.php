@@ -21,7 +21,7 @@ class ServicoController extends Controller
 
     public function indexBanco()
     {
-      $bancos = ServicoBanco::orderBy('nome', 'asc')->get();
+      $bancos = ServicoBanco::orderBy('id', 'asc')->get();
       $servicos = Servico::orderBy('id', 'asc')->get();
       return view ("auth.servico.banco.index", compact(['bancos','servicos']));
 
@@ -29,7 +29,7 @@ class ServicoController extends Controller
 
     public function indexComercio()
     {
-      $comercios = ServicoComercio::orderBy('nome', 'asc')->get();
+      $comercios = ServicoComercio::orderBy('id', 'asc')->get();
       $servicos = Servico::orderBy('id', 'asc')->get();
       return view ("auth.servico.comercio.index", compact(['comercios','servicos']));
 
@@ -37,7 +37,7 @@ class ServicoController extends Controller
 
     public function indexOutro()
     {
-      $outros = ServicoOutro::orderBy('nome', 'asc')->get();
+      $outros = ServicoOutro::orderBy('id', 'asc')->get();
       $servicos = Servico::orderBy('id', 'asc')->get();
       return view ("auth.servico.outro.index", compact(['outros','servicos']));
 
@@ -45,7 +45,7 @@ class ServicoController extends Controller
 
     public function indexXeroxGrafica()
     {
-      $xerox_graficas = ServicoXeroxGrafica::orderBy('nome', 'asc')->get();
+      $xerox_graficas = ServicoXeroxGrafica::orderBy('id', 'asc')->get();
       $servicos = Servico::orderBy('id', 'asc')->get();
       return view ("auth.servico.xerox_grafica.index", compact(['xerox_graficas','servicos']));
 
