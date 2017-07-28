@@ -28,6 +28,10 @@
         <label for="imagem">Link da Imagem</label>
         <input type="text" name="imagem" placeholder="Digite o link da imagem do local" class="form-control">
 
+        <label for="observacao">Observação</label>
+        <textarea name="observacao" placeholder="Escreva uma observação sobre o serviço se necessário..." class="form-control">
+        </textarea>
+
         <label for="funcionamento">Funcionamento</label>
         <textarea name="funcionamento" placeholder="Descreva os horários de funcionamento do local" class="form-control">
         </textarea>
