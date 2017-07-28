@@ -22,7 +22,7 @@
           <th>Nome</th>
           <th>Especialidade</th>
           <th>Localização</th>
-          <th>Observação</th>
+          <th>Descrição</th>
           <th>Ações</th>
         </tr>
       </thead>
