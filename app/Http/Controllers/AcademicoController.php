@@ -22,19 +22,18 @@ class AcademicoController extends Controller
          $this->middleware('auth');
     }
 
+    public function returnAPI(){
+      return json_encode(Academico::orderBy('nome', 'asc')->get());
+    }
+
     public function index()
     {
       $academicos = Academico::orderBy('nome', 'asc')->get();
       $tiposdeacademicos = TipoDeAcademico::orderBy('id', 'asc')->get();
       return view ("auth.academico.index", compact(['academicos','tiposdeacademicos']));
-
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
         $centros = DB::table('centro_ponto')->where('tipo', 'Centro')->get();
@@ -42,12 +41,7 @@ class AcademicoController extends Controller
         return view ("auth.academico.create",compact(['centros','tiposdeacademicos']));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
         $dados = $request->all();
@@ -77,12 +71,7 @@ class AcademicoController extends Controller
         return redirect()->route('Academico')->with(['success'=>'Serviço Acadêmico adicionado com sucesso.']);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
           $academico = Academico::findOrFail($id);
@@ -94,13 +83,7 @@ class AcademicoController extends Controller
 
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, $id)
     {
       $dados = $request->all();
@@ -136,12 +119,7 @@ class AcademicoController extends Controller
       return redirect()->route("Academico")->with(['success'=>'Serviço Acadêmico editado com sucesso.']);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
       $academico = Academico::findOrFail($id);

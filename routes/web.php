@@ -11,6 +11,10 @@
 |
 */
 
+Route::get('/academico_api', 'AcademicoController@returnAPI')->name('Academico_API');
+
+
+
 Route::get('/', function () {
     return view('welcome');
 });
