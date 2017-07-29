@@ -17,7 +17,11 @@ class ServicoController extends Controller
 
     public function __construct()
     {
+      if (\Route::currentRouteName() == 'Servico_API'){
+
+      } else {
          $this->middleware('auth');
+      }
     }
 
     public function returnAPI(){
@@ -45,8 +49,8 @@ class ServicoController extends Controller
             'centro'    => $centro->descricao
             ]);
 
-          array_push($servico, $banco);
-          array_push($dataBancos, $servico);
+          $tudobanco = (object) array_merge((array) $servico, (array) $banco);
+          array_push($dataBancos, $tudobanco);
         }
 
       return $dataBancos;
