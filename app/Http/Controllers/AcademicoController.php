@@ -27,7 +27,7 @@ class AcademicoController extends Controller
 
           foreach ($academicos as $academico) {
             $localizacao = Localizacao::findOrFail($academico->localizacao);
-            $centro = CentroPonto::findOrFail($localizacao->centro_id);
+            $centro = CentroPonto::findOrFail($localizacao->centro_ponto_id);
             $tipodeacademico = TipoDeAcademico::findOrFail($academico->tipo);
 
             $academico->localizacao = array([
