@@ -41,8 +41,8 @@ class HomeController extends Controller
       $tiposdecomidas = TipoDeComida::orderBy('id', 'asc')->count();
       $tiposdepagamentos = TipoDePagamento::orderBy('id', 'asc')->count();
       $comercios = ServicoComercio::orderBy('id', 'asc')->count();
-      $caixas = ServicoBanco::->where('tipo', 'Caixa Eletrônico')->orderBy('id', 'asc')->count();
-      $agencias = ServicoBanco::->where('tipo', 'Agência')->orderBy('id', 'asc')->count();
+      $caixas = ServicoBanco::where('tipo', 'Caixa Eletrônico')->orderBy('id', 'asc')->count();
+      $agencias = ServicoBanco::where('tipo', 'Agência')->orderBy('id', 'asc')->count();
       $outros = ServicoOutro::orderBy('id', 'asc')->count();
       $xerox_graficas = ServicoXeroxGrafica::orderBy('id', 'asc')->count();
       $transportes = Transporte::orderBy('linha', 'asc')->count();
