@@ -4,3 +4,8 @@
     justify-content: center;
     margin-top: 30px;
   }
+
+.aviso{
+  color:red;
+  font-weight: bold;
+}

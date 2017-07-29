@@ -10,17 +10,17 @@
                 <div class="panel-body">
                   <h3>Centros e Pontos de Ônibus</h3>
                   <ul>
-                    <li><a href="{{ route('CentroPonto') }}"> Gerir Centros e Pontos de Ônibus</a></li>
+                    <li><a href="{{ route('CentroPonto') }}"> Gerir Centros e Pontos de Ônibus</a> - <div class="aviso">Necessário antes de criar qualquer outro item</div></li>
                   </ul>
                   <h3>Alimentação</h3>
                   <ul>
-                    <li><a href="{{ route('TipoDePagamento') }}"> Gerir Formas de Pagamento</a></li>
-                    <li><a href="{{ route('TipoDeComida') }}"> Gerir Tipos de Serviço de Comida</a></li>
+                    <li><a href="{{ route('TipoDePagamento') }}"> Gerir Formas de Pagamento</a>> - <div class="aviso">Necessário antes de criar um local de alimentação</div></li>
+                    <li><a href="{{ route('TipoDeComida') }}"> Gerir Tipos de Serviço de Comida</a>> - <div class="aviso">Necessário antes de criar um local de alimentação</div></li>
                     <li><a href="{{ route('Alimentacao') }}"> Gerir Locais de Alimentação</a></li>
                   </ul>
                   <h3>Acadêmico</h3>
                   <ul>
-                    <li><a href="{{ route('TipoDeAcademico') }}"> Gerir Tipos de Serviço Acadêmico</a></li>
+                    <li><a href="{{ route('TipoDeAcademico') }}"> Gerir Tipos de Serviço Acadêmico</a>> - <div class="aviso">Necessário antes de criar um serviço acadêmico</div></li>
                     <li><a href="{{ route('Academico') }}"> Gerir Serviços Acadêmicos</a></li>
                   </ul>
                   <h3>Transporte</h3>
