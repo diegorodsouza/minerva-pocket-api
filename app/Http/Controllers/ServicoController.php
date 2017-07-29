@@ -294,7 +294,7 @@ class ServicoController extends Controller
       // SERVIÇO
 
       $dadosServ = array(
-        'localizacao'   => $local_id,
+        'localizacao'   => $local->id,
         'funcionamento' => $dados['funcionamento'],
         'nome'          => $dados['nome'],
         'imagem'        => $dados['imagem'],
@@ -339,7 +339,7 @@ class ServicoController extends Controller
       // SERVIÇO
 
       $dadosServ = array(
-        'localizacao'   => $local_id,
+        'localizacao'   => $local->id,
         'funcionamento' => $dados['funcionamento'],
         'nome'          => $dados['nome'],
         'imagem'        => $dados['imagem'],
@@ -384,7 +384,7 @@ class ServicoController extends Controller
       // SERVIÇO
 
       $dadosServ = array(
-        'localizacao'   => $local_id,
+        'localizacao'   => $local->id,
         'funcionamento' => $dados['funcionamento'],
         'nome'          => $dados['nome'],
         'imagem'        => $dados['imagem'],
@@ -429,7 +429,7 @@ class ServicoController extends Controller
       // SERVIÇO
 
       $dadosServ = array(
-        'localizacao'   => $local_id,
+        'localizacao'   => $local->id,
         'funcionamento' => $dados['funcionamento'],
         'nome'          => $dados['nome'],
         'imagem'        => $dados['imagem'],
@@ -440,7 +440,7 @@ class ServicoController extends Controller
       // SERVIÇO DIVERSO
 
       $dadosXer = array(
-        'servico_id'         => $serv_id,
+        'servico_id'         => $servico->id,
         'servico'            => $dados['servico'],
         'observacao'         => $dados['observacao'],
       );
