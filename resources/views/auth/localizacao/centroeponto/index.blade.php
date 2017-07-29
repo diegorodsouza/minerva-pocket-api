@@ -31,7 +31,7 @@ str_limit(@extends('layouts.app')
           <td>{{str_limit($centroeponto->id,30)}}</td>
           <td>{{str_limit($centroeponto->descricao,30)}}</td>
           <td>{{str_limit($centroeponto->tipo,30)}}</td>
-          <td>{{str_limit(App\CentroPonto::getLatitude($centroeponto->id),30)}}, str_limit({{App\CentroPonto::getLongitude($centroeponto->id),30)}}</td>
+          <td>{{str_limit(App\CentroPonto::getLatitude($centroeponto->id),30)}}, {{str_limit(App\CentroPonto::getLongitude($centroeponto->id),30)}}</td>
           <td>
             <form action="{{ route('DestroyCentroPonto', $centroeponto->id) }}" method="post">
               {{csrf_field()}}
