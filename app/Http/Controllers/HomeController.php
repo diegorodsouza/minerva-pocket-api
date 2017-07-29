@@ -47,7 +47,9 @@ class HomeController extends Controller
       $xerox_graficas = ServicoXeroxGrafica::orderBy('id', 'asc')->count();
       $transportes = Transporte::orderBy('linha', 'asc')->count();
 
-        return view('home', compact(['academicos','tiposdeacademicos','centros','pontos','alimentacao','tiposdecomidas','tiposdepagamentos',
-                                     'comercios','caixas','agencias','outros','xerox_graficas','transportes']);
+        return view('home', compact(['academicos','tiposdeacademicos','centros',
+                                     'pontos','alimentacao','tiposdecomidas',
+                                     'tiposdepagamentos','comercios','caixas',
+                                     'agencias','outros','xerox_graficas','transportes']));
     }
 }
