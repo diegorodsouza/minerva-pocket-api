@@ -21,7 +21,7 @@
                     <li><a href="{{ route('TipoDePagamento') }}"> Gerir Formas de Pagamento</a> - <span>{{$tiposdepagamentos}} Tipos de pagamentos cadastrados</span>
                       <p class="aviso">Necessário antes de criar um local de alimentação</p></li>
 
-                    <li><a href="{{ route('TipoDeComida') }}"> Gerir Tipos de Serviço de Comida</a> - <span>{{$tiposdecomidass}} Tipos de serviços de comida cadastrados</span>
+                    <li><a href="{{ route('TipoDeComida') }}"> Gerir Tipos de Serviço de Comida</a> - <span>{{$tiposdecomidas}} Tipos de serviços de comida cadastrados</span>
                       <p class="aviso">Necessário antes de criar um local de alimentação</p></li>
 
                     <li><a href="{{ route('Alimentacao') }}"> Gerir Locais de Alimentação</a> - <span>{{$alimentacao}} Locais de alimentação cadastrados</span></li>
