@@ -25,7 +25,6 @@ class AcademicoController extends Controller
     public function returnAPI(){
       $academicos = Academico::orderBy('nome', 'asc')->get();
 
-      return json_encode(
           foreach ($academicos as $academico) {
             $localizacao = Localizacao::findOrFail($academico->localizacao);
             $centro = CentroPonto::findOrFail($localizacao->centro_id);
@@ -37,8 +36,10 @@ class AcademicoController extends Controller
               'centro'    => $centro->nome
               ]);
             $academico->tipo = $tipodeacademico->nome;
+
+            echo json_encode($academico);
           }
-        );
+
     }
 
     public function index()
