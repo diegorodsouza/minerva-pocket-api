@@ -34,6 +34,8 @@
         <textarea name="funcionamento" placeholder="Descreva os horários de funcionamento do local" class="form-control">{{$servico->funcionamento}}
         </textarea>
 
+        <hr>
+
         <label for="latitude">Localização - Latitude</label>
         <input type="text" name="latitude" placeholder="Digite a latitude do local" class="form-control" value="{{$localizacao->latitude}}">
 

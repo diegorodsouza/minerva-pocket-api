@@ -20,13 +20,13 @@
         <input type="text" name="nome" placeholder="Digite o nome do local de serviço acadêmico" class="form-control"
                value='{{$academico->nome}}'>
 
-        <label for="tipo">Tipo de Serviço Acadêmico</label><br>
+        <br><label for="tipo">Tipo de Serviço Acadêmico</label><br>
         @foreach ($tiposdeacademicos as $tipo)
         <input type="radio" name="tipo" value='{{$tipo->id}}'<?php if($academico->tipo == $tipo->id) echo 'checked' ?>
         > {{$tipo->descricao}}<br>
         @endforeach
 
-        <label for="imagem">Link da Imagem</label>
+        <br><label for="imagem">Link da Imagem</label>
         <input type="text" name="imagem" placeholder="Digite o link da imagem do local" class="form-control"
                value='{{$academico->imagem}}'>
 
@@ -44,6 +44,8 @@
         <textarea name="observacao" placeholder="Possíveis observações..." class="form-control"
         >{{$academico->funcionamento}}
         </textarea>
+
+        <hr>
 
         <label for="latitude">Localização - Latitude</label>
         <input type="text" name="latitude" placeholder="Digite a latitude do local" class="form-control"

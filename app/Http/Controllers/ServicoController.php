@@ -352,7 +352,7 @@ class ServicoController extends Controller
       $dadosCom = array(
         'servico_id'         => $servico->id,
         'especialidade'      => $dados['especialidade'],
-        'observacao'         => $dados['observacao'],
+        'descricao'          => $dados['descricao'],
       );
 
       $comercio->update($dadosCom);

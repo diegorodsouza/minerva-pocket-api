@@ -18,11 +18,11 @@
         <label for="nome">Nome de Identificação do Banco</label>
         <input type="text" name="nome" placeholder="Digite o nome que identificará o banco" class="form-control">
 
-        <label for="tipo">Tipo do Banco</label><br>
+        <br><label for="tipo">Tipo do Banco</label><br>
         <input type="radio" name="tipo" value="Agência"> Agência<br>
         <input type="radio" name="tipo" value="Caixa Eletrônico"> Caixa Eletrônico<br>
 
-        <label for="bandeira">Bandeira do Banco</label><br>
+        <br><label for="bandeira">Bandeira do Banco</label><br>
         <input type="radio" name="bandeira" value="24 Horas"> 24 Horas<br>
         <input type="radio" name="bandeira" value="Banco do Brasil"> Banco do Brasil<br>
         <input type="radio" name="bandeira" value="Bradesco"> Bradesco<br>
@@ -30,12 +30,14 @@
         <input type="radio" name="bandeira" value="Itaú"> Itaú<br>
         <input type="radio" name="bandeira" value="Santander"> Santander<br>
 
-        <label for="imagem">Link da Imagem</label>
+        <br><label for="imagem">Link da Imagem</label>
         <input type="text" name="imagem" placeholder="Digite o link da imagem do local" class="form-control">
 
         <label for="funcionamento">Funcionamento</label>
         <textarea name="funcionamento" placeholder="Descreva os horários de funcionamento do local" class="form-control">
         </textarea>
+
+        <hr>
 
         <label for="latitude">Localização - Latitude</label>
         <input type="text" name="latitude" placeholder="Digite a latitude do local" class="form-control">

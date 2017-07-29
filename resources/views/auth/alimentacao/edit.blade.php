@@ -33,6 +33,8 @@
         >{{$alimentacao->funcionamento}}
         </textarea>
 
+        <hr>
+
         <label for="latitude">Localização - Latitude</label>
         <input type="text" name="latitude" placeholder="Digite a latitude do local" class="form-control"
                value='{{$localizacao->latitude}}'>
@@ -47,6 +49,8 @@
           > {{$centro->descricao}}<br>
         @endforeach
 
+        <hr>
+
         <label for="tipodepagamento">Formas de Pagamento Aceitas</label><br>
         @foreach ($tiposdepagamentos as $tipodepagamento)
 
@@ -59,6 +63,8 @@
           > {{$tipodepagamento->descricao}}<br>
 
         @endforeach
+
+        <hr>
 
         <label for="tipodecomida">Tipos de Serviço de Comida Disponíveis</label><br>
         @foreach ($tiposdecomidas as $tipodecomida)

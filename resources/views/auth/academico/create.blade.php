@@ -18,12 +18,12 @@
         <label for="nome">Nome do Local de Serviço Acadêmico</label>
         <input type="text" name="nome" placeholder="Digite o nome do local de serviço acadêmico" class="form-control">
 
-        <label for="tipo">Tipo de Serviço Acadêmico</label><br>
+        <br><label for="tipo">Tipo de Serviço Acadêmico</label><br>
         @foreach ($tiposdeacademicos as $tipo)
         <input type="radio" name="tipo" value='{{$tipo->id}}'> {{$tipo->descricao}}<br>
         @endforeach
 
-        <label for="imagem">Link da Imagem</label>
+        <br><label for="imagem">Link da Imagem</label>
         <input type="text" name="imagem" placeholder="Digite o link da imagem do local" class="form-control">
 
         <label for="funcionamento">Funcionamento</label>
@@ -37,6 +37,8 @@
         <label for="observacao">Observações</label>
         <textarea name="observacao" placeholder="Possíveis observações..." class="form-control">
         </textarea>
+
+        <hr>
 
         <label for="latitude">Localização - Latitude</label>
         <input type="text" name="latitude" placeholder="Digite a latitude do local" class="form-control">

@@ -24,6 +24,8 @@
        <input type="radio" name="tipo" value='Centro' <?php if($centroeponto->tipo == 'Centro') echo 'checked' ?> > Centro<br>
        <input type="radio" name="tipo" value='Ponto' <?php if($centroeponto->tipo == 'Ponto') echo 'checked' ?> > Ponto de Ônibus<br>
 
+       <hr>
+
        <label for="latitude">Localização - Latitude</label>
        <input type="text" name="latitude" placeholder="Digite a latitude do local" class="form-control"
               value='{{$localizacao->latitude}}'>
