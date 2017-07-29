@@ -1,4 +1,4 @@
-str_limit(@extends('layouts.app')
+@extends('layouts.app')
 
 @section('content')
 
