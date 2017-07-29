@@ -11,7 +11,7 @@ class ServicoComercio extends Model
   protected $table = 'servico_comercio';
 
   protected $fillable = [
-    'servico_id', 'observacao', 'especialidade'
+    'servico_id', 'descricao', 'especialidade'
   ];
 
   public static function getComercioNome($comercio_id){
