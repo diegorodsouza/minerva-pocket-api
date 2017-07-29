@@ -7,6 +7,7 @@ use App\Academico;
 use App\Alimentacao;
 use App\TipoDeAcademico;
 use App\TipoDeComida;
+use App\TipoDePagamento;
 use App\Localizacao;
 use App\CentroPonto;
 use App\ServicoBanco;
