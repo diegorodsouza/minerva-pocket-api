@@ -23,7 +23,22 @@ class AcademicoController extends Controller
     }
 
     public function returnAPI(){
-      return json_encode(Academico::orderBy('nome', 'asc')->get());
+      $academicos = Academico::orderBy('nome', 'asc')->get();
+
+      return json_encode(
+          foreach ($academicos as $academico) {
+            $localizacao = Localizacao::findOrFail($academico->localizacao);
+            $centro = CentroPonto::findOrFail($localizacao->centro_id);
+            $tipodeacademico = TipoDeAcademico::findOrFail($academico->tipo);
+
+            $academico->localizacao = array([
+              'latitude'  => $localizacao->latitude,
+              'longitude' => $localizacao->longitude,
+              'centro'    => $centro->nome
+              ]);
+            $academico->tipo = $tipodeacademico->nome;
+          }
+        );
     }
 
     public function index()
