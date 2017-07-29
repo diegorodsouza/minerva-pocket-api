@@ -12,7 +12,7 @@ use App\ServicoComercio;
 use App\ServicoOutro;
 use App\ServicoXeroxGrafica;
 use App\Transporte;
-use App\DB;
+use App\CentroPonto;
 
 class HomeController extends Controller
 {
@@ -35,8 +35,8 @@ class HomeController extends Controller
     {
       $academicos = Academico::orderBy('nome', 'asc')->count();
       $tiposdeacademicos = TipoDeAcademico::orderBy('id', 'asc')->count();
-      $centros = DB::table('centro_ponto')->where('tipo', 'Centro')->count();
-      $pontos = DB::table('centro_ponto')->where('tipo', 'Ponto')->count();
+      $centros = CentroPonto::where('tipo', 'Centro')->count();
+      $pontos = CentroPonto::where('tipo', 'Ponto')->count();
       $alimentacao = Alimentacao::orderBy('nome', 'asc')->count();
       $tiposdecomidas = TipoDeComida::orderBy('id', 'asc')->count();
       $tiposdepagamentos = TipoDePagamento::orderBy('id', 'asc')->count();
