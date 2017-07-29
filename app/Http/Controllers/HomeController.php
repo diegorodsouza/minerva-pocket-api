@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Academico;
 use App\Alimentacao;
 use App\TipoDeAcademico;
+use App\TipoDeComida;
 use App\Localizacao;
 use App\CentroPonto;
 use App\ServicoBanco;
