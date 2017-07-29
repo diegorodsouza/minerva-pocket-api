@@ -9,6 +9,7 @@ use App\ServicoComercio;
 use App\ServicoOutro;
 use App\ServicoXeroxGrafica;
 use App\Localizacao;
+use App\CentroPonto;
 use DB;
 
 class ServicoController extends Controller
