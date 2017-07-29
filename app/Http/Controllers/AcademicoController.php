@@ -19,30 +19,33 @@ class AcademicoController extends Controller
 
     public function __construct()
     {
-         $this->middleware('auth');
+      if (\Route::currentRouteName() == 'Academico_API'){
+
+      } else {
+        $this->middleware('auth');
+      }
     }
 
     public function returnAPI(){
       $data = array();
       $academicos = Academico::orderBy('nome', 'asc')->get();
 
-          foreach ($academicos as $academico) {
-            $localizacao = Localizacao::findOrFail($academico->localizacao);
-            $centro = CentroPonto::findOrFail($localizacao->centro_ponto_id);
-            $tipodeacademico = TipoDeAcademico::findOrFail($academico->tipo);
+        foreach ($academicos as $academico) {
+          $localizacao = Localizacao::findOrFail($academico->localizacao);
+          $centro = CentroPonto::findOrFail($localizacao->centro_ponto_id);
+          $tipodeacademico = TipoDeAcademico::findOrFail($academico->tipo);
 
-            $academico->localizacao = array([
-              'latitude'  => $localizacao->latitude,
-              'longitude' => $localizacao->longitude,
-              'centro'    => $centro->descricao
-              ]);
-            $academico->tipo = $tipodeacademico->descricao;
+          $academico->localizacao = array([
+            'latitude'  => $localizacao->latitude,
+            'longitude' => $localizacao->longitude,
+            'centro'    => $centro->descricao
+            ]);
+          $academico->tipo = $tipodeacademico->descricao;
 
-            array_push($data, $academico);
-          }
+          array_push($data, $academico);
+        }
 
-          return $data;
-
+      return $data;
     }
 
     public function index()

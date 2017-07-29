@@ -12,6 +12,7 @@
 */
 
 Route::get('/academico_api', 'AcademicoController@returnAPI')->name('Academico_API');
+Route::get('/servico_api', 'ServicoController@returnAPI')->name('Servico_API');
 
 
 

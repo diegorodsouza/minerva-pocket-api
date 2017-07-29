@@ -19,6 +19,38 @@ class ServicoController extends Controller
          $this->middleware('auth');
     }
 
+    public function returnAPI(){
+      $dataGeral = array();
+      $dataBancos = array();
+      $dataComercios = array();
+      $dataOutros = array();
+      $dataXeroxGraficas = array();
+
+      $bancos = ServicoBanco::orderBy('id', 'asc')->get();
+      $comercios = ServicoComercio::orderBy('id', 'asc')->get();
+      $outros = ServicoOutro::orderBy('id', 'asc')->get();
+      $xerox_graficas = ServicoXeroxGrafica::orderBy('id', 'asc')->get();
+      $servicos = Servico::orderBy('id', 'asc')->get();
+
+
+        foreach ($bancos as $banco) {
+          $servico = Servico::findOrFail($banco->servico_id);
+          $localizacao = Localizacao::findOrFail($servico->localizacao);
+          $centro = CentroPonto::findOrFail($localizacao->centro_ponto_id);
+
+          $servico->localizacao = array([
+            'latitude'  => $localizacao->latitude,
+            'longitude' => $localizacao->longitude,
+            'centro'    => $centro->descricao
+            ]);
+
+          array_push($servico, $banco);
+          array_push($dataBancos, $servico);
+        }
+
+      return $dataBancos;
+    }
+
     public function indexBanco()
     {
       $bancos = ServicoBanco::orderBy('id', 'asc')->get();
