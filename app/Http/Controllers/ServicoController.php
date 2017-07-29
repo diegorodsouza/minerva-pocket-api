@@ -30,6 +30,7 @@ class ServicoController extends Controller
       $dataComercios = array();
       $dataOutros = array();
       $dataXeroxGraficas = array();
+      $tudobanco = array();
 
       $bancos = ServicoBanco::orderBy('id', 'asc')->get();
       $comercios = ServicoComercio::orderBy('id', 'asc')->get();
@@ -50,6 +51,7 @@ class ServicoController extends Controller
             ]);
 
           $tudobanco = (object) array_merge((array) $servico, (array) $banco);
+          // $tudobanco = $tudobanco->toArray();
           array_push($dataBancos, $tudobanco);
         }
 
