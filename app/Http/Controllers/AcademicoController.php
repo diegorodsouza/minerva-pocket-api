@@ -23,6 +23,7 @@ class AcademicoController extends Controller
     }
 
     public function returnAPI(){
+      $data = array();
       $academicos = Academico::orderBy('nome', 'asc')->get();
 
           foreach ($academicos as $academico) {
@@ -33,12 +34,14 @@ class AcademicoController extends Controller
             $academico->localizacao = array([
               'latitude'  => $localizacao->latitude,
               'longitude' => $localizacao->longitude,
-              'centro'    => $centro->nome
+              'centro'    => $centro->descricao
               ]);
-            $academico->tipo = $tipodeacademico->nome;
+            $academico->tipo = $tipodeacademico->descricao;
 
-            echo json_encode($academico);
+            array_push($data, $academico);
           }
+
+          return $data;
 
     }
 
