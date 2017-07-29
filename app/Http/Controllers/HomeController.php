@@ -12,7 +12,6 @@ use App\ServicoComercio;
 use App\ServicoOutro;
 use App\ServicoXeroxGrafica;
 use App\Transporte;
-use App\CentroPonto;
 
 class HomeController extends Controller
 {
