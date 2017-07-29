@@ -30,12 +30,12 @@
       <tbody>
         @foreach ($academicos as $academico)
         <tr>
-          <td>{{$academico->id}}</td>
-          <td>{{$academico->nome}}</td>
-          <td>{{App\Academico::getTipo($academico->id)}}</td>
-          <td>{{$academico->contato}}</td>
-          <td>{{App\Academico::getLocalizacao($academico->id)}}</td>
-          <td>{{$academico->imagem}}</td>
+          <td>{{str_limit($academico->id,30)}}</td>
+          <td>{{str_limit($academico->nome,30)}}</td>
+          <td>{{str_limit(App\Academico::getTipo($academico->id),30)}}</td>
+          <td>{{str_limit($academico->contato,30)}}</td>
+          <td>{{str_limit(App\Academico::getLocalizacao($academico->id),30)}}</td>
+          <td>{{str_limit($academico->imagem,30)}}</td>
           <td>
             <form action="{{ route('DestroyAcademico', $academico->id) }}" method="post">
               {{csrf_field()}}

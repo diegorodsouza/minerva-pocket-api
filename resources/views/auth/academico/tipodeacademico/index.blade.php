@@ -26,8 +26,8 @@
       <tbody>
         @foreach ($tiposdeacademicos as $academico)
         <tr>
-          <td>{{$academico->id}}</td>
-          <td>{{$academico->descricao}}</td>
+          <td>{{str_limit($academico->id,30)}}</td>
+          <td>{{str_limit($academico->descricao,30)}}</td>
           <td>
             <form action="{{ route('DestroyTipoDeAcademico', $academico->id) }}" method="post">
               {{csrf_field()}}

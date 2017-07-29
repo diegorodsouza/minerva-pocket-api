@@ -26,8 +26,8 @@
       <tbody>
         @foreach ($tiposdecomidas as $comida)
         <tr>
-          <td>{{$comida->id}}</td>
-          <td>{{$comida->descricao}}</td>
+          <td>{{str_limit($comida->id,30)}}</td>
+          <td>{{str_limit($comida->descricao,30)}}</td>
           <td>
             <form action="{{ route('DestroyTipoDeComida', $comida->id) }}" method="post">
               {{csrf_field()}}

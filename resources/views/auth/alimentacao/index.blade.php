@@ -29,11 +29,11 @@
       <tbody>
         @foreach ($locais as $local)
         <tr>
-          <td>{{$local->id}}</td>
-          <td>{{$local->nome}}</td>
-          <td>{{$local->preco}}</td>
-          <td>{{App\Alimentacao::getLocalizacao($local->id)}}</td>
-          <td>{{$local->imagem}}</td>
+          <td>{{str_limit($local->id,30)}}</td>
+          <td>{{str_limit($local->nome,30)}}</td>
+          <td>{{str_limit($local->preco,30)}}</td>
+          <td>{{str_limit(App\Alimentacao::getLocalizacao($local->id),30)}}</td>
+          <td>{{str_limit($local->imagem,30)}}</td>
           <td>
             <form action="{{ route('DestroyAlimentacao', $local->id) }}" method="post">
               {{csrf_field()}}

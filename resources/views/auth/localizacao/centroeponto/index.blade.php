@@ -1,4 +1,4 @@
-@extends('layouts.app')
+str_limit(@extends('layouts.app')
 
 @section('content')
 
@@ -28,10 +28,10 @@
       <tbody>
         @foreach ($centrosepontos as $centroeponto)
         <tr>
-          <td>{{$centroeponto->id}}</td>
-          <td>{{$centroeponto->descricao}}</td>
-          <td>{{$centroeponto->tipo}}</td>
-          <td>{{App\CentroPonto::getLatitude($centroeponto->id)}}, {{App\CentroPonto::getLongitude($centroeponto->id)}}</td>
+          <td>{{str_limit($centroeponto->id,30)}}</td>
+          <td>{{str_limit($centroeponto->descricao,30)}}</td>
+          <td>{{str_limit($centroeponto->tipo,30)}}</td>
+          <td>{{str_limit(App\CentroPonto::getLatitude($centroeponto->id),30)}}, str_limit({{App\CentroPonto::getLongitude($centroeponto->id),30)}}</td>
           <td>
             <form action="{{ route('DestroyCentroPonto', $centroeponto->id) }}" method="post">
               {{csrf_field()}}

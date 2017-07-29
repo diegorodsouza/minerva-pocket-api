@@ -29,11 +29,11 @@
       <tbody>
         @foreach ($transportes as $transporte)
         <tr>
-          <td>{{$transporte->id}}</td>
-          <td>{{$transporte->linha}}</td>
-          <td>{{$transporte->tipo}}</td>
-          <td>{{$transporte->preco}}</td>
-          <td>{{$transporte->imagem}}</td>
+          <td>{{str_limit($transporte->id,30)}}</td>
+          <td>{{str_limit($transporte->linha,30)}}</td>
+          <td>{{str_limit($transporte->tipo,30)}}</td>
+          <td>{{str_limit($transporte->preco,30)}}</td>
+          <td>{{str_limit($transporte->imagem,30)}}</td>
           <td>
             <form action="{{ route('DestroyTransporte', $transporte->id) }}" method="post">
               {{csrf_field()}}

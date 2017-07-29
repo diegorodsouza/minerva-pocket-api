@@ -26,8 +26,8 @@
       <tbody>
         @foreach ($tiposdepagamentos as $pagamento)
         <tr>
-          <td>{{$pagamento->id}}</td>
-          <td>{{$pagamento->descricao}}</td>
+          <td>{{str_limit($pagamento->id,30)}}</td>
+          <td>{{str_limit($pagamento->descricao,30)}}</td>
           <td>
             <form action="{{ route('DestroyTipoDePagamento', $pagamento->id) }}" method="post">
               {{csrf_field()}}
