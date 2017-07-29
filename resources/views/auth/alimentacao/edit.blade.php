@@ -17,7 +17,7 @@
     <div class="col-lg-offset-3 col-lg-6">
       <div class="form-group">
         <label for="nome">Local de Alimentacao</label>
-        <input type="text" name="nome" placeholder="Digite o nome do local de alimentacao" class="form-control"
+        <input type="text" required name="nome" placeholder="Digite o nome do local de alimentacao" class="form-control"
                value='{{$alimentacao->nome}}'>
 
         <label for="preco">Preço Médio do Prato/Kilo</label>
@@ -36,16 +36,16 @@
         <hr>
 
         <label for="latitude">Localização - Latitude</label>
-        <input type="text" name="latitude" placeholder="Digite a latitude do local" class="form-control"
+        <input type="text" required name="latitude" placeholder="Digite a latitude do local" class="form-control"
                value='{{$localizacao->latitude}}'>
 
         <label for="longitude">Localização - Longitude</label>
-        <input type="text" name="longitude" placeholder="Digite a longitude do local" class="form-control"
+        <input type="text" required name="longitude" placeholder="Digite a longitude do local" class="form-control"
                value='{{$localizacao->longitude}}'>
 
         <label for="centro">Localização - Centro</label><br>
         @foreach ($centros as $centro)
-          <input type="radio" name="centro" value='{{$centro->id}}'<?php if($localizacao->centro_ponto_id == $centro->id) echo 'checked' ?>
+          <input type="radio" required name="centro" value='{{$centro->id}}'<?php if($localizacao->centro_ponto_id == $centro->id) echo 'checked' ?>
           > {{$centro->descricao}}<br>
         @endforeach
 

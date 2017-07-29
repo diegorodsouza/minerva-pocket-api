@@ -17,7 +17,7 @@
     <div class="col-lg-offset-3 col-lg-6">
       <div class="form-group">
         <label for="descricao">Forma de Pagamento</label>
-        <input type="text" name="descricao" placeholder="Digite a forma de pagamento" class="form-control"
+        <input type="text" required name="descricao" placeholder="Digite a forma de pagamento" class="form-control"
                value="{{ $tipodepagamento->descricao }}">
       </div>
       <div class="form-group">
