@@ -44,9 +44,9 @@
                   <h3>Serviços</h3>
                   <ul>
                     <li><a href="{{ route('ServicoBanco') }}"> Gerir Caixas Eletrônicos e Agências Bancárias</a> - <span>{{$caixas}} Caixas Eletrônicos e {{$agencias}} Agências cadastradas</span></li>
-                    <li><a href="{{ route('ServicoComercio') }}"> Gerir Estabelecimentos Comercias</a> - <span>{{$comercios}} Linhas de Ônibus cadastradas</span></li>
-                    <li><a href="{{ route('ServicoXeroxGrafica') }}"> Gerir Xerox e Gráficas</a> - <span>{{$xerox_graficas}} Linhas de Ônibus cadastradas</span></li>
-                    <li><a href="{{ route('ServicoOutro') }}"> Gerir Outros Serviços</a> - <span>{{$outros}} Linhas de Ônibus cadastradas</span></li>
+                    <li><a href="{{ route('ServicoComercio') }}"> Gerir Estabelecimentos Comercias</a> - <span>{{$comercios}} Estabelecimentos comerciais cadastradas</span></li>
+                    <li><a href="{{ route('ServicoXeroxGrafica') }}"> Gerir Xerox e Gráficas</a> - <span>{{$xerox_graficas}} Gráficas e Xerox cadastradas</span></li>
+                    <li><a href="{{ route('ServicoOutro') }}"> Gerir Outros Serviços</a> - <span>{{$outros}} Serviços diversos cadastradas</span></li>
                   </ul>
                 </div>
             </div>
