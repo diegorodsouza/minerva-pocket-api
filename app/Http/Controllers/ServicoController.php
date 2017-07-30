@@ -57,9 +57,8 @@ class ServicoController extends Controller
             'bandeira' => $banco->bandeira,
             'tipo' => $banco->tipo
             ]);
-          // array_push($dataBancos, $tudobanco);
 
-          return $tudobanco;
+          array_push($dataBancos, $tudobanco);
         }
 
       return $dataBancos;
