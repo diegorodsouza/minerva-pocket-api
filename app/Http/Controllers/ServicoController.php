@@ -30,7 +30,6 @@ class ServicoController extends Controller
       $dataComercios = array();
       $dataOutros = array();
       $dataXeroxGraficas = array();
-      $tudobanco = array();
 
       $bancos = ServicoBanco::orderBy('id', 'asc')->get();
       $comercios = ServicoComercio::orderBy('id', 'asc')->get();
@@ -50,10 +49,17 @@ class ServicoController extends Controller
             'centro'    => $centro->descricao
             ]);
 
-          $tudobanco = (object) array_merge((array) $servico, (array) $banco);
+          $tudobanco = array([
+            'nome'        => $servico->nome;
+            'localizacao' => $servico->localizacao;
+            'funcionamento' => $servico->funcionamento;
+            'imagem' => $servico->imagem;
+            'bandeira' => $banco->bandeira;
+            'tipo' => $banco->tipo;
+            ])
           // array_push($dataBancos, $tudobanco);
 
-          return (array) $tudobanco;
+          return $tudobanco;
         }
 
       return $dataBancos;
