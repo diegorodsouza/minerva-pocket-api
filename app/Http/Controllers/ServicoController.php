@@ -50,12 +50,12 @@ class ServicoController extends Controller
             ]);
 
           $tudobanco = array([
-            'nome'        => $servico->nome;
-            'localizacao' => $servico->localizacao;
-            'funcionamento' => $servico->funcionamento;
-            'imagem' => $servico->imagem;
-            'bandeira' => $banco->bandeira;
-            'tipo' => $banco->tipo;
+            'nome'        => $servico->nome,
+            'localizacao' => $servico->localizacao,
+            'funcionamento' => $servico->funcionamento,
+            'imagem' => $servico->imagem,
+            'bandeira' => $banco->bandeira,
+            'tipo' => $banco->tipo
             ]);
           // array_push($dataBancos, $tudobanco);
 
