@@ -52,7 +52,8 @@ class ServicoController extends Controller
 
           $tudobanco = (object) array_merge((array) $servico, (array) $banco);
           // array_push($dataBancos, $tudobanco);
-          return $tudobanco;
+
+          return json_encode($tudobanco);
         }
 
       return $dataBancos;
