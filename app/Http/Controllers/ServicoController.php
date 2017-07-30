@@ -37,7 +37,6 @@ class ServicoController extends Controller
       $xerox_graficas = ServicoXeroxGrafica::orderBy('id', 'asc')->get();
       $servicos = Servico::orderBy('id', 'asc')->get();
 
-
         foreach ($bancos as $banco) {
           $servico = Servico::findOrFail($banco->servico_id);
           $localizacao = Localizacao::findOrFail($servico->localizacao);
@@ -50,12 +49,13 @@ class ServicoController extends Controller
             ]);
 
           $tudobanco = array([
-            'nome'        => $servico->nome,
-            'localizacao' => $servico->localizacao,
+            'id'            => $servico->id,
+            'nome'          => $servico->nome,
+            'localizacao'   => $servico->localizacao,
             'funcionamento' => $servico->funcionamento,
-            'imagem' => $servico->imagem,
-            'bandeira' => $banco->bandeira,
-            'tipo' => $banco->tipo
+            'imagem'        => $servico->imagem,
+            'bandeira'      => $banco->bandeira,
+            'tipo'          => $banco->tipo
             ]);
 
           array_push($dataBancos, $tudobanco);
