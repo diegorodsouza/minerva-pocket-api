@@ -50,8 +50,7 @@ class ServicoController extends Controller
             'centro'    => $centro->descricao
             ]);
 
-          $tudobanco = (object) array_merge((array) $servico, (array) $banco);
-          // $tudobanco = $tudobanco->toArray();
+          $tudobanco = array_merge((array) $servico, (array) $banco);
           array_push($dataBancos, $tudobanco);
         }
 
