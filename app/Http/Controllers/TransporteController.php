@@ -23,6 +23,7 @@ class TransporteController extends Controller
 
     public function returnAPI(){
 
+      $dataTransportes = array();
       $transportes = Transporte::orderBy('id', 'asc')->get();
       $pontos = CentroPonto::where('tipo', 'Ponto')->get();
 
