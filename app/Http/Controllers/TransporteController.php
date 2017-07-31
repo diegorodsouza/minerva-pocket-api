@@ -25,7 +25,6 @@ class TransporteController extends Controller
 
       $dataTransportes = array();
       $transportes = Transporte::orderBy('id', 'asc')->get();
-      $pontos = CentroPonto::where('tipo', 'Ponto')->get();
 
       foreach ($transportes as $transporte) {
         $transportes_localizacoes = TransporteLocalizacao::where('transporte_id', $transporte->id)->get();
