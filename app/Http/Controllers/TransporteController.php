@@ -11,15 +11,45 @@ use DB;
 
 class TransporteController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
 
     public function __construct()
     {
+      if (\Route::currentRouteName() == 'Transporte_API'){
+
+      } else {
          $this->middleware('auth');
+      }
+    }
+
+    public function returnAPI(){
+
+      $transportes = Transporte::orderBy('id', 'asc')->get();
+      $pontos = CentroPonto::where('tipo', 'Ponto')->get();
+
+      foreach ($transportes as $transporte) {
+        $transportes_localizacoes = TransporteLocalizacao::where('transporte_id', $transporte->id)->get();
+
+        foreach ($transportes_localizacoes as $transporte_localizacao){
+          $ponto = CentroPonto::findOrFail($transporte_localizacao->centro_ponto_id);
+          $pontoNome = $ponto->descricao;
+          array_push($pontosQuePassa, $pontoNome);
+        }
+
+        $tudoTransporte = array([
+          'id'            => $transporte->id,
+          'linha'         => $transporte->linha,
+          'preco'         => $transporte->preco,
+          'tipo'          => $transporte->tipo,
+          'funcionamento' => $transporte->funcionamento,
+          'imagem'        => $transporte->imagem,
+          'observacao'    => $transporte->observacao,
+          'pontosQuePassa'=> $pontosQuePassa
+          ]);
+
+          array_push($dataTransportes, $tudoTransporte);
+        }
+
+        return $dataTransportes;
     }
 
     public function index()
@@ -29,11 +59,6 @@ class TransporteController extends Controller
 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         $pontos = DB::table('centro_ponto')->where('tipo', 'Ponto')->get();
