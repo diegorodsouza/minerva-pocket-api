@@ -54,6 +54,7 @@ class TransporteController extends Controller
         return $dataTransportes;
     }
 
+
     public function index()
     {
       $transportes = Transporte::orderBy('linha', 'asc')->get();
@@ -67,12 +68,7 @@ class TransporteController extends Controller
         return view ("auth.transporte.create",compact(['pontos']));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
         $dados = $request->all();
@@ -106,12 +102,7 @@ class TransporteController extends Controller
         return redirect()->route('Transporte')->with(['success'=>'Linha de Ônibus adicionada com sucesso.']);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
           $transporte = Transporte::findOrFail($id);
@@ -121,13 +112,7 @@ class TransporteController extends Controller
 
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, $id)
     {
       $dados = $request->all();
@@ -166,12 +151,7 @@ class TransporteController extends Controller
       return redirect()->route("Transporte")->with(['success'=>'Linha de Ônibus editada com sucesso.']);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
       $transporte = Transporte::findOrFail($id);
