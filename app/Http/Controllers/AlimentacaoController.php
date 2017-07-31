@@ -27,7 +27,7 @@ class AlimentacaoController extends Controller
     public function returnAPI(){
 
       $dataAlimentacaos = array();
-      $alimentacao = Alimentacao::orderBy('id', 'asc')->get();
+      $alimentacaos = Alimentacao::orderBy('id', 'asc')->get();
 
       foreach ($alimentacaos as $alimentacao) {
         $alimentacao_tipos_pagamentos = AlimentacaoTipoPagamento::where('alimentacao_id', $alimentacao->id)->get();
