@@ -20,7 +20,7 @@
 
         <br><label for="tipo">Tipo de Serviço Acadêmico</label><br>
         @foreach ($tiposdeacademicos as $tipo)
-        <input type="radio" required name="tipo" value='{{$tipo->id}}'> {{$tipo->descricao}}<br>
+        <input type="radio" required name="tipo" value='{{$tipo->id}}' checked> {{$tipo->descricao}}<br>
         @endforeach
 
         <br><label for="imagem">Link da Imagem</label>
@@ -48,7 +48,7 @@
 
         <label for="centro">Localização - Centro</label><br>
         @foreach ($centros as $centro)
-          <input type="radio" required name="centro" value='{{$centro->id}}'> {{$centro->descricao}}<br>
+          <input type="radio" required name="centro" value='{{$centro->id}}' checked> {{$centro->descricao}}<br>
         @endforeach
 
       </div>

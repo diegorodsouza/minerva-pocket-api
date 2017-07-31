@@ -20,7 +20,7 @@
 
         <label for="servico">Tipo do Serviço</label><br>
         <input type="radio" required name="servico" value="Gráfica"> Gráfica<br>
-        <input type="radio" required name="servico" value="Xerox"> Xerox<br>
+        <input type="radio" required name="servico" value="Xerox" checked> Xerox<br>
 
 
         <label for="imagem">Link da Imagem</label>
@@ -44,7 +44,7 @@
 
         <label for="centro">Localização - Centro</label><br>
         @foreach ($centros as $centro)
-          <input type="radio" required name="centro" value='{{$centro->id}}'> {{$centro->descricao}}<br>
+          <input type="radio" required name="centro" value='{{$centro->id}}' checked> {{$centro->descricao}}<br>
         @endforeach
 
 

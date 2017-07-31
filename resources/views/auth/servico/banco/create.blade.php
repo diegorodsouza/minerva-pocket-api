@@ -20,15 +20,15 @@
 
         <br><label for="tipo">Tipo do Banco</label><br>
         <input type="radio" required name="tipo" value="Agência"> Agência<br>
-        <input type="radio" required name="tipo" value="Caixa Eletrônico"> Caixa Eletrônico<br>
+        <input type="radio" required name="tipo" value="Caixa Eletrônico" checked> Caixa Eletrônico<br>
 
         <br><label for="bandeira">Bandeira do Banco</label><br>
-        <input type="radio" required name="bandeira" value="24 Horas"> 24 Horas<br>
+        <input type="radio" required name="bandeira" value="24 Horas" checked> 24 Horas<br>
         <input type="radio" required name="bandeira" value="Banco do Brasil"> Banco do Brasil<br>
         <input type="radio" required name="bandeira" value="Bradesco"> Bradesco<br>
         <input type="radio" required name="bandeira" value="Caixa"> Caixa<br>
         <input type="radio" required name="bandeira" value="Itaú"> Itaú<br>
-        <input type="radio" required name="bandeira" value="Santander"> Santander<br>
+        <input type="radio" required name="bandeira" value="Santander" checked> Santander<br>
 
         <br><label for="imagem">Link da Imagem</label>
         <input type="text" name="imagem" placeholder="Digite o link da imagem do local" class="form-control">
@@ -47,7 +47,7 @@
 
         <label for="centro">Localização - Centro</label><br>
         @foreach ($centros as $centro)
-          <input type="radio" required name="centro" value='{{$centro->id}}'> {{$centro->descricao}}<br>
+          <input type="radio" required name="centro" value='{{$centro->id}}' checked> {{$centro->descricao}}<br>
         @endforeach
 
 

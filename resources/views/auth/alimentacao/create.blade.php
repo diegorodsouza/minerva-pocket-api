@@ -38,7 +38,7 @@
 
         <label for="centro">Localização - Centro</label><br>
         @foreach ($centros as $centro)
-          <input type="radio" required name="centro" value='{{$centro->id}}'> {{$centro->descricao}}<br>
+          <input type="radio" required name="centro" value='{{$centro->id}}' checked> {{$centro->descricao}}<br>
         @endforeach
 
         <hr>

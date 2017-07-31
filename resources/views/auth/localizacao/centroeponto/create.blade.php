@@ -20,7 +20,7 @@
 
         <label for="tipo">Tipo</label><br>
         <input type="radio" required name="tipo" value='Centro'> Centro<br>
-        <input type="radio" required name="tipo" value='Ponto'> Ponto de Ônibus<br>
+        <input type="radio" required name="tipo" value='Ponto' checked> Ponto de Ônibus<br>
 
         <hr>
 

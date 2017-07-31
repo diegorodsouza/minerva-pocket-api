@@ -20,7 +20,7 @@
 
         <label for="tipo">Tipo da Linha de Ônibus</label><br>
         <input type="radio" required name="tipo" value="Interno"> Interno<br>
-        <input type="radio" required name="tipo" value="Externo"> Externo<br>
+        <input type="radio" required name="tipo" value="Externo" checked> Externo<br>
 
         <label for="preco">Preço da Passagem</label>
         <input type="text" name="preco" placeholder="Digite o preço padrão da passagem" class="form-control">
@@ -38,7 +38,7 @@
 
         <label for="ponto">Pontos em que essa Linha de ônibus passa</label><br>
         @foreach ($pontos as $ponto)
-          <input type="checkbox" name="ponto[]" value='{{$ponto->id}}'> {{$ponto->descricao}}<br>
+          <input type="checkbox" name="ponto[]" value='{{$ponto->id}}' checked> {{$ponto->descricao}}<br>
         @endforeach
 
       </div>
