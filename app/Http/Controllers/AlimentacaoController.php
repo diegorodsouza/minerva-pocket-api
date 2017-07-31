@@ -14,16 +14,65 @@ use DB;
 
 class AlimentacaoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
 
     public function __construct()
     {
+      if (\Route::currentRouteName() == 'Alimentacao_API'){
+
+      } else {
          $this->middleware('auth');
+      }
     }
+
+    public function returnAPI(){
+
+      $dataAlimentacaos = array();
+      $alimentacao = Alimentacao::orderBy('id', 'asc')->get();
+
+      foreach ($alimentacaos as $alimentacao) {
+        $alimentacao_tipos_pagamentos = AlimentacaoTipoPagamento::where('alimentacao_id', $alimentacao->id)->get();
+        $alimentacao_tipos_comidas = AlimentacaoTipoComida::where('alimentacao_id', $alimentacao->id)->get();
+
+        $tiposPagamento = array();
+        $tiposComida = array();
+
+        foreach ($alimentacao_tipos_pagamentos as $alimentacao_tipo_pagamento){
+          $tipo = TipoDePagamento::find($alimentacao_tipo_pagamento->tipo_pagamento_id);
+          $tipoNome = $tipo->descricao;
+          array_push($tiposPagamento, $tipoNome);
+        }
+        foreach ($alimentacao_tipos_comidas as $alimentacao_tipo_comida){
+          $tipo = TipoDeComida::find($alimentacao_tipo_comida->tipo_comida_id);
+          $tipoNome = $tipo->descricao;
+          array_push($tiposComida, $tipoNome);
+        }
+
+        $localizacao = Localizacao::findOrFail($alimentacao->localizacao);
+        $centro = CentroPonto::findOrFail($localizacao->centro_ponto_id);
+
+        $alimentacao_localizacao = array([
+          'latitude'  => $localizacao->latitude,
+          'longitude' => $localizacao->longitude,
+          'centro'    => $centro->descricao
+          ]);
+
+        $tudoComida = array([
+          'id'               => $alimentacao->id,
+          'nome'             => $alimentacao->nome,
+          'preco'            => $alimentacao->preco,
+          'funcionamento'    => $alimentacao->funcionamento,
+          'localizacao'      => $alimentacao_localizacao,
+          'imagem'           => $alimentacao->imagem,
+          'tipo_de_comida'   => $tiposComida,
+          'tipo_de_pagamento'=> $tiposPagamento
+          ]);
+
+          array_push($dataAlimentacaos, $tudoComida);
+        }
+
+        return $dataAlimentacaos;
+    }
+
 
     public function index()
     {
@@ -34,11 +83,7 @@ class AlimentacaoController extends Controller
 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
         $centros = DB::table('centro_ponto')->where('tipo', 'Centro')->get();
@@ -47,12 +92,7 @@ class AlimentacaoController extends Controller
         return view ("auth.alimentacao.create",compact(['centros','tiposdecomidas','tiposdepagamentos']));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
         $dados = $request->all();
@@ -108,12 +148,7 @@ class AlimentacaoController extends Controller
         return redirect()->route('Alimentacao')->with(['success'=>'Local de Alimentação adicionado com sucesso.']);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
           $alimentacao = Alimentacao::findOrFail($id);
@@ -130,13 +165,7 @@ class AlimentacaoController extends Controller
 
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, $id)
     {
       $dados = $request->all();
@@ -202,12 +231,7 @@ class AlimentacaoController extends Controller
       return redirect()->route("Alimentacao")->with(['success'=>'Local de Alimentação editado com sucesso.']);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
       $alimentacao = Alimentacao::findOrFail($id);

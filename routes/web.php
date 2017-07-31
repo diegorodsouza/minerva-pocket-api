@@ -14,6 +14,7 @@
 Route::get('/academico_api', 'AcademicoController@returnAPI')->name('Academico_API');
 Route::get('/servico_api', 'ServicoController@returnAPI')->name('Servico_API');
 Route::get('/transporte_api', 'TransporteController@returnAPI')->name('Transporte_API');
+Route::get('/alimentacao_api', 'AlimentacaoController@returnAPI')->name('Alimentacao_API');
 
 
 
