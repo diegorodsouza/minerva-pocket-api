@@ -48,7 +48,7 @@ class ServicoController extends Controller
             'centro'    => $centro->descricao
             ]);
 
-          $tudobanco = array([
+          $tudoBanco = array([
             'id'            => $servico->id,
             'nome'          => $servico->nome,
             'localizacao'   => $servico->localizacao,
@@ -58,10 +58,88 @@ class ServicoController extends Controller
             'tipo'          => $banco->tipo
             ]);
 
-          array_push($dataBancos, $tudobanco);
+          array_push($dataBancos, $tudoBanco);
         }
 
-      return $dataBancos;
+        foreach ($comercios as $comercio) {
+          $servico = Servico::findOrFail($comercio->servico_id);
+          $localizacao = Localizacao::findOrFail($servico->localizacao);
+          $centro = CentroPonto::findOrFail($localizacao->centro_ponto_id);
+
+          $servico->localizacao = array([
+            'latitude'  => $localizacao->latitude,
+            'longitude' => $localizacao->longitude,
+            'centro'    => $centro->descricao
+            ]);
+
+          $tudoComercio = array([
+            'id'            => $servico->id,
+            'nome'          => $servico->nome,
+            'localizacao'   => $servico->localizacao,
+            'funcionamento' => $servico->funcionamento,
+            'imagem'        => $servico->imagem,
+            'especialidade' => $comercio->especialidade,
+            'descricao'     => $comercio->descricao
+            ]);
+
+          array_push($dataComercios, $tudoComercio);
+        }
+
+        foreach ($outros as $outro) {
+          $servico = Servico::findOrFail($outro->servico_id);
+          $localizacao = Localizacao::findOrFail($servico->localizacao);
+          $centro = CentroPonto::findOrFail($localizacao->centro_ponto_id);
+
+          $servico->localizacao = array([
+            'latitude'  => $localizacao->latitude,
+            'longitude' => $localizacao->longitude,
+            'centro'    => $centro->descricao
+            ]);
+
+          $tudoOutro = array([
+            'id'            => $servico->id,
+            'nome'          => $servico->nome,
+            'localizacao'   => $servico->localizacao,
+            'funcionamento' => $servico->funcionamento,
+            'imagem'        => $servico->imagem,
+            'servico'       => $outro->servico,
+            'observacao'    => $outro->observacao
+            ]);
+
+          array_push($dataOutros, $tudoOutro);
+        }
+
+        foreach ($xerox_graficas as $xerox_grafica) {
+          $servico = Servico::findOrFail($xerox_grafica->servico_id);
+          $localizacao = Localizacao::findOrFail($servico->localizacao);
+          $centro = CentroPonto::findOrFail($localizacao->centro_ponto_id);
+
+          $servico->localizacao = array([
+            'latitude'  => $localizacao->latitude,
+            'longitude' => $localizacao->longitude,
+            'centro'    => $centro->descricao
+            ]);
+
+          $tudoXeroxGrafica = array([
+            'id'            => $servico->id,
+            'nome'          => $servico->nome,
+            'localizacao'   => $servico->localizacao,
+            'funcionamento' => $servico->funcionamento,
+            'imagem'        => $servico->imagem,
+            'servico'       => $xerox_grafica->servico,
+            'observacao'    => $xerox_grafica->observacao
+            ]);
+
+          array_push($dataXeroxGraficas, $tudoXeroxGrafica);
+        }
+
+
+      array_push($dataGeral, $dataBancos);
+      array_push($dataGeral, $dataComercios);
+      array_push($dataGeral, $dataOutros);
+      array_push($dataGeral, $dataXeroxGraficas);
+      
+      return $dataGeral;
     }
 
     public function indexBanco()
