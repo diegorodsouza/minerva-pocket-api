@@ -30,7 +30,8 @@ class TransporteController extends Controller
         $transportes_localizacoes = TransporteLocalizacao::where('transporte_id', $transporte->id)->get();
 
         foreach ($transportes_localizacoes as $transporte_localizacao){
-          $ponto = CentroPonto::findOrFail($transporte_localizacao->centro_ponto_id);
+          $local = Localizacao::find($transporte_localizacao->localizacao_id);
+          $ponto = CentroPonto::find($local->centro_ponto_id)
           $pontoNome = $ponto->descricao;
           array_push($pontosQuePassa, $pontoNome);
         }
