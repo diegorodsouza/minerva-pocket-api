@@ -26,6 +26,8 @@ class AlimentacaoController extends Controller
 
     public function returnAPI(){
 
+      header("Access-Control-Allow-Origin: *");
+
       $dataAlimentacaos = array();
       $alimentacaos = Alimentacao::orderBy('id', 'asc')->get();
 
