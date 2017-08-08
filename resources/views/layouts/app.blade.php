@@ -13,6 +13,11 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/tables.css') }}" rel="stylesheet">
+
+<?php
+      header("Access-Control-Allow-Origin: *");
+ ?>
+
 </head>
 <body>
     <div id="app">
