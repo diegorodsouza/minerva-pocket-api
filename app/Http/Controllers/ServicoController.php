@@ -25,6 +25,9 @@ class ServicoController extends Controller
     }
 
     public function returnAPI(){
+
+      header("Access-Control-Allow-Origin: *");
+
       $dataGeral = array();
       $dataBancos = array();
       $dataComercios = array();
@@ -138,7 +141,7 @@ class ServicoController extends Controller
       array_push($dataGeral, $dataComercios);
       array_push($dataGeral, $dataOutros);
       array_push($dataGeral, $dataXeroxGraficas);
-      
+
       return $dataGeral;
     }
 

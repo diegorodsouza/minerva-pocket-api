@@ -27,6 +27,9 @@ class AcademicoController extends Controller
     }
 
     public function returnAPI(){
+
+      header("Access-Control-Allow-Origin: *");
+
       $data = array();
       $academicos = Academico::orderBy('nome', 'asc')->get();
 

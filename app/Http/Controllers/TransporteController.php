@@ -23,6 +23,8 @@ class TransporteController extends Controller
 
     public function returnAPI(){
 
+      header("Access-Control-Allow-Origin: *");
+
       $dataTransportes = array();
       $transportes = Transporte::orderBy('id', 'asc')->get();
 
