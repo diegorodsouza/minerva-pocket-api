@@ -31,9 +31,14 @@ class AcademicoController extends Controller
       header("Access-Control-Allow-Origin: *");
 
       $data = array();
-      $academicos = Academico::orderBy('nome', 'asc')->get();
+      $dataCaDa = array();
+      $dataBiblioteca = array();
+      $dataAuditorio = array();
+      $dataSecretaria = array();
 
-        foreach ($academicos as $academico) {
+      $CaDa = Academico::where('tipo','Centro/Diretório Acadêmico')->orderBy('nome', 'asc')->get();
+
+        foreach ($CaDa as $academico) {
           $localizacao = Localizacao::findOrFail($academico->localizacao);
           $centro = CentroPonto::findOrFail($localizacao->centro_ponto_id);
           $tipodeacademico = TipoDeAcademico::findOrFail($academico->tipo);
@@ -45,8 +50,63 @@ class AcademicoController extends Controller
             ]);
           $academico->tipo = $tipodeacademico->descricao;
 
-          array_push($data, $academico);
+          array_push($dataCaDa, $academico);
         }
+        array_push($data, $dataCaDa);
+
+      $bibliotecas = Academico::where('tipo','Biblioteca')->orderBy('nome', 'asc')->get();
+
+        foreach ($bibliotecas as $academico) {
+          $localizacao = Localizacao::findOrFail($academico->localizacao);
+          $centro = CentroPonto::findOrFail($localizacao->centro_ponto_id);
+          $tipodeacademico = TipoDeAcademico::findOrFail($academico->tipo);
+
+          $academico->localizacao = array([
+            'latitude'  => $localizacao->latitude,
+            'longitude' => $localizacao->longitude,
+            'centro'    => $centro->descricao
+            ]);
+          $academico->tipo = $tipodeacademico->descricao;
+
+          array_push($dataBiblioteca, $academico);
+        }
+        array_push($data, $dataBiblioteca);
+
+      $secretarias = Academico::where('tipo','Secretaria')->orderBy('nome', 'asc')->get();
+
+        foreach ($secretaria as $academico) {
+          $localizacao = Localizacao::findOrFail($academico->localizacao);
+          $centro = CentroPonto::findOrFail($localizacao->centro_ponto_id);
+          $tipodeacademico = TipoDeAcademico::findOrFail($academico->tipo);
+
+          $academico->localizacao = array([
+            'latitude'  => $localizacao->latitude,
+            'longitude' => $localizacao->longitude,
+            'centro'    => $centro->descricao
+            ]);
+          $academico->tipo = $tipodeacademico->descricao;
+
+          array_push($dataSecretaria, $academico);
+        }
+        array_push($data, $dataSecretaria);
+
+      $auditorios = Academico::where('tipo','Auditório')->orderBy('nome', 'asc')->get();
+
+        foreach ($auditorios as $academico) {
+          $localizacao = Localizacao::findOrFail($academico->localizacao);
+          $centro = CentroPonto::findOrFail($localizacao->centro_ponto_id);
+          $tipodeacademico = TipoDeAcademico::findOrFail($academico->tipo);
+
+          $academico->localizacao = array([
+            'latitude'  => $localizacao->latitude,
+            'longitude' => $localizacao->longitude,
+            'centro'    => $centro->descricao
+            ]);
+          $academico->tipo = $tipodeacademico->descricao;
+
+          array_push($dataAuditorio, $academico);
+        }
+        array_push($data, $dataAuditorio);
 
       return $data;
     }

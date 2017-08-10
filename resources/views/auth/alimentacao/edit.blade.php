@@ -21,8 +21,7 @@
                value='{{$alimentacao->nome}}'>
 
         <label for="preco">Preço Médio do Prato/Kilo</label>
-        <input type="text" name="preco" placeholder="Digite o preço médio do prato" class="form-control"
-               value='{{$alimentacao->preco}}'>
+        <textarea name="preco" class="form-control" placeholder="Digite os preços médio do estabelecimento">{{$alimentacao->preco}}</textarea>
 
         <label for="imagem">Link da Imagem</label>
         <input type="text" name="imagem" placeholder="Digite o link da imagem do local" class="form-control"
