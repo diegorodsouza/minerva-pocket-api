@@ -38,7 +38,7 @@
 
         <label for="ponto">Pontos em que essa Linha de ônibus passa</label><br>
         @foreach ($pontos as $ponto)
-          <input type="checkbox" name="ponto[]" value='{{$ponto->id}}' checked> {{$ponto->descricao}}<br>
+          <input type="checkbox" name="ponto[]" value='{{$ponto->id}}'> {{$ponto->descricao}}<br>
         @endforeach
 
       </div>

@@ -20,8 +20,8 @@
         <input type="text" required name="nome" placeholder="Digite o nome que identificará o serviço" class="form-control" value="{{$servico->nome}}">
 
         <label for="servico">Tipo do Serviço</label><br>
-        <input type="radio" required name="servico" value="Gráfica"> Gráfica<br>
-        <input type="radio" required name="servico" value="Xerox"> Xerox<br>
+        <input type="radio" required name="servico" value="Gráfica" <?php if($xerox_grafica->servico == "Gráfica") echo 'checked' ?>> Gráfica<br>
+        <input type="radio" required name="servico" value="Xerox" <?php if($xerox_grafica->servico == "Xerox") echo 'checked' ?>> Xerox<br>
 
 
         <label for="imagem">Link da Imagem</label>

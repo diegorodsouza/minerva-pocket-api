@@ -25,10 +25,13 @@ class TransporteController extends Controller
 
       header("Access-Control-Allow-Origin: *");
 
+      $dataTransportesInterno = array();
+      $dataTransportesExterno = array();
       $dataTransportes = array();
-      $transportes = Transporte::orderBy('id', 'asc')->get();
 
-      foreach ($transportes as $transporte) {
+      $transportesInternos = Transporte::where('tipo','Interno')->orderBy('id', 'asc')->get();
+
+      foreach ($transportesInternos as $transporte) {
         $transportes_localizacoes = TransporteLocalizacao::where('transporte_id', $transporte->id)->get();
 
         $pontosQuePassa = array();
@@ -50,8 +53,37 @@ class TransporteController extends Controller
           'pontosQuePassa'=> $pontosQuePassa
           ]);
 
-          array_push($dataTransportes, $tudoTransporte);
+          array_push($dataTransportesInterno, $tudoTransporte);
         }
+      array_push($dataTransportes, $dataTransportesInterno);
+
+      $transportesExternos = Transporte::where('tipo','Externo')->orderBy('id', 'asc')->get();
+
+      foreach ($transportesExternos as $transporte) {
+        $transportes_localizacoes = TransporteLocalizacao::where('transporte_id', $transporte->id)->get();
+
+        $pontosQuePassa = array();
+        foreach ($transportes_localizacoes as $transporte_localizacao){
+          $local = Localizacao::find($transporte_localizacao->localizacao_id);
+          $ponto = CentroPonto::find($local->centro_ponto_id);
+          $pontoNome = $ponto->descricao;
+          array_push($pontosQuePassa, $pontoNome);
+        }
+
+        $tudoTransporte = array([
+          'id'            => $transporte->id,
+          'linha'         => $transporte->linha,
+          'preco'         => $transporte->preco,
+          'tipo'          => $transporte->tipo,
+          'funcionamento' => $transporte->funcionamento,
+          'imagem'        => $transporte->imagem,
+          'observacao'    => $transporte->observacao,
+          'pontosQuePassa'=> $pontosQuePassa
+          ]);
+
+          array_push($dataTransportesExterno, $tudoTransporte);
+        }
+        array_push($dataTransportes, $dataTransportesExterno);
 
         return $dataTransportes;
     }
