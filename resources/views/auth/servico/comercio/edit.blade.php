@@ -19,12 +19,12 @@
         <label for="nome">Nome de do Comércio</label>
         <input type="text" required name="nome" placeholder="Digite o nome que identificará o comércio" class="form-control" value='{{$servico->nome}}'>
 
-        <label for="imagem">Link da Imagem</label>
-        <input type="text" name="imagem" pattern="https{0,1}://i.imgur.com/.*|https{0,1}://imgur.com/.*" placeholder="http://imgur.com/..." class="form-control" value='{{$servico->imagem}}'>
-
         <label for="especialidade">Especialidade do Comércio</label>
         <input type="text" required name="especialidade" placeholder="Digite que tipo de comércio o estabelecimento é" class="form-control"
-               value='{{$comercio->especialidade}}'>
+        value='{{$comercio->especialidade}}'>
+
+        <label for="imagem">Link da Imagem</label>
+        <input type="text" name="imagem" pattern="https{0,1}://i.imgur.com/.*|https{0,1}://imgur.com/.*" placeholder="http://imgur.com/..." class="form-control" value='{{$servico->imagem}}'>
         <small id="imagemHelp" class="form-text text-muted">
           A url deve ser publicada no <a href="https://imgur.com/upload" target="_blank">Imgur</a> antes.<br>
           Após, deve-se clicar em Copy para copiar o link da imagem fornecido pelo imgur, que deve ter este formato: http://imgur.com/...<br>
