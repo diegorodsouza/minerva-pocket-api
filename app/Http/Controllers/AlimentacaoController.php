@@ -10,6 +10,7 @@ use App\TipoDeComida;
 use App\TipoDePagamento;
 use App\AlimentacaoTipoPagamento;
 use App\AlimentacaoTipoComida;
+use App\ImgurLink;
 use DB;
 
 class AlimentacaoController extends Controller
@@ -57,7 +58,7 @@ class AlimentacaoController extends Controller
           'longitude' => $localizacao->longitude,
           'centro'    => $centro->descricao
           ]);
-          
+
         $alimentacao->imagem = ImgurLink::transformImgurLink($alimentacao->imagem);
         $tudoComida = array([
           'id'               => $alimentacao->id,
