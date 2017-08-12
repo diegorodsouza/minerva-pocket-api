@@ -25,6 +25,7 @@
         <label for="especialidade">Especialidade do Comércio</label>
         <input type="text" required name="especialidade" placeholder="Digite que tipo de comércio o estabelecimento é" class="form-control"
                value='{{$comercio->especialidade}}'>
+        <small id="imagemHelp" class="form-text text-muted">A url deve ser publicada no <a href="https://imgur.com/upload" target="_blank">Imgur</a> antes.</small>
 
         <label for="descricao">Descrição</label>
         <textarea name="descricao" placeholder="Escreva mais sobre o estabelecimento..." class="form-control">{{$comercio->descricao}}

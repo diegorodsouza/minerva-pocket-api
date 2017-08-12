@@ -30,7 +30,7 @@
                   <h3>Acadêmico</h3>
                   <ul>
 
-                    <li>
+                    <!-- <li> -->
                       <!-- <a href="{{ route('TipoDeAcademico') }}"> Gerir Tipos de Serviço Acadêmico</a> - <span>{{$tiposdeacademicos}} Tipos de serviços academicos cadastrados</span>
                       <p class="aviso">Necessário antes de criar um serviço acadêmico</p></li> -->
 

@@ -7,6 +7,7 @@ use App\Academico;
 use App\Localizacao;
 use App\CentroPonto;
 use App\TipoDeAcademico;
+use App\ImgurLink;
 use DB;
 
 class AcademicoController extends Controller
@@ -42,6 +43,7 @@ class AcademicoController extends Controller
           $localizacao = Localizacao::findOrFail($academico->localizacao);
           $centro = CentroPonto::findOrFail($localizacao->centro_ponto_id);
           $tipodeacademico = TipoDeAcademico::findOrFail($academico->tipo);
+          $academico->imagem = ImgurLink::transformImgurLink($academico->imagem);
 
           $academico->localizacao = array([
             'latitude'  => $localizacao->latitude,
@@ -60,6 +62,7 @@ class AcademicoController extends Controller
           $localizacao = Localizacao::findOrFail($academico->localizacao);
           $centro = CentroPonto::findOrFail($localizacao->centro_ponto_id);
           $tipodeacademico = TipoDeAcademico::findOrFail($academico->tipo);
+          $academico->imagem = ImgurLink::transformImgurLink($academico->imagem);
 
           $academico->localizacao = array([
             'latitude'  => $localizacao->latitude,
@@ -78,6 +81,7 @@ class AcademicoController extends Controller
           $localizacao = Localizacao::findOrFail($academico->localizacao);
           $centro = CentroPonto::findOrFail($localizacao->centro_ponto_id);
           $tipodeacademico = TipoDeAcademico::findOrFail($academico->tipo);
+          $academico->imagem = ImgurLink::transformImgurLink($academico->imagem);
 
           $academico->localizacao = array([
             'latitude'  => $localizacao->latitude,
@@ -96,7 +100,8 @@ class AcademicoController extends Controller
           $localizacao = Localizacao::findOrFail($academico->localizacao);
           $centro = CentroPonto::findOrFail($localizacao->centro_ponto_id);
           $tipodeacademico = TipoDeAcademico::findOrFail($academico->tipo);
-
+          $academico->imagem = ImgurLink::transformImgurLink($academico->imagem);
+          
           $academico->localizacao = array([
             'latitude'  => $localizacao->latitude,
             'longitude' => $localizacao->longitude,
@@ -142,6 +147,7 @@ class AcademicoController extends Controller
 
         // ACADEMICO
 
+        $novoLink =
         $dadosAca = array(
           'nome'          => $dados['nome'],
           'funcionamento' => $dados['funcionamento'],

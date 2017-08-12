@@ -20,6 +20,7 @@
 
         <label for="imagem">Link da Imagem</label>
         <input type="text" name="imagem" placeholder="Digite o link da imagem do local" class="form-control">
+        <small id="imagemHelp" class="form-text text-muted">A url deve ser publicada no <a href="https://imgur.com/upload" target="_blank">Imgur</a> antes.</small>
 
         <label for="especialidade">Especialidade do Comércio</label>
         <input type="text" required name="especialidade" placeholder="Digite que tipo de comércio o estabelecimento é" class="form-control">

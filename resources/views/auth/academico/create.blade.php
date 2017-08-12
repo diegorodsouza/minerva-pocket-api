@@ -25,6 +25,7 @@
 
         <br><label for="imagem">Link da Imagem</label>
         <input type="text" name="imagem" placeholder="Digite o link da imagem do local" class="form-control">
+        <small id="imagemHelp" class="form-text text-muted">A url deve ser publicada no <a href="https://imgur.com/upload" target="_blank">Imgur</a> antes.</small>
 
         <label for="funcionamento">Funcionamento</label>
         <textarea name="funcionamento" placeholder="Descreva os horários de funcionamento do local" class="form-control">
