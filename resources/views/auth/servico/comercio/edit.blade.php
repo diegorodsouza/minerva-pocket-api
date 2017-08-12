@@ -20,12 +20,12 @@
         <input type="text" required name="nome" placeholder="Digite o nome que identificará o comércio" class="form-control" value='{{$servico->nome}}'>
 
         <label for="imagem">Link da Imagem</label>
-        <input type="text" name="imagem" placeholder="Digite o link da imagem do local" class="form-control" value='{{$servico->imagem}}'>
+        <input type="text" name="imagem" pattern="http://imgur.com/.*" placeholder="http://imgur.com/..." class="form-control" value='{{$servico->imagem}}'>
 
         <label for="especialidade">Especialidade do Comércio</label>
         <input type="text" required name="especialidade" placeholder="Digite que tipo de comércio o estabelecimento é" class="form-control"
                value='{{$comercio->especialidade}}'>
-        <small id="imagemHelp" class="form-text text-muted">A url deve ser publicada no <a href="https://imgur.com/upload" target="_blank">Imgur</a> antes.</small>
+        <small id="imagemHelp" class="form-text text-muted">A url deve ser publicada no <a href="https://imgur.com/upload" target="_blank">Imgur</a> antes.</small><br>
 
         <label for="descricao">Descrição</label>
         <textarea name="descricao" placeholder="Escreva mais sobre o estabelecimento..." class="form-control">{{$comercio->descricao}}

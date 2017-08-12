@@ -25,8 +25,8 @@
 
 
         <label for="imagem">Link da Imagem</label>
-        <input type="text" name="imagem" placeholder="Digite o link da imagem do local" class="form-control" value="{{$servico->imagem}}">
-        <small id="imagemHelp" class="form-text text-muted">A url deve ser publicada no <a href="https://imgur.com/upload" target="_blank">Imgur</a> antes.</small>
+        <input type="text" name="imagem" pattern="http://imgur.com/.*" placeholder="http://imgur.com/..." class="form-control" value="{{$servico->imagem}}">
+        <small id="imagemHelp" class="form-text text-muted">A url deve ser publicada no <a href="https://imgur.com/upload" target="_blank">Imgur</a> antes.</small><br>
 
         <label for="observacao">Observação</label>
         <textarea name="observacao" placeholder="Escreva algo mais sobre a forma como esse servico é prestado, como os serviços disponíveis ou o preço" class="form-control">{{$xerox_grafica->observacao}}

@@ -7,6 +7,7 @@ use App\Transporte;
 use App\Localizacao;
 use App\CentroPonto;
 use App\TransporteLocalizacao;
+use App\ImgurLink;
 use DB;
 
 class TransporteController extends Controller
@@ -42,6 +43,7 @@ class TransporteController extends Controller
           array_push($pontosQuePassa, $pontoNome);
         }
 
+        $transporte->imagem = ImgurLink::transformImgurLink($transporte->imagem);
         $tudoTransporte = array([
           'id'            => $transporte->id,
           'linha'         => $transporte->linha,
@@ -70,6 +72,7 @@ class TransporteController extends Controller
           array_push($pontosQuePassa, $pontoNome);
         }
 
+        $transporte->imagem = ImgurLink::transformImgurLink($transporte->imagem);
         $tudoTransporte = array([
           'id'            => $transporte->id,
           'linha'         => $transporte->linha,

@@ -22,8 +22,8 @@
         <textarea name="preco" class="form-control" placeholder="Digite os preços médio do estabelecimento"></textarea>
 
         <label for="imagem">Link da Imagem</label>
-        <input type="text" name="imagem" placeholder="Digite o link da imagem do local" class="form-control">
-        <small id="imagemHelp" class="form-text text-muted">A url deve ser publicada no <a href="https://imgur.com/upload" target="_blank">Imgur</a> antes.</small>
+        <input type="text" name="imagem" pattern="http://imgur.com/.*" placeholder="http://imgur.com/..." class="form-control">
+        <small id="imagemHelp" class="form-text text-muted">A url deve ser publicada no <a href="https://imgur.com/upload" target="_blank">Imgur</a> antes.</small><br>
 
         <label for="funcionamento">Funcionamento</label>
         <textarea name="funcionamento" placeholder="Descreva os horários de funcionamento do local" class="form-control">

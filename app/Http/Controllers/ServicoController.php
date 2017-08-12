@@ -10,6 +10,7 @@ use App\ServicoOutro;
 use App\ServicoXeroxGrafica;
 use App\Localizacao;
 use App\CentroPonto;
+use App\ImgurLink;
 use DB;
 
 class ServicoController extends Controller
@@ -51,6 +52,7 @@ class ServicoController extends Controller
             'centro'    => $centro->descricao
             ]);
 
+          $servico->imagem = ImgurLink::transformImgurLink($servico->imagem);
           $tudoBanco = array([
             'id'            => $servico->id,
             'nome'          => $servico->nome,
@@ -75,6 +77,7 @@ class ServicoController extends Controller
             'centro'    => $centro->descricao
             ]);
 
+          $servico->imagem = ImgurLink::transformImgurLink($servico->imagem);
           $tudoComercio = array([
             'id'            => $servico->id,
             'nome'          => $servico->nome,
@@ -99,6 +102,7 @@ class ServicoController extends Controller
             'centro'    => $centro->descricao
             ]);
 
+          $servico->imagem = ImgurLink::transformImgurLink($servico->imagem);
           $tudoOutro = array([
             'id'            => $servico->id,
             'nome'          => $servico->nome,
@@ -123,6 +127,7 @@ class ServicoController extends Controller
             'centro'    => $centro->descricao
             ]);
 
+          $servico->imagem = ImgurLink::transformImgurLink($servico->imagem);
           $tudoXeroxGrafica = array([
             'id'            => $servico->id,
             'nome'          => $servico->nome,
