@@ -24,7 +24,7 @@
 
 
         <label for="imagem">Link da Imagem</label>
-        <input type="text" name="imagem" pattern="http://imgur.com/.*" placeholder="http://imgur.com/..." class="form-control">
+        <input type="text" name="imagem" pattern="https{0,1}://imgur.com/.*" placeholder="http://imgur.com/..." class="form-control">
         <small id="imagemHelp" class="form-text text-muted">A url deve ser publicada no <a href="https://imgur.com/upload" target="_blank">Imgur</a> antes.</small><br>
 
         <label for="observacao">Observação</label>

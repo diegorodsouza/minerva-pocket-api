@@ -20,7 +20,7 @@
         <input type="text" required name="nome" placeholder="Digite o nome que identificará o comércio" class="form-control" value='{{$servico->nome}}'>
 
         <label for="imagem">Link da Imagem</label>
-        <input type="text" name="imagem" pattern="http://imgur.com/.*" placeholder="http://imgur.com/..." class="form-control" value='{{$servico->imagem}}'>
+        <input type="text" name="imagem" pattern="https{0,1}://imgur.com/.*" placeholder="http://imgur.com/..." class="form-control" value='{{$servico->imagem}}'>
 
         <label for="especialidade">Especialidade do Comércio</label>
         <input type="text" required name="especialidade" placeholder="Digite que tipo de comércio o estabelecimento é" class="form-control"
