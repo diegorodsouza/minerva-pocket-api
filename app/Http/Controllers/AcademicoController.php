@@ -37,7 +37,7 @@ class AcademicoController extends Controller
       $dataAuditorio = array();
       $dataSecretaria = array();
 
-      $CaDa = Academico::where('tipo','Centro/Diretório Acadêmico')->orderBy('nome', 'asc')->get();
+      $CaDa = Academico::where('tipo','like',"Centro/Diretório Acadêmico")->orderBy('nome', 'asc')->get();
 
         foreach ($CaDa as $academico) {
           $localizacao = Localizacao::findOrFail($academico->localizacao);
@@ -56,7 +56,7 @@ class AcademicoController extends Controller
         }
         array_push($data, $dataCaDa);
 
-      $bibliotecas = Academico::where('tipo','Biblioteca')->orderBy('nome', 'asc')->get();
+      $bibliotecas = Academico::where('tipo','like','Biblioteca')->orderBy('nome', 'asc')->get();
 
         foreach ($bibliotecas as $academico) {
           $localizacao = Localizacao::findOrFail($academico->localizacao);
@@ -75,7 +75,7 @@ class AcademicoController extends Controller
         }
         array_push($data, $dataBiblioteca);
 
-      $secretarias = Academico::where('tipo','Secretaria')->orderBy('nome', 'asc')->get();
+      $secretarias = Academico::where('tipo','like','Secretaria')->orderBy('nome', 'asc')->get();
 
         foreach ($secretaria as $academico) {
           $localizacao = Localizacao::findOrFail($academico->localizacao);
@@ -94,14 +94,14 @@ class AcademicoController extends Controller
         }
         array_push($data, $dataSecretaria);
 
-      $auditorios = Academico::where('tipo','Auditório')->orderBy('nome', 'asc')->get();
+      $auditorios = Academico::where('tipo','like',"Auditório")->orderBy('nome', 'asc')->get();
 
         foreach ($auditorios as $academico) {
           $localizacao = Localizacao::findOrFail($academico->localizacao);
           $centro = CentroPonto::findOrFail($localizacao->centro_ponto_id);
           $tipodeacademico = TipoDeAcademico::findOrFail($academico->tipo);
           $academico->imagem = ImgurLink::transformImgurLink($academico->imagem);
-          
+
           $academico->localizacao = array([
             'latitude'  => $localizacao->latitude,
             'longitude' => $localizacao->longitude,
