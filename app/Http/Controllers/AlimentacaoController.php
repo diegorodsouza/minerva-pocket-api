@@ -57,7 +57,8 @@ class AlimentacaoController extends Controller
           'longitude' => $localizacao->longitude,
           'centro'    => $centro->descricao
           ]);
-
+          
+        $alimentacao->imagem = ImgurLink::transformImgurLink($alimentacao->imagem);
         $tudoComida = array([
           'id'               => $alimentacao->id,
           'nome'             => $alimentacao->nome,
