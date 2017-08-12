@@ -24,9 +24,12 @@
         <textarea name="preco" class="form-control" placeholder="Digite os preços médio do estabelecimento">{{$alimentacao->preco}}</textarea>
 
         <label for="imagem">Link da Imagem</label>
-        <input type="text" name="imagem" pattern="https{0,1}://imgur.com/.*" placeholder="http://imgur.com/..." class="form-control"
+        <input type="text" name="imagem" pattern="https{0,1}://i.imgur.com/.*" placeholder="http://imgur.com/..." class="form-control"
                value='{{$alimentacao->imagem}}'>
-        <small id="imagemHelp" class="form-text text-muted">A url deve ser publicada no <a href="https://imgur.com/upload" target="_blank">Imgur</a> antes.</small><br>
+        <small id="imagemHelp" class="form-text text-muted">
+          A url deve ser publicada no <a href="https://imgur.com/upload" target="_blank">Imgur</a> antes.<br>
+          Após, deve-se copiar o link da imagem, que deve ser do formato https://i.imgur.com/... e terminar com a extensão do arquivo.<br>
+        </small><br>
 
         <label for="funcionamento">Funcionamento</label>
         <textarea name="funcionamento" placeholder="Descreva os horários de funcionamento do local" class="form-control"
