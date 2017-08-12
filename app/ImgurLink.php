@@ -8,7 +8,7 @@ class ImgurLink extends Model
 {
   public static function transformImgurLink($link){
       $link = explode("imgur.com/", $link);
-      $linkNovo = "http://api.imgur.com/" . $link[1].'.jpg';
+      $linkNovo = "http://i.imgur.com/" . $link[1].'.jpg';
       return $linkNovo;
   }
 }
