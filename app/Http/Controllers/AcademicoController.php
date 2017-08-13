@@ -78,7 +78,7 @@ class AcademicoController extends Controller
 // Secretaria
       $secretarias = Academico::where('tipo','4')->orderBy('nome', 'asc')->get();
 
-        foreach ($secretaria as $academico) {
+        foreach ($secretarias as $academico) {
           $localizacao = Localizacao::findOrFail($academico->localizacao);
           $centro = CentroPonto::findOrFail($localizacao->centro_ponto_id);
           $tipodeacademico = TipoDeAcademico::findOrFail($academico->tipo);
