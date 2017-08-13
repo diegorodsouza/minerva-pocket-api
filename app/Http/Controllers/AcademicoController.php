@@ -37,7 +37,8 @@ class AcademicoController extends Controller
       $dataAuditorio = array();
       $dataSecretaria = array();
 
-      $CaDa = Academico::where('tipo','like',"Centro/Diretório Acadêmico")->orderBy('nome', 'asc')->get();
+// Centro/Diretório Acadêmico
+      $CaDa = Academico::where('tipo','5')->orderBy('nome', 'asc')->get();
 
         foreach ($CaDa as $academico) {
           $localizacao = Localizacao::findOrFail($academico->localizacao);
@@ -55,8 +56,8 @@ class AcademicoController extends Controller
           array_push($dataCaDa, $academico);
         }
         array_push($data, $dataCaDa);
-
-      $bibliotecas = Academico::where('tipo','like','Biblioteca')->orderBy('nome', 'asc')->get();
+// Biblioteca
+      $bibliotecas = Academico::where('tipo','3')->orderBy('nome', 'asc')->get();
 
         foreach ($bibliotecas as $academico) {
           $localizacao = Localizacao::findOrFail($academico->localizacao);
@@ -74,8 +75,8 @@ class AcademicoController extends Controller
           array_push($dataBiblioteca, $academico);
         }
         array_push($data, $dataBiblioteca);
-
-      $secretarias = Academico::where('tipo','like','Secretaria')->orderBy('nome', 'asc')->get();
+// Secretaria
+      $secretarias = Academico::where('tipo','4')->orderBy('nome', 'asc')->get();
 
         foreach ($secretaria as $academico) {
           $localizacao = Localizacao::findOrFail($academico->localizacao);
@@ -93,8 +94,8 @@ class AcademicoController extends Controller
           array_push($dataSecretaria, $academico);
         }
         array_push($data, $dataSecretaria);
-
-      $auditorios = Academico::where('tipo','like',"Auditório")->orderBy('nome', 'asc')->get();
+// Auditório
+      $auditorios = Academico::where('tipo','6')->orderBy('nome', 'asc')->get();
 
         foreach ($auditorios as $academico) {
           $localizacao = Localizacao::findOrFail($academico->localizacao);
