@@ -89,6 +89,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
+                  <img src="{{asset('Minerva-Logo.png')}}" alt="logo">
                     MinervaPocket API
                 </div>
 
@@ -96,6 +97,7 @@
                     <p>
                       Bem-vindo à API do aplicativo MinervaPocket
                     </p>
+                    <hr>
                     <a href="{{route('Academico_API')}}">Acadêmico</a>
                     <a href="{{route('Alimentacao_API')}}">Alimentação</a>
                     <a href="{{route('Infraestrutura_API')}}">Infraestrutura</a>
