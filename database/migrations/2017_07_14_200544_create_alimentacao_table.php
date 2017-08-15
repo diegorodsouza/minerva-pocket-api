@@ -20,6 +20,7 @@ class CreateAlimentacaoTable extends Migration
           $table->string('preco')->nullable();
           $table->integer('localizacao');
           $table->string('imagem')->nullable();
+          $table->integer('status')->default(0);
           $table->timestamps();
 
       });

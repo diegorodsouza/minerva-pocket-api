@@ -22,6 +22,7 @@ class CreateAcademicoTable extends Migration
           $table->string('funcionamento')->nullable();
           $table->string('contato')->nullable();
           $table->string('imagem')->nullable();
+          $table->integer('status')->default(0);
           $table->timestamps();
 
       });

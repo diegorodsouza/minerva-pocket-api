@@ -21,6 +21,7 @@ class CreateTransporteTable extends Migration
           $table->enum('tipo',['Interno','Externo']);
           $table->string('funcionamento')->nullable();
           $table->string('imagem')->nullable();
+          $table->integer('status')->default(0);
           $table->timestamps();
 
       });
