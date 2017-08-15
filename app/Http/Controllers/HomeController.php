@@ -54,6 +54,6 @@ class HomeController extends Controller
         return view('home', compact(['academicos','tiposdeacademicos','centros',
                                      'pontos','alimentacao','tiposdecomidas',
                                      'tiposdepagamentos','comercios','caixas',
-                                     'agencias','outros','xerox_graficas','transportes']));
+                                     'agencias','outros','xerox_graficas','transportes', 'infras']));
     }
 }
