@@ -17,7 +17,7 @@ use App\AlimentacaoTipoPagamento;
 use App\AlimentacaoTipoComida;
 use App\Academico;
 use App\TipoDeAcademico;
-use DB;
+
 
 
 
