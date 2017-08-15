@@ -22,11 +22,11 @@ class Infraestrutura extends Model
 
   public static function getSituacao($situacao){
     if ($situacao == 1)
-      return "Inutilizável"
+      return "Inutilizável";
     if ($situacao == 2)
-      return "Utilizável"
+      return "Utilizável";
     if ($situacao == 3)
-      return "Ótimo"
+      return "Ótimo";
     return null;
   }
 }
