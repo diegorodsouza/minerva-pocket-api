@@ -34,7 +34,7 @@ class InfraestruturaController extends Controller
       foreach ($banheiro as $infra) {
         $localizacao = Localizacao::findOrFail($infra->localizacao);
         $centro = CentroPonto::findOrFail($localizacao->centro_ponto_id);
-        $infra->situacao = Infraestrutura::getSituacao($infra->situacao;
+        $infra->situacao = Infraestrutura::getSituacao($infra->situacao);
 
         $infra->localizacao = array([
           'latitude'  => $localizacao->latitude,
@@ -52,7 +52,7 @@ class InfraestruturaController extends Controller
       foreach ($bebedouro as $infra) {
         $localizacao = Localizacao::findOrFail($infra->localizacao);
         $centro = CentroPonto::findOrFail($localizacao->centro_ponto_id);
-        $infra->situacao = Infraestrutura::getSituacao($infra->situacao;
+        $infra->situacao = Infraestrutura::getSituacao($infra->situacao);
 
         $infra->localizacao = array([
           'latitude'  => $localizacao->latitude,
@@ -71,7 +71,7 @@ class InfraestruturaController extends Controller
       foreach ($estacionamento as $infra) {
         $localizacao = Localizacao::findOrFail($infra->localizacao);
         $centro = CentroPonto::findOrFail($localizacao->centro_ponto_id);
-        $infra->situacao = Infraestrutura::getSituacao($infra->situacao;
+        $infra->situacao = Infraestrutura::getSituacao($infra->situacao);
 
         $infra->localizacao = array([
           'latitude'  => $localizacao->latitude,
