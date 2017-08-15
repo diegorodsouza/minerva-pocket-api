@@ -16,7 +16,7 @@
     <div class="col-lg-offset-3 col-lg-6">
       <div class="form-group">
         <label for="nome">Nome do Local</label>
-        <input type="text" required name="nome" placeholder="Digite o nome do local de serviço acadêmico" class="form-control">
+        <input type="text" required name="nome" placeholder="Digite o nome da local/tipo da infraestrurura" class="form-control">
 
         <br><label for="tipo">Tipo de Infraestrutura</label><br>
         <input type="radio" required name="tipo" value='Banheiro' checked> Banheiro<br>
