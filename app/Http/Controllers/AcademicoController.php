@@ -38,7 +38,7 @@ class AcademicoController extends Controller
       $dataSecretaria = array();
 
 // Centro/Diretório Acadêmico
-      $CaDa = Academico::where('tipo','5')->orderBy('nome', 'asc')->get();
+      $CaDa = Academico::where('tipo','3')->orderBy('nome', 'asc')->get();
 
         foreach ($CaDa as $academico) {
           $localizacao = Localizacao::findOrFail($academico->localizacao);
@@ -57,7 +57,7 @@ class AcademicoController extends Controller
         }
         array_push($data, $dataCaDa);
 // Biblioteca
-      $bibliotecas = Academico::where('tipo','3')->orderBy('nome', 'asc')->get();
+      $bibliotecas = Academico::where('tipo','2')->orderBy('nome', 'asc')->get();
 
         foreach ($bibliotecas as $academico) {
           $localizacao = Localizacao::findOrFail($academico->localizacao);
@@ -95,7 +95,7 @@ class AcademicoController extends Controller
         }
         array_push($data, $dataSecretaria);
 // Auditório
-      $auditorios = Academico::where('tipo','6')->orderBy('nome', 'asc')->get();
+      $auditorios = Academico::where('tipo','1')->orderBy('nome', 'asc')->get();
 
         foreach ($auditorios as $academico) {
           $localizacao = Localizacao::findOrFail($academico->localizacao);
@@ -148,7 +148,6 @@ class AcademicoController extends Controller
 
         // ACADEMICO
 
-        $novoLink =
         $dadosAca = array(
           'nome'          => $dados['nome'],
           'funcionamento' => $dados['funcionamento'],

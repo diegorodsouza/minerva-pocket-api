@@ -89,13 +89,18 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    MinervaPocketAPI
+                    MinervaPocket API
                 </div>
 
                 <div class="links">
                     <p>
                       Bem-vindo à API do aplicativo MinervaPocket
                     </p>
+                    <a href="{{route('Academico_API')}}">Acadêmico</a>
+                    <a href="{{route('Alimentacao_API')}}">Alimentação</a>
+                    <a href="{{route('Infraestrutura_API')}}">Infraestrutura</a>
+                    <a href="{{route('Servico_API')}}">Serviço</a>
+                    <a href="{{route('Transporte_API')}}">Transporte</a>
                 </div>
             </div>
         </div>

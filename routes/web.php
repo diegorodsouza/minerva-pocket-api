@@ -15,6 +15,7 @@ Route::get('/academico_api', 'AcademicoController@returnAPI')->name('Academico_A
 Route::get('/servico_api', 'ServicoController@returnAPI')->name('Servico_API');
 Route::get('/transporte_api', 'TransporteController@returnAPI')->name('Transporte_API');
 Route::get('/alimentacao_api', 'AlimentacaoController@returnAPI')->name('Alimentacao_API');
+Route::get('/infraestrutura_api', 'InfraestruturaController@returnAPI')->name('Infraestrutura_API');
 
 
 
@@ -102,3 +103,10 @@ Route::post('/create_servico_xerox_grafica', 'ServicoController@storeXeroxGrafic
 Route::get('/edit_servico_xerox_grafica/{id}', 'ServicoController@editXeroxGrafica')->name('EditServicoXeroxGrafica');
 Route::put('/edit_servico_xerox_grafica/{id}', 'ServicoController@updateXeroxGrafica')->name('UpdateServicoXeroxGrafica');
 Route::delete('/destroy_servico_xerox_grafica/{id}', 'ServicoController@destroyXeroxGrafica')->name('DestroyServicoXeroxGrafica');
+
+Route::get('/infraestrutura', 'InfraestruturaController@index')->name('Infraestrutura');
+Route::get('/create_infraestrutura', 'InfraestruturaController@create')->name('CreateInfraestrutura');
+Route::post('/create_infraestrutura', 'InfraestruturaController@store')->name('StoreInfraestrutura');
+Route::get('/edit_infraestrutura/{id}', 'InfraestruturaController@edit')->name('EditInfraestrutura');
+Route::put('/edit_infraestrutura/{id}', 'InfraestruturaController@update')->name('UpdateInfraestrutura');
+Route::delete('/destroy_infraestrutura/{id}', 'InfraestruturaController@destroy')->name('DestroyInfraestrutura');

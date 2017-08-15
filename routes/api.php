@@ -17,6 +17,7 @@ use App\AlimentacaoTipoPagamento;
 use App\AlimentacaoTipoComida;
 use App\Academico;
 use App\TipoDeAcademico;
+use App\Infraestrutura;
 
 
 
@@ -40,3 +41,4 @@ Route::get('/academico_api', 'AcademicoController@returnAPI')->name('Academico_A
 Route::get('/servico_api', 'ServicoController@returnAPI')->name('Servico_API');
 Route::get('/transporte_api', 'TransporteController@returnAPI')->name('Transporte_API');
 Route::get('/alimentacao_api', 'AlimentacaoController@returnAPI')->name('Alimentacao_API');
+Route::get('/infraestrutura_api', 'InfraestruturaController@returnAPI')->name('Infraestrutura_API');
