@@ -15,6 +15,7 @@ use App\ServicoComercio;
 use App\ServicoOutro;
 use App\ServicoXeroxGrafica;
 use App\Transporte;
+use App\Infraestrutura;
 
 class HomeController extends Controller
 {
@@ -48,6 +49,7 @@ class HomeController extends Controller
       $outros = ServicoOutro::orderBy('id', 'asc')->count();
       $xerox_graficas = ServicoXeroxGrafica::orderBy('id', 'asc')->count();
       $transportes = Transporte::orderBy('linha', 'asc')->count();
+      $infras = Infraestrutura::orderBy('name', 'asc')->count();
 
         return view('home', compact(['academicos','tiposdeacademicos','centros',
                                      'pontos','alimentacao','tiposdecomidas',
