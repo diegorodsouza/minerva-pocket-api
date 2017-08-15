@@ -30,7 +30,7 @@
         @foreach ($infras as $infra)
         <tr>
           <td>{{str_limit($infra->id,30)}}</td>
-          <td>{{str_limit($infra->nome,30)}}</td>
+          <td>{{str_limit($infra->nome),30)}}</td>
           <td>{{str_limit($infra->tipo),30)}}</td>
           <td>{{str_limit($infra->contato,30)}}</td>
           <td>{{str_limit(App\Infraestrutura::getLocalizacao($infra->id),30)}}</td>
