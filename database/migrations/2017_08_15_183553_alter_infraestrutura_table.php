@@ -18,8 +18,6 @@ class AlterInfraestruturaTable extends Migration
               ->references('id')->on('localizacao')
               ->onDelete('cascade')
               ->onUpdate('cascade');
-        $table->foreign('tipo')
-              ->references('id')->on('infraestrutura');
       });
     }
 
