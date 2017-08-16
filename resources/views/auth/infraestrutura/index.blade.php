@@ -32,14 +32,12 @@
           <td>{{str_limit($infra->id,30)}}</td>
           <td>{{str_limit($infra->nome,30)}}</td>
           <td>{{str_limit($infra->tipo,30)}}</td>
-          <td>{{str_limit($infra->contato,30)}}</td>
           <td>{{str_limit(App\Infraestrutura::getLocalizacao($infra->id),30)}}</td>
           <td>{{str_limit(App\Infraestrutura::getSituacao($infra->situacao),30)}}</td>
           <td>
             <form action="{{ route('DestroyInfraestrutura', $infra->id) }}" method="post">
               {{csrf_field()}}
               <input type="hidden" name="_method" value="DELETE">
-              <!-- <input type="submit" value="Excluir" class="btn btn-danger"> -->
               <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">
                 Excluir
               </button>
