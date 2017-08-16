@@ -88,8 +88,8 @@
             @endif
 
             <div class="content">
+              <img src="{{asset('Minerva-Logo.png')}}" alt="logo" class="minerva-logo">
                 <div class="title m-b-md">
-                  <img src="{{asset('Minerva-Logo.png')}}" alt="logo">
                     MinervaPocket API
                 </div>
 

@@ -9,7 +9,7 @@
 
                 <div class="panel-body">
 
-                  <h3>Centros e Pontos de Ônibus</h3>
+                  <h3 class="aviso">Centros e Pontos de Ônibus</h3>
                   <ul>
                     <li><a href="{{ route('CentroPonto') }}"> Gerir Centros e Pontos de Ônibus</a> - <span>{{$centros}} Centros e {{$pontos}} Pontos cadastrados</span>
                       <p class="aviso">Necessário antes de criar qualquer outro item</p></li>

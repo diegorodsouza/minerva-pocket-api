@@ -162,7 +162,7 @@ class InfraestruturaController extends Controller
       'nome'          => $dados['nome'],
       'tipo'          => $dados['tipo'],
       'detalhes'      => $dados['detalhes'],
-      'localizacao'   => $local_id,
+      'localizacao'   => $local->id,
       'situacao'      => intval($dados['situacao'])
     );
 
