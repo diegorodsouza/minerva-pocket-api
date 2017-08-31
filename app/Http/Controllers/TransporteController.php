@@ -35,7 +35,9 @@ class TransporteController extends Controller
       foreach($transportesInternos as $transporte){
         $transloctupla = TransporteLocalizacao::where('transporte_id', $transporte->id);
     
-        $pontosQuePassa = array();
+        $pontosQuePassa = array(
+          '0' => 'po'
+        );
         // foreach ($transloctupla as $local){
         //   // $locid = Localizacao::find($local->localizacao_id);
         //   // $pontoLoc = array(
@@ -48,55 +50,55 @@ class TransporteController extends Controller
       }
       return $pontosQuePassa;
 
-        $transporte->imagem = ImgurLink::transformImgurLink($transporte->imagem);
-        $tudoTransporte = array([
-          'id'            => $transporte->id,
-          'linha'         => $transporte->linha,
-          'preco'         => $transporte->preco,
-          'tipo'          => $transporte->tipo,
-          'funcionamento' => $transporte->funcionamento,
-          'imagem'        => $transporte->imagem,
-          'observacao'    => $transporte->observacao,
-          'pontosQuePassa'=> $pontosQuePassa
-          ]);
+      //   $transporte->imagem = ImgurLink::transformImgurLink($transporte->imagem);
+      //   $tudoTransporte = array([
+      //     'id'            => $transporte->id,
+      //     'linha'         => $transporte->linha,
+      //     'preco'         => $transporte->preco,
+      //     'tipo'          => $transporte->tipo,
+      //     'funcionamento' => $transporte->funcionamento,
+      //     'imagem'        => $transporte->imagem,
+      //     'observacao'    => $transporte->observacao,
+      //     'pontosQuePassa'=> $pontosQuePassa
+      //     ]);
 
-          array_push($dataTransportesInterno, $tudoTransporte);
-        }
-      array_push($dataTransportes, $dataTransportesInterno);
+      //     array_push($dataTransportesInterno, $tudoTransporte);
+      //   }
+      // array_push($dataTransportes, $dataTransportesInterno);
 
-      $transportesExternos = Transporte::where('tipo','Externo')->orderBy('id', 'asc')->get();
+      // $transportesExternos = Transporte::where('tipo','Externo')->orderBy('id', 'asc')->get();
 
-      foreach ($transportesExternos as $transporte) {
-        $transportes_localizacoes = TransporteLocalizacao::where('transporte_id', $transporte->id)->get();
+      // foreach ($transportesExternos as $transporte) {
+      //   $transportes_localizacoes = TransporteLocalizacao::where('transporte_id', $transporte->id)->get();
 
-        $pontosQuePassa = array();
-        foreach ($transportes_localizacoes as $transporte_localizacao){
-          $local = Localizacao::find($transporte_localizacao->localizacao_id);
-          //$ponto = CentroPonto::find($local->centro_ponto_id);
-          $pontoLoc = array(
-            'latitude' => $local->latitude,
-            'longitude'=> $local->longitude
-          );
-          array_push($pontosQuePassa, $pontoLoc);
-        }
+      //   $pontosQuePassa = array();
+      //   foreach ($transportes_localizacoes as $transporte_localizacao){
+      //     $local = Localizacao::find($transporte_localizacao->localizacao_id);
+      //     //$ponto = CentroPonto::find($local->centro_ponto_id);
+      //     $pontoLoc = array(
+      //       'latitude' => $local->latitude,
+      //       'longitude'=> $local->longitude
+      //     );
+      //     array_push($pontosQuePassa, $pontoLoc);
+      //   }
 
-        $transporte->imagem = ImgurLink::transformImgurLink($transporte->imagem);
-        $tudoTransporte = array([
-          'id'            => $transporte->id,
-          'linha'         => $transporte->linha,
-          'preco'         => $transporte->preco,
-          'tipo'          => $transporte->tipo,
-          'funcionamento' => $transporte->funcionamento,
-          'imagem'        => $transporte->imagem,
-          'observacao'    => $transporte->observacao,
-          'pontosQuePassa'=> $pontosQuePassa
-          ]);
+      //   $transporte->imagem = ImgurLink::transformImgurLink($transporte->imagem);
+      //   $tudoTransporte = array([
+      //     'id'            => $transporte->id,
+      //     'linha'         => $transporte->linha,
+      //     'preco'         => $transporte->preco,
+      //     'tipo'          => $transporte->tipo,
+      //     'funcionamento' => $transporte->funcionamento,
+      //     'imagem'        => $transporte->imagem,
+      //     'observacao'    => $transporte->observacao,
+      //     'pontosQuePassa'=> $pontosQuePassa
+      //     ]);
 
-          array_push($dataTransportesExterno, $tudoTransporte);
-        }
-        array_push($dataTransportes, $dataTransportesExterno);
+      //     array_push($dataTransportesExterno, $tudoTransporte);
+      //   }
+      //   array_push($dataTransportes, $dataTransportesExterno);
 
-        return $dataTransportes;
+      //   return $dataTransportes;
     }
 
 
