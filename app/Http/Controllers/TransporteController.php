@@ -34,16 +34,16 @@ class TransporteController extends Controller
 
       foreach($transportesInternos as $transporte){
         $transloctupla = TransporteLocalizacao::where('transporte_id', $transporte->id);
-        dd($transloctupla);
     
         $pontosQuePassa = array();
         foreach ($transloctupla as $local){
-          $locid = Localizacao::find($local->localizacao_id);
-          $pontoLoc = array(
-            'latitude' => $locid->latitude,
-            'longitude'=> $locid->longitude
-          );       
-          array_push($pontosQuePassa, $pontoLoc);          
+          // $locid = Localizacao::find($local->localizacao_id);
+          // $pontoLoc = array(
+          //   'latitude' => $locid->latitude,
+          //   'longitude'=> $locid->longitude
+          // );       
+          // array_push($pontosQuePassa, $pontoLoc);          
+          echo($local)
         }
 
         $transporte->imagem = ImgurLink::transformImgurLink($transporte->imagem);
