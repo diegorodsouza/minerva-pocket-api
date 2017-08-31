@@ -34,7 +34,7 @@ class TransporteController extends Controller
 
       foreach($transportesInternos as $transporte){
         $pontos = DB::table('centro_ponto')->where('tipo', 'Ponto')->get();
-        $transportes_localizacoes = TransporteLocalizacao::where('transporte_id', $id)->get();
+        $transportes_localizacoes = TransporteLocalizacao::where('transporte_id', $transporte->id)->get();
         foreach ($pontos as $ponto){
           foreach ($transportes_localizacoes as $transporte_localizacao){
             if($ponto->id == $transporte_localizacao->localizacao_id){
