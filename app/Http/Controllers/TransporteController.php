@@ -40,7 +40,8 @@ class TransporteController extends Controller
           $local = Localizacao::find($transporte_localizacao->localizacao_id);
           $pontoLoc = array(
             'latitude' => $local->latitude,
-            'longitude'=> $local->longitude
+            'longitude'=> $local->longitude,
+            'ponto_id' => $local->centro_ponto_id
           );
           array_push($pontosQuePassa, $pontoLoc);
         }
