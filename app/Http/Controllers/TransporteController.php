@@ -33,30 +33,20 @@ class TransporteController extends Controller
       $transportesInternos = Transporte::where('tipo','Interno')->orderBy('id', 'asc')->get();
 
       foreach($transportesInternos as $transporte){
-        $transloctupla = TransporteLocalizacao::where('transporte_id', $transporte->id)->get();
-    
-        $pontosQuePassa = array();
-        foreach($transloctupla as $passa){
-          $local = Localizacao::find($passa->localizacao_id);
-          $ponto = CentroPonto::find($local->centro_ponto_id);
-          $pontoLoc = array(
-            'latitude' => $local->latitude,
-            'longitude'=> $local->longitude,
-            'nome'     => $ponto->descricao
-          );
-          array_push($pontosQuePassa, $pontoLoc);          
+        $pontos = DB::table('centro_ponto')->where('tipo', 'Ponto')->get();
+        $transportes_localizacoes = TransporteLocalizacao::where('transporte_id', $id)->get();
+        foreach ($pontos as $ponto){
+          foreach ($transportes_localizacoes as $transporte_localizacao){
+            if($ponto->id == $transporte_localizacao->localizacao_id){
+              $pontoLoc = array(
+                // 'latitude' => $local->latitude,
+                // 'longitude'=> $local->longitude,
+                'nome'     => $ponto->descricao
+              );
+              array_push($pontosQuePassa, $pontoLoc);
+            }
+          }
         }
-
-        // foreach ($transloctupla as $local){
-        //   // $locid = Localizacao::find($local->localizacao_id);
-        //   // $pontoLoc = array(
-        //   //   'latitude' => $locid->latitude,
-        //   //   'longitude'=> $locid->longitude
-        //   // );       
-        //   array_push($pontosQuePassa, $local);          
-        // }
-        // array_push($pontosQuePassa, $transloctupla);    
-      
 
         $transporte->imagem = ImgurLink::transformImgurLink($transporte->imagem);
         $tudoTransporte = array([
@@ -74,39 +64,40 @@ class TransporteController extends Controller
         }
       array_push($dataTransportes, $dataTransportesInterno);
 
-      // $transportesExternos = Transporte::where('tipo','Externo')->orderBy('id', 'asc')->get();
+      $transportesExternos = Transporte::where('tipo','Externo')->orderBy('id', 'asc')->get();
 
-      // foreach ($transportesExternos as $transporte) {
-      //   $transportes_localizacoes = TransporteLocalizacao::where('transporte_id', $transporte->id)->get();
+      foreach($transportesExternos as $transporte){
+        $transloctupla = TransporteLocalizacao::where('transporte_id', $transporte->id)->get();
+    
+        $pontosQuePassa = array();
+        foreach($transloctupla as $passa){
+          $local = Localizacao::find($passa->localizacao_id);
+          $ponto = CentroPonto::find($local->centro_ponto_id);
+          $pontoLoc = array(
+            'latitude' => $local->latitude,
+            'longitude'=> $local->longitude,
+            'nome'     => $ponto->descricao
+          );
+          array_push($pontosQuePassa, $pontoLoc);          
+        }
 
-      //   $pontosQuePassa = array();
-      //   foreach ($transportes_localizacoes as $transporte_localizacao){
-      //     $local = Localizacao::find($transporte_localizacao->localizacao_id);
-      //     //$ponto = CentroPonto::find($local->centro_ponto_id);
-      //     $pontoLoc = array(
-      //       'latitude' => $local->latitude,
-      //       'longitude'=> $local->longitude
-      //     );
-      //     array_push($pontosQuePassa, $pontoLoc);
-      //   }
+        $transporte->imagem = ImgurLink::transformImgurLink($transporte->imagem);
+        $tudoTransporte = array([
+          'id'            => $transporte->id,
+          'linha'         => $transporte->linha,
+          'preco'         => $transporte->preco,
+          'tipo'          => $transporte->tipo,
+          'funcionamento' => $transporte->funcionamento,
+          'imagem'        => $transporte->imagem,
+          'observacao'    => $transporte->observacao,
+          'pontosQuePassa'=> $pontosQuePassa
+          ]);
 
-      //   $transporte->imagem = ImgurLink::transformImgurLink($transporte->imagem);
-      //   $tudoTransporte = array([
-      //     'id'            => $transporte->id,
-      //     'linha'         => $transporte->linha,
-      //     'preco'         => $transporte->preco,
-      //     'tipo'          => $transporte->tipo,
-      //     'funcionamento' => $transporte->funcionamento,
-      //     'imagem'        => $transporte->imagem,
-      //     'observacao'    => $transporte->observacao,
-      //     'pontosQuePassa'=> $pontosQuePassa
-      //     ]);
+          array_push($dataTransportesExterno, $tudoTransporte);
+        }
+      array_push($dataTransportes, $dataTransportesExterno);
 
-      //     array_push($dataTransportesExterno, $tudoTransporte);
-      //   }
-      //   array_push($dataTransportes, $dataTransportesExterno);
-
-        return $dataTransportes;
+      return $dataTransportes;
     }
 
 
