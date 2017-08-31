@@ -39,7 +39,7 @@ class TransporteController extends Controller
         foreach ($pontos as $ponto){
           foreach ($transportes_localizacoes as $transporte_localizacao){
             if($ponto->id == $transporte_localizacao->localizacao_id){
-              $local = Localizacao::first('id', $ponto->id)->get();
+              $local = Localizacao::findOrFail($ponto->id);
               $pontoLoc = array(
                 'latitude' => $local->latitude,
                 'longitude'=> $local->longitude,
