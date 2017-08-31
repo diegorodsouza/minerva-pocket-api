@@ -48,23 +48,22 @@ class TransporteController extends Controller
         // }
         array_push($pontosQuePassa, $transloctupla);    
       }
-      return $pontosQuePassa;
 
-      //   $transporte->imagem = ImgurLink::transformImgurLink($transporte->imagem);
-      //   $tudoTransporte = array([
-      //     'id'            => $transporte->id,
-      //     'linha'         => $transporte->linha,
-      //     'preco'         => $transporte->preco,
-      //     'tipo'          => $transporte->tipo,
-      //     'funcionamento' => $transporte->funcionamento,
-      //     'imagem'        => $transporte->imagem,
-      //     'observacao'    => $transporte->observacao,
-      //     'pontosQuePassa'=> $pontosQuePassa
-      //     ]);
+        $transporte->imagem = ImgurLink::transformImgurLink($transporte->imagem);
+        $tudoTransporte = array([
+          'id'            => $transporte->id,
+          'linha'         => $transporte->linha,
+          'preco'         => $transporte->preco,
+          'tipo'          => $transporte->tipo,
+          'funcionamento' => $transporte->funcionamento,
+          'imagem'        => $transporte->imagem,
+          'observacao'    => $transporte->observacao,
+          'pontosQuePassa'=> $pontosQuePassa
+          ]);
 
-      //     array_push($dataTransportesInterno, $tudoTransporte);
-      //   }
-      // array_push($dataTransportes, $dataTransportesInterno);
+          array_push($dataTransportesInterno, $tudoTransporte);
+        }
+      array_push($dataTransportes, $dataTransportesInterno);
 
       // $transportesExternos = Transporte::where('tipo','Externo')->orderBy('id', 'asc')->get();
 
@@ -98,7 +97,7 @@ class TransporteController extends Controller
       //   }
       //   array_push($dataTransportes, $dataTransportesExterno);
 
-      //   return $dataTransportes;
+        return $dataTransportes;
     }
 
 
