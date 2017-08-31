@@ -41,8 +41,8 @@ class TransporteController extends Controller
             if($ponto->id == $transporte_localizacao->localizacao_id){
               $local = Localizacao::where('id', $ponto->id)->get();
               $pontoLoc = array(
-                'latitude' => $local->latitude,
-                'longitude'=> $local->longitude,
+                'latitude' => $local,
+                'longitude'=> $local,
                 'nome'     => $ponto->descricao
               );
               array_push($pontosQuePassa, $pontoLoc);
