@@ -46,8 +46,8 @@ class TransporteController extends Controller
         //   // );       
         //   array_push($pontosQuePassa, $local);          
         // }
-        array_push($pontosQuePassa, $transloctupla);    
-      }
+        // array_push($pontosQuePassa, $transloctupla);    
+      
 
         $transporte->imagem = ImgurLink::transformImgurLink($transporte->imagem);
         $tudoTransporte = array([
