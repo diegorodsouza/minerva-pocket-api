@@ -34,6 +34,7 @@ class TransporteController extends Controller
 
       foreach($transportesInternos as $transporte){
         $transloctupla = TransporteLocalizacao::where('transporte_id', $transporte->id);
+        dd($transloctupla);
     
         $pontosQuePassa = array();
         foreach ($transloctupla as $local){
