@@ -38,7 +38,7 @@ class TransporteController extends Controller
         $pontosQuePassa = array();
         foreach($transloctupla as $passa){
           $local = Localizacao::find($passa->localizacao_id);
-          $ponto = CentroPonto::find($passa->centro_ponto_id);
+          $ponto = CentroPonto::find($local->centro_ponto_id);
           $pontoLoc = array(
             'latitude' => $local->latitude,
             'longitude'=> $local->longitude,
