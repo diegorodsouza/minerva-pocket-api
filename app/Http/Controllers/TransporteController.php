@@ -33,13 +33,16 @@ class TransporteController extends Controller
       $transportesInternos = Transporte::where('tipo','Interno')->orderBy('id', 'asc')->get();
 
       foreach($transportesInternos as $transporte){
-        $transloctupla = TransporteLocalizacao::where('transporte_id', $transporte->id);
+        $transloctupla = TransporteLocalizacao::where('transporte_id', $transporte->id)->get();
     
         $pontosQuePassa = array();
-        for($i = 0; $i < 3; $i++){
+        foreach($transloctupla as $passa){
+          $local = Localizacao::find($passa->localizacao_id);
+          $ponto = CentroPonto::find($passa->centro_ponto_id);
           $pontoLoc = array(
-            'latitude' => 'oi',
-            'longitude'=> 'oi'
+            'latitude' => $local->latitude,
+            'longitude'=> $local->longitude,
+            'nome'     => $ponto->descricao
           );
           array_push($pontosQuePassa, $pontoLoc);          
         }
