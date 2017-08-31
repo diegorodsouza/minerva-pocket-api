@@ -42,8 +42,7 @@ class TransporteController extends Controller
           //   'latitude' => $locid->latitude,
           //   'longitude'=> $locid->longitude
           // );       
-          // array_push($pontosQuePassa, $pontoLoc);          
-          echo($local);
+          array_push($pontosQuePassa, $local);          
         }
 
         $transporte->imagem = ImgurLink::transformImgurLink($transporte->imagem);
