@@ -69,18 +69,21 @@ class TransporteController extends Controller
       $transportesExternos = Transporte::where('tipo','Externo')->orderBy('id', 'asc')->get();
 
       foreach($transportesExternos as $transporte){
-        $transloctupla = TransporteLocalizacao::where('transporte_id', $transporte->id)->get();
-    
         $pontosQuePassa = array();
-        foreach($transloctupla as $passa){
-          $local = Localizacao::find($passa->localizacao_id);
-          $ponto = CentroPonto::find($local->centro_ponto_id);
-          $pontoLoc = array(
-            'latitude' => $local->latitude,
-            'longitude'=> $local->longitude,
-            'nome'     => $ponto->descricao
-          );
-          array_push($pontosQuePassa, $pontoLoc);          
+        $pontos = DB::table('centro_ponto')->where('tipo', 'Ponto')->get();
+        $transportes_localizacoes = TransporteLocalizacao::where('transporte_id', $transporte->id)->get();
+        foreach ($pontos as $ponto){
+          foreach ($transportes_localizacoes as $transporte_localizacao){
+            if($ponto->id == $transporte_localizacao->localizacao_id){
+              $local = Localizacao::findOrFail($ponto->loc_id);
+              $pontoLoc = array(
+                'latitude' => $local->latitude,
+                'longitude'=> $local->longitude,
+                'nome'     => $ponto->descricao
+              );
+              array_push($pontosQuePassa, $pontoLoc);
+            }
+          }
         }
 
         $transporte->imagem = ImgurLink::transformImgurLink($transporte->imagem);
