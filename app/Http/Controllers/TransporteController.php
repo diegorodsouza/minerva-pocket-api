@@ -67,9 +67,12 @@ class TransporteController extends Controller
         $pontosQuePassa = array();
         foreach ($transportes_localizacoes as $transporte_localizacao){
           $local = Localizacao::find($transporte_localizacao->localizacao_id);
-          $ponto = CentroPonto::find($local->centro_ponto_id);
-          $pontoNome = $ponto->descricao;
-          array_push($pontosQuePassa, $pontoNome);
+          //$ponto = CentroPonto::find($local->centro_ponto_id);
+          $pontoLoc = array(
+            'latitude' => $local->latitude,
+            'longitude'=> $local->longitude
+          );
+          array_push($pontosQuePassa, $pontoLoc);
         }
 
         $transporte->imagem = ImgurLink::transformImgurLink($transporte->imagem);
