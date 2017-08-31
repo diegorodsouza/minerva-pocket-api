@@ -32,19 +32,18 @@ class TransporteController extends Controller
 
       $transportesInternos = Transporte::where('tipo','Interno')->orderBy('id', 'asc')->get();
 
-      foreach ($transportesInternos as $transporte) {
-        $transportes_localizacoes = TransporteLocalizacao::where('transporte_id', $transporte->id)->get();
-
+      foreach($transportesInternos as $transporteInt){
+        $transloctupla = TransporteLocalizacao::where('transporte_id', $transporteInt->id);
+    
         $pontosQuePassa = array();
-        foreach ($transportes_localizacoes as $transporte_localizacao){
-          $local = Localizacao::find($transporte_localizacao->localizacao_id);
+        foreach ($transloctupla as $local){
+          $locid = Localizacao::find($local->localizacao_id);
           $pontoLoc = array(
-            'latitude' => $local->latitude,
-            'longitude'=> $local->longitude,
-            'ponto_id' => $local->centro_ponto_id
-          );
-          array_push($pontosQuePassa, $pontoLoc);
-        }
+            'latitude' => $locid->latitude,
+            'longitude'=> $locid->longitude
+          );       
+          array_push($pontosQuePassa, $pontoLoc);          
+      }
 
         $transporte->imagem = ImgurLink::transformImgurLink($transporte->imagem);
         $tudoTransporte = array([

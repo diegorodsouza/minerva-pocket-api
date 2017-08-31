@@ -72,6 +72,10 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+
+            .minerva-logo{
+                height: 120px;
+            }
         </style>
     </head>
     <body>
