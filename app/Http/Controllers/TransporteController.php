@@ -36,7 +36,7 @@ class TransporteController extends Controller
         $transloctupla = TransporteLocalizacao::where('transporte_id', $transporte->id);
     
         $pontosQuePassa = array();
-        foreach($transloctupla as $tupla){
+        for($i = 0; $i < 3; $i++){
           $pontoLoc = array(
             'latitude' => 'oi',
             'longitude'=> 'oi'
