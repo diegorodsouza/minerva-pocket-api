@@ -32,11 +32,11 @@
             <form action="{{ route('DestroyTipoDePagamento', $pagamento->id) }}" method="post">
               {{csrf_field()}}
               <input type="hidden" name="_method" value="DELETE">
-              <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">
+              <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal-{{$pagamento->id}}">
                 Excluir
               </button>
 
-              <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal fade" id="myModal-{{$pagamento->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
