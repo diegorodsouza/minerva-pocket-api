@@ -38,8 +38,8 @@ class TransporteController extends Controller
         $pontosQuePassa = array();
         foreach($transloctupla as $tupla){
           $pontoLoc = array(
-            'latitude' => $tupla->latitude,
-            'longitude'=> $tupla->longitude
+            'latitude' => 'oi',
+            'longitude'=> 'oi'
           );
           array_push($pontosQuePassa, $pontoLoc);          
         }
