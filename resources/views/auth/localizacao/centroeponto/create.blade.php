@@ -52,11 +52,20 @@
 <script>
 function pegaCoord() {
   var str = document.getElementById('gmaps').value;
-  var res1 = str.split("!3d");
-  var res2 = res1[1].split("!4d");
-  var res3 = res2[1].split("?");
-  document.getElementById("latitude").value = res2[0];
-  document.getElementById("longitude").value = res3[0];
+  var str = str.split("").reverse().join("");
+  
+  var res1 = str.split("d4!");
+  var res10 = res1[0].split("").reverse().join("");
+  var res01 = res10.split("?");
+  var longitude = res01[0];
+  
+  var res2 = res1[1].split("d3!");
+  var res20 = res2[0].split("").reverse().join("");
+  var res02 = res20.split("?");
+  var latitude = res02[0];
+  
+  document.getElementById("latitude").value = latitude;
+  document.getElementById("longitude").value = longitude;
 }
 </script>
 @endsection
