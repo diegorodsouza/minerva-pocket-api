@@ -51,11 +51,12 @@
 
 <script>
 function pegaCoord() {
-    var str = document.getElementById('gmaps').value;
-    var res1 = str.split("@");
-    var res2 = res1[1].split(",");
-    document.getElementById("latitude").value = res2[0];
-    document.getElementById("longitude").value = res2[1];
+  var str = document.getElementById('gmaps').value;
+  var res1 = str.split("!3d");
+  var res2 = res1[1].split("!4d");
+  var res3 = res2[1].split("?");
+  document.getElementById("latitude").value = res2[0];
+  document.getElementById("longitude").value = res3[0];
 }
 </script>
 @endsection
