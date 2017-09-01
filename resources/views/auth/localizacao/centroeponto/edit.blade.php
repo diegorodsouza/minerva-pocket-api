@@ -38,11 +38,11 @@
         <br>  
 
        <label for="latitude">Localização - Latitude</label>
-       <input type="text" required name="latitude" placeholder="Digite a latitude do local" class="form-control"
+       <input type="text" required name="latitude" id="latitude" placeholder="Digite a latitude do local" class="form-control"
               value='{{$localizacao->latitude}}'>
 
        <label for="longitude">Localização - Longitude</label>
-       <input type="text" required name="longitude" placeholder="Digite a longitude do local" class="form-control"
+       <input type="text" required name="longitude" id="longitude" placeholder="Digite a longitude do local" class="form-control"
               value='{{$localizacao->longitude}}'>
       </div>
       <div class="form-group">
