@@ -24,11 +24,18 @@
 
         <hr>
 
+        
+        <label for="gmaps">Localização - AutoPreencher por Link do Google Maps</label>
+        <input type="text" required name="gmaps" id="gmaps" placeholder="Cole o link do Google Maps do navegador" class="form-control">
+        <button onclick="pegaCoord()">Pesquisar</button>
+
+
         <label for="latitude">Localização - Latitude</label>
-        <input type="text" required name="latitude" placeholder="Digite a latitude do local" class="form-control">
+        <input type="text" required name="latitude" id="latitude" placeholder="Digite a latitude do local" class="form-control">
 
         <label for="longitude">Localização - Longitude</label>
-        <input type="text" required name="longitude" placeholder="Digite a longitude do local" class="form-control">
+        <input type="text" required name="longitude" id="longitude" placeholder="Digite a longitude do local" class="form-control">
+
       </div>
       <div class="form-group">
         <input type="submit" value="Salvar" class="btn btn-success">
@@ -37,4 +44,14 @@
 
   </form>
 </div>
+
+<script>
+function pegaCoord() {
+    var str = document.getElementById('gmaps').value;
+    var res1 = str.split("@");
+    var res2 = res1[1].split(",");
+    document.getElementById("latitude").value = res2[0];
+    document.getElementById("longitude").value = res2[1];
+}
+</script>
 @endsection
