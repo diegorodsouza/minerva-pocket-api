@@ -24,11 +24,11 @@
 
         <hr>
 
-        <div class="input-group">
         <label for="gmaps">Localização - AutoPreencher por Link do Google Maps</label>
+        <div class="input-group">
         <input type="text" required name="gmaps" id="gmaps" placeholder="Cole o link do Google Maps do navegador" class="form-control">
         <span class="input-group-btn">
-          <button class="btn btn-secondary" type="button" onclick="pegaCoord()">Pesquisar</button>
+          <button class="btn btn-secondary" type="button" onclick="pegaCoord()">Preencher</button>
         </span>
         </div>
 
