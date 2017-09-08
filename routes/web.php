@@ -26,6 +26,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/register', 'HomeController@index')->name('register');
 
 Route::get('/tipodepagamento', 'TipoDePagamentoController@index')->name('TipoDePagamento');
 Route::get('/create_tipodepagamento', 'TipoDePagamentoController@create')->name('CreateTipoDePagamento');
