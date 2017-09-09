@@ -17,18 +17,18 @@
 
 
 
-<script>
+                  <script>
 
-function off() {
-  if ({{$centros}} > 0 )
-    document.getElementById("overlay").style.display = "block";
-} 
+                  function off() {
+                    if ({{$centros}} > 0 )
+                      document.getElementById("overlay").style.display = "block";
+                  } 
 
-window.onload = function() {
-  off();
-};
+                  window.onload = function() {
+                    off();
+                  };
 
-</script>
+                  </script>
 
 
                   <div id="overlay" style="display: none;">

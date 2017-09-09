@@ -24,7 +24,7 @@
 
         <hr>
 
-        <label for="gmaps">Localização - AutoPreencher por Link do Google Maps</label>
+        <label for="gmaps">Localização - AutoPreencher por Link do <a href="https://www.google.com.br/maps/" target="_blank">Google Maps</a></label>
         <div class="input-group">
         <input type="text" required name="gmaps" id="gmaps" placeholder="Cole o link do Google Maps do navegador" class="form-control">
         <span class="input-group-btn">
