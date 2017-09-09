@@ -19,10 +19,14 @@
 
 <script>
 
-var o = function off() {
+function off() {
   if ({{$centros}} > 0 )
     document.getElementById("overlay").style.display = "block";
 } 
+
+window.onload = function() {
+  off();
+};
 
 </script>
 
