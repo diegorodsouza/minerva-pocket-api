@@ -15,30 +15,20 @@
                       <p class="aviso">Necessário antes de criar qualquer outro item</p></li>
                   </ul>
 
-<style>
 
-#overlay {
-    position: fixed; /* Sit on top of the page content */
-    display: block; /* Show by default */
-    background: rgba(0, 0, 0, 0.21);
-    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
-    pointer-events: none;
-}
-</style>
 
 <script>
 
 var o = function off() {
   if ({{$centros}} > 0 )
-    document.getElementById("overlay").style.display = "none";
+    document.getElementById("overlay").style.display = "block";
 } 
 
 </script>
 
 
-                  <div id="overlay">
-                  <div id="text">Cadastre Centros e Pontos de Õnibus antes</div>
-  
+                  <div id="overlay" style="display: none;">
+
                     <h3>Alimentação</h3>
                     <ul>
                       <li><a href="{{ route('TipoDePagamento') }}"> Gerir Formas de Pagamento</a> - <span>{{$tiposdepagamentos}} Tipos de pagamentos cadastrados</span>
