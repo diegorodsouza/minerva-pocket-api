@@ -41,12 +41,12 @@ class AlimentacaoController extends Controller
 
         foreach ($alimentacao_tipos_pagamentos as $alimentacao_tipo_pagamento){
           $tipo = TipoDePagamento::find($alimentacao_tipo_pagamento->tipo_pagamento_id);
-          $tipoNome = " " + $tipo->descricao;
+          $tipoNome = " " . $tipo->descricao;
           array_push($tiposPagamento, $tipoNome);
         }
         foreach ($alimentacao_tipos_comidas as $alimentacao_tipo_comida){
           $tipo = TipoDeComida::find($alimentacao_tipo_comida->tipo_comida_id);
-          $tipoNome = " " + $tipo->descricao;
+          $tipoNome = " " . $tipo->descricao;
           array_push($tiposComida, $tipoNome);
         }
 
