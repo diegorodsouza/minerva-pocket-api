@@ -29,7 +29,7 @@
         <input type="text" name="imagem" pattern="https{0,1}://i.imgur.com/.*|https{0,1}://imgur.com/.*" placeholder="http://imgur.com/..." class="form-control">
         <small id="imagemHelp" class="form-text text-muted">
           A url deve ser publicada no <a href="https://imgur.com/upload" target="_blank">Imgur</a> antes.<br>
-          Após, deve-se clicar em Copy para copiar o link da imagem fornecido pelo imgur, que deve ter este formato: http://imgur.com/...<br>
+          Após, deve-se passar o mouse sobre a imagem e clicar em Copy para copiar o link da imagem fornecido pelo imgur, que deve ter este formato: http://imgur.com/...<br>
         </small><br>
 
         <label for="funcionamento">Funcionamento</label>

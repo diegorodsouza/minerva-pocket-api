@@ -31,7 +31,7 @@
                value='{{$academico->imagem}}'>
         <small id="imagemHelp" class="form-text text-muted">
           A url deve ser publicada no <a href="https://imgur.com/upload" target="_blank">Imgur</a> antes.<br>
-          Após, deve-se clicar em Copy para copiar o link da imagem fornecido pelo imgur, que deve ter este formato: http://imgur.com/...<br>
+          Após, deve-se passar o mouse sobre a imagem e clicar em Copy para copiar o link da imagem fornecido pelo imgur, que deve ter este formato: http://imgur.com/...<br>
         </small><br>
 
         <label for="funcionamento">Funcionamento</label>
@@ -46,7 +46,7 @@
 
         <label for="observacao">Observações</label>
         <textarea name="observacao" placeholder="Possíveis observações..." class="form-control"
-        >{{$academico->funcionamento}}
+        >{{$academico->observacao}}
         </textarea>
 
         <hr>
@@ -62,11 +62,11 @@
         <br>  
         
         <label for="latitude">Localização - Latitude</label>
-        <input type="text" required name="latitude" placeholder="Digite a latitude do local" class="form-control"
+        <input type="text" required name="latitude" id="latitude" placeholder="Digite a latitude do local" class="form-control"
                value='{{$localizacao->latitude}}'>
 
         <label for="longitude">Localização - Longitude</label>
-        <input type="text" required name="longitude" placeholder="Digite a longitude do local" class="form-control"
+        <input type="text" required name="longitude" id="longitude" placeholder="Digite a longitude do local" class="form-control"
                value='{{$localizacao->longitude}}'>
 
         <label for="centro">Localização - Centro</label><br>

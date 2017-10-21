@@ -46,10 +46,10 @@
         <br>  
         
         <label for="latitude">Localização - Latitude</label>
-        <input type="text" required name="latitude" placeholder="Digite a latitude do local" class="form-control">
+        <input type="text" required name="latitude" id="latitude" placeholder="Digite a latitude do local" class="form-control">
 
         <label for="longitude">Localização - Longitude</label>
-        <input type="text" required name="longitude" placeholder="Digite a longitude do local" class="form-control">
+        <input type="text" required name="longitude" id="longitude" placeholder="Digite a longitude do local" class="form-control">
 
         <label for="centro">Localização - Centro</label><br>
         @foreach ($centros as $centro)

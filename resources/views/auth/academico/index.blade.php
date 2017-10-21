@@ -33,8 +33,8 @@
           <td>{{str_limit($academico->id,30)}}</td>
           <td>{{str_limit($academico->nome,30)}}</td>
           <td>{{str_limit(App\Academico::getTipo($academico->id),30)}}</td>
-          <td>{{str_limit($academico->contato,30)}}</td>
           <td>{{str_limit(App\Academico::getLocalizacao($academico->id),30)}}</td>
+          <td>{{str_limit($academico->contato,30)}}</td>
           <td>{{str_limit($academico->imagem,30)}}</td>
           <td>
             <form action="{{ route('DestroyAcademico', $academico->id) }}" method="post">
