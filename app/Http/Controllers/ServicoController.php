@@ -385,6 +385,8 @@ class ServicoController extends Controller
           $servico = Servico::findOrFail($outro->servico_id);
           $localizacao = Localizacao::findOrFail($servico->localizacao);
           $centros = DB::table('centro_ponto')->where('tipo', 'Centro')->get();
+          console.log($outro);
+          console.log($servico);
           return view ("auth.servico.outro.edit", compact(['outro','servico',
                                                            'localizacao','centros']));
 
