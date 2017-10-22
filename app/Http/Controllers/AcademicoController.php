@@ -169,7 +169,6 @@ class AcademicoController extends Controller
           $localizacao = Localizacao::findOrFail($academico->localizacao);
           $centros = DB::table('centro_ponto')->where('tipo', 'Centro')->get();
           $tiposdeacademicos = TipoDeAcademico::orderBy('descricao', 'asc')->get();
-          print_r($academico);
           return view ("auth.academico.edit", compact(['academico','localizacao','centros',
                                                        'tiposdeacademicos']));
 
