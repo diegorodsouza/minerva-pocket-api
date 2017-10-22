@@ -22,10 +22,6 @@
         <label for="servico">Tipo de Serviço</label>
         <input type="text" required name="servico" placeholder="Digite qual o serviço prestado" class="form-control" value="{{$outro->servico}}">
 
-        <label for="descricao">Descrição</label>
-        <textarea name="descricao" placeholder="Escreva mais sobre o estabelecimento ou tipo de servico prestado..." class="form-control">{{$outro->descricao}}
-        </textarea>
-
         <label for="imagem">Link da Imagem</label>
         <input type="text" name="imagem" pattern="https{0,1}://i.imgur.com/.*|https{0,1}://imgur.com/.*" placeholder="http://imgur.com/..." class="form-control" value="{{$servico->imagem}}">
         <small id="imagemHelp" class="form-text text-muted">

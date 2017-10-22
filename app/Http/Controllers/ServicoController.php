@@ -110,7 +110,7 @@ class ServicoController extends Controller
             'funcionamento' => $servico->funcionamento,
             'imagem'        => $servico->imagem,
             'servico'       => $outro->servico,
-            'observacao'    => $outro->observacao
+            'observacao'    => $outro->observacao,
             ]);
 
           array_push($dataOutros, $tudoOutro);
@@ -269,7 +269,7 @@ class ServicoController extends Controller
 
         $serv_id = Servico::insertGetId($dadosServ);
 
-        // SERVIÇO BANCÁRIO
+        // SERVIÇO COMÉRCIO
 
         $dadosCom = array(
           'servico_id'         => $serv_id,
@@ -306,7 +306,7 @@ class ServicoController extends Controller
 
         $serv_id = Servico::insertGetId($dadosServ);
 
-        // SERVIÇO BANCÁRIO
+        // SERVIÇO OUTROS
 
         $dadosOut = array(
           'servico_id'         => $serv_id,
@@ -343,7 +343,7 @@ class ServicoController extends Controller
 
         $serv_id = Servico::insertGetId($dadosServ);
 
-        // SERVIÇO BANCÁRIO
+        // SERVIÇO XEROX
 
         $dadosXer = array(
           'servico_id'         => $serv_id,
@@ -523,7 +523,7 @@ class ServicoController extends Controller
 
       $servico->update($dadosServ);
 
-      // SERVIÇO DIVERSO
+      // SERVIÇO OUTROS
 
       $dadosOut = array(
         'servico_id'         => $servico->id,
@@ -568,7 +568,7 @@ class ServicoController extends Controller
 
       $servico->update($dadosServ);
 
-      // SERVIÇO DIVERSO
+      // SERVIÇO XEROX
 
       $dadosXer = array(
         'servico_id'         => $servico->id,
