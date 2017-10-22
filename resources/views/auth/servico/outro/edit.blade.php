@@ -34,7 +34,7 @@
         </textarea>
 
         <label for="funcionamento">Funcionamento</label>
-        <textarea name="funcionamento" placeholder="Descreva os horários de funcionamento do local" class="form-control">{{$outro->funcionamento}}
+        <textarea name="funcionamento" placeholder="Descreva os horários de funcionamento do local" class="form-control">{{$servico->funcionamento}}
         </textarea>
 
         <hr>
