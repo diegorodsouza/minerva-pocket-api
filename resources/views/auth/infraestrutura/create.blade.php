@@ -22,6 +22,7 @@
         <input type="radio" required name="tipo" value='Banheiro' checked> Banheiro<br>
         <input type="radio" required name="tipo" value='Bebedouro' checked> Bebedouro<br>
         <input type="radio" required name="tipo" value='Bicicletario' checked> Bicicletário<br>
+        <input type="radio" required name="tipo" value='Copa' checked> Copa<br>
         <input type="radio" required name="tipo" value='Estacionamento' checked> Estacionamento<br>
 
         <label for="detalhes">Detalhes</label>
@@ -31,7 +32,7 @@
         <br><label for="situacao">Situação do Local</label><br>
         <input type="radio" required name="situacao" value=3 checked> Ótimo<br>
         <input type="radio" required name="situacao" value=2 checked> Utilizável<br>
-        <input type="radio" required name="situacao" value=1 checked> Inutilizável<br>
+        <input type="radio" required name="situacao" value=1 checked> Ruim<br>
 
         <hr>
 

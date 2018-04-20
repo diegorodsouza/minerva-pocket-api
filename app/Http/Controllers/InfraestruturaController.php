@@ -28,6 +28,7 @@ class InfraestruturaController extends Controller
     $dataBebedouro = array();
     $dataEstacionamento = array();
     $dataBicicletario = array();
+    $dataCopa = array();
 
 // Banheiros
     $banheiro = Infraestrutura::where('tipo','Banheiro')->orderBy('nome', 'asc')->get();
@@ -101,6 +102,24 @@ class InfraestruturaController extends Controller
         array_push($dataBicicletario, $infra);
       }
       array_push($data, $dataBicicletario);
+
+// Copa
+    $copa = Infraestrutura::where('tipo','Copa')->orderBy('nome', 'asc')->get();
+
+      foreach ($copa as $infra) {
+        $localizacao = Localizacao::findOrFail($infra->localizacao);
+        $centro = CentroPonto::findOrFail($localizacao->centro_ponto_id);
+        $infra->situacao = Infraestrutura::getSituacao($infra->situacao);
+
+        $infra->localizacao = array([
+          'latitude'  => $localizacao->latitude,
+          'longitude' => $localizacao->longitude,
+          'centro'    => $centro->descricao
+          ]);
+
+        array_push($dataCopa, $infra);
+      }
+      array_push($data, $dataCopa);
 
     return $data;
   }

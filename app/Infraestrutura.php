@@ -22,7 +22,7 @@ class Infraestrutura extends Model
 
   public static function getSituacao($situacao){
     if ($situacao == 1)
-      return "Inutilizável";
+      return "Ruim";
     if ($situacao == 2)
       return "Utilizável";
     if ($situacao == 3)

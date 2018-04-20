@@ -24,6 +24,7 @@
         <input type="radio" required name="tipo" value='Banheiro' <?php if($infra->tipo == "Banheiro") echo 'checked' ?>> Banheiro<br>
         <input type="radio" required name="tipo" value='Bebedouro' <?php if($infra->tipo == "Bebedouro") echo 'checked' ?>> Bebedouro<br>
         <input type="radio" required name="tipo" value='Bicicletario' <?php if($infra->tipo == "Bicicletario") echo 'checked' ?>> Bicicletário<br>
+        <input type="radio" required name="tipo" value='Copa' <?php if($infra->tipo == "Copa") echo 'checked' ?>> Copa<br>
         <input type="radio" required name="tipo" value='Estacionamento' <?php if($infra->tipo == "Estacionamento") echo 'checked' ?>> Estacionamento<br>
 
         <label for="detalhes">Detalhes</label>
@@ -34,7 +35,7 @@
         <br><label for="situacao">Situação do Local</label><br>
         <input type="radio" required name="situacao" value=3 <?php if($infra->situacao == 3) echo 'checked' ?>> Ótimo<br>
         <input type="radio" required name="situacao" value=2 <?php if($infra->situacao == 2) echo 'checked' ?>> Utilizável<br>
-        <input type="radio" required name="situacao" value=1 <?php if($infra->situacao == 1) echo 'checked' ?>> Inutilizável<br>
+        <input type="radio" required name="situacao" value=1 <?php if($infra->situacao == 1) echo 'checked' ?>> Ruim<br>
 
         <hr>
 
