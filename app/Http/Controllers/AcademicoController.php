@@ -36,6 +36,7 @@ class AcademicoController extends Controller
       $dataBiblioteca = array();
       $dataAuditorio = array();
       $dataSecretaria = array();
+      $dataMuseu = array();
 
 // Centro/Diretório Acadêmico
       $CaDa = Academico::where('tipo','3')->orderBy('nome', 'asc')->get();
@@ -113,6 +114,25 @@ class AcademicoController extends Controller
           array_push($dataAuditorio, $academico);
         }
         array_push($data, $dataAuditorio);
+// Museu
+      $museus = Academico::where('tipo','5')->orderBy('nome', 'asc')->get();
+
+        foreach ($museus as $academico) {
+          $localizacao = Localizacao::findOrFail($academico->localizacao);
+          $centro = CentroPonto::findOrFail($localizacao->centro_ponto_id);
+          $tipodeacademico = TipoDeAcademico::findOrFail($academico->tipo);
+          $academico->imagem = ImgurLink::transformImgurLink($academico->imagem);
+
+          $academico->localizacao = array([
+            'latitude'  => $localizacao->latitude,
+            'longitude' => $localizacao->longitude,
+            'centro'    => $centro->descricao
+            ]);
+          $academico->tipo = $tipodeacademico->descricao;
+
+          array_push($dataMuseu, $academico);
+        }
+        array_push($data, $dataMuseu);
 
       return $data;
     }
