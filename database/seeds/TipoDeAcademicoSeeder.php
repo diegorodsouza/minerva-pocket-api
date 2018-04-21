@@ -19,7 +19,7 @@ class TipoDeAcademicoSeeder extends Seeder
       \DB::table('tipo_de_academico')->insert(    
               [
                 'id' => 2,
-                'descricao' => "Biblioteca",
+                'descricao' => "Biblioteca / Sala de Estudo",
               ]);
       \DB::table('tipo_de_academico')->insert(  
               [
@@ -30,6 +30,11 @@ class TipoDeAcademicoSeeder extends Seeder
               [
                 'id' => 4,
                 'descricao' => "Secretaria",
+              ]);
+      \DB::table('tipo_de_academico')->insert(  
+              [
+                'id' => 5,
+                'descricao' => "Museu",
               ]);
     }
 }

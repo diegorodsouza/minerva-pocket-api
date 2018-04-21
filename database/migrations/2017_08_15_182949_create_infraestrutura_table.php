@@ -16,7 +16,7 @@ class CreateInfraestruturaTable extends Migration
       Schema::create('infraestrutura', function (Blueprint $table) {
           $table->increments('id');
           $table->string('nome');
-          $table->enum('tipo',['Banheiro','Estacionamento','Bebedouro','Bicicletario','Copa']);
+          $table->string('tipo');
           $table->integer('localizacao');
           $table->string('detalhes')->nullable();
           $table->integer('situacao')->default(1);

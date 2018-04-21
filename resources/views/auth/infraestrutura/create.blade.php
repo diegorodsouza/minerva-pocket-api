@@ -21,9 +21,9 @@
         <br><label for="tipo">Tipo de Infraestrutura</label><br>
         <input type="radio" required name="tipo" value='Banheiro' checked> Banheiro<br>
         <input type="radio" required name="tipo" value='Bebedouro' checked> Bebedouro<br>
-        <input type="radio" required name="tipo" value='Bicicletario' checked> Bicicletário<br>
         <input type="radio" required name="tipo" value='Copa' checked> Copa<br>
         <input type="radio" required name="tipo" value='Estacionamento' checked> Estacionamento<br>
+        <br>
 
         <label for="detalhes">Detalhes</label>
         <textarea name="detalhes" placeholder="Descreva as principais características do local" class="form-control">
