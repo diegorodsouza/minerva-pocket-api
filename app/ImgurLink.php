@@ -7,8 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class ImgurLink extends Model
 {
   public static function transformImgurLink($link){
+    if($link != ""){
       $link = explode("imgur.com/", $link);
       $linkNovo = "https://i.imgur.com/" . $link[1] . ".jpg";
       return $linkNovo;
+    }
   }
 }
