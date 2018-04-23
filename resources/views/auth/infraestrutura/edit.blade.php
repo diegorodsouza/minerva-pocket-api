@@ -23,7 +23,6 @@
         <br><label for="tipo">Tipo de Infraestrutura</label><br>
         <input type="radio" required name="tipo" value='Banheiro' <?php if($infra->tipo == "Banheiro") echo 'checked' ?>> Banheiro<br>
         <input type="radio" required name="tipo" value='Bebedouro' <?php if($infra->tipo == "Bebedouro") echo 'checked' ?>> Bebedouro<br>
-        <input type="radio" required name="tipo" value='Bicicletario' <?php if($infra->tipo == "Bicicletario") echo 'checked' ?>> Bicicletário<br>
         <input type="radio" required name="tipo" value='Copa' <?php if($infra->tipo == "Copa") echo 'checked' ?>> Copa<br>
         <input type="radio" required name="tipo" value='Estacionamento' <?php if($infra->tipo == "Estacionamento") echo 'checked' ?>> Estacionamento<br>
 
